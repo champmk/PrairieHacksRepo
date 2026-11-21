@@ -18,7 +18,7 @@ CourseGraph turns Grinnell's scattered degree rules into one interactive map and
 
 ## Endpoints
 
-Eight endpoints are the contract, so front end and back end build in parallel.
+Nine endpoints are the contract, so front end and back end build in parallel.
 
 ![The front end calls eight endpoints; back end and data build them](diagrams/endpoints.svg)
 
@@ -26,8 +26,9 @@ Eight endpoints are the contract, so front end and back end build in parallel.
 | --- | --- | --- |
 | GET /programs | Catalog year | Major picker, progress dashboard |
 | GET /courses | Catalog year | Graph, course details, profile editor |
+| GET /sections | Term, course | Schedule calendar, catalog |
 | GET /sources | Source ids | Course details |
-| GET /demo-profile | Nothing | App start |
+| GET /demo-profile | Nothing | Onboarding credit import |
 | POST /eligibility | Profile | Graph, course details |
 | POST /audit | Profile | Progress dashboard |
 | POST /plan | Profile | Semester plan |
@@ -35,6 +36,15 @@ Eight endpoints are the contract, so front end and back end build in parallel.
 
 - **Front end** builds the six panels on mock responses and never computes eligibility.
 - **Back end** builds POSTs, **data + rules** serves GETs, **integration** swaps out mocks.
+
+## COLSS course data
+
+The backend reads sections, seats and meeting times from three course-search calls on COLSS, Grinnell's Ellucian Self-Service.
+
+![Three COLSS calls feed one normalized course and section store](diagrams/colss-pipeline.svg)
+
+- **Status:** calls, fields and data model are documented in `docs/backend/examples`; responses there are captured samples, not live requests yet.
+- **Rule:** use the public course search only; no student logins, cookies or records.
 
 ## Credit rules
 
@@ -55,3 +65,6 @@ Each answer stands alone; Unknown never counts; majors commonly need 32–40 cre
 - [ ] Does COLSS offer an approved read-only data route, or do we ship curated data only?
 - [ ] Do we demo AP or study-away credit, or only a waiver?
 - [ ] Event deadline, judging format, and which prize tracks we can enter?
+- [ ] May we call the COLSS course-search endpoints live, or demo from a saved snapshot?
+
+Front-end prototype: [`frontend/`](../frontend/README.md).
