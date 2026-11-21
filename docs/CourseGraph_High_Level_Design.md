@@ -1,6 +1,6 @@
 # CourseGraph — High-Level Design
 
-Nov 21, 2026 · Champ-Pacifique Mukiza · [2-page PDF](CourseGraph_High_Level_Design.pdf) · [full spec](CourseGraph_Product_Specification.md)
+Nov 21, 2026 · Champ-Pacifique Mukiza · [PDF](CourseGraph_High_Level_Design.pdf) · [full spec](CourseGraph_Product_Specification.md)
 
 CourseGraph turns Grinnell's scattered degree rules into one interactive map and a semester plan that recalculates on every change.
 
@@ -16,9 +16,29 @@ CourseGraph turns Grinnell's scattered degree rules into one interactive map and
 
 ![Every course, rule and requirement carries a cited source](diagrams/domain-model.svg)
 
+## Endpoints
+
+Eight endpoints are the contract, so front end and back end build in parallel.
+
+![The front end calls eight endpoints; back end and data build them](diagrams/endpoints.svg)
+
+| Endpoint | Sends | Used by |
+| --- | --- | --- |
+| GET /programs | Catalog year | Major picker, progress dashboard |
+| GET /courses | Catalog year | Graph, course details, profile editor |
+| GET /sources | Source ids | Course details |
+| GET /demo-profile | Nothing | App start |
+| POST /eligibility | Profile | Graph, course details |
+| POST /audit | Profile | Progress dashboard |
+| POST /plan | Profile | Semester plan |
+| POST /recalculate | Profile + previous | Every panel, on each edit |
+
+- **Front end** builds the six panels on mock responses and never computes eligibility.
+- **Back end** builds POSTs, **data + rules** serves GETs, **integration** swaps out mocks.
+
 ## Credit rules
 
-One yes never implies another; Unknown never counts; majors commonly need 32–40 credits.
+Each answer stands alone; Unknown never counts; majors commonly need 32–40 credits.
 
 | Source | Clears prereq | Degree credit | Major credit | Dept. cap (48) |
 | --- | --- | --- | --- | --- |
