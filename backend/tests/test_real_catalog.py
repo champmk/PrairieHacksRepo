@@ -26,7 +26,7 @@ class RealCatalogTests(unittest.TestCase):
     def test_loader_reads_the_real_shape(self):
         c = self.catalog
         self.assertEqual((c.origin, c.catalog_year), ("catalog", "2026-27"))
-        self.assertEqual(list(c.programs), ["CS", "MATH"])
+        self.assertEqual(list(c.programs)[:2], ["CS", "MATH"])       # the sample majors follow
         self.assertEqual(len(c.programs["CS"]["slots"]), 10)
         self.assertEqual(len(c.programs["MATH"]["slots"]), 8)        # 8 x 4 = the 32-credit minimum
         self.assertEqual([r["origin"] for r in c.programs["CS"]["routes"]], ["catalog", "catalog"])

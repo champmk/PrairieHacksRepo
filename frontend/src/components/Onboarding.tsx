@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import type { Enrollment } from '../api/types.ts';
 import type { CG } from '../state/useCourseGraph.ts';
-import { Check, CheckDot } from './Icons.tsx';
-
-const SOON = ['Economics', 'Psychology', 'Biology'];
+import { CheckDot } from './Icons.tsx';
+import MajorList from './MajorList.tsx';
 
 export default function Onboarding({ cg }: { cg: CG }) {
   const { catalog, student, courseById } = cg;
@@ -23,21 +22,7 @@ export default function Onboarding({ cg }: { cg: CG }) {
           <>
             <h1>What do you plan to major in?</h1>
             <p className="lede">Pick up to two. You can change this later.</p>
-            <div className="choice-list" role="group" aria-label="Majors">
-              {(catalog?.programs ?? []).map((p) => (
-                <button key={p.id} className="choice" role="checkbox" aria-checked={majors.includes(p.id)} onClick={() => toggle(p.id)}>
-                  {p.name}
-                  <span className="right" />
-                  <span className="choice-check">{majors.includes(p.id) && <Check size={12} />}</span>
-                </button>
-              ))}
-              {SOON.map((name) => (
-                <button key={name} className="choice" disabled>
-                  {name}
-                  <span className="right">Soon</span>
-                </button>
-              ))}
-            </div>
+            <MajorList programs={catalog?.programs ?? []} selected={majors} onToggle={toggle} variant="page" />
             <div className="onboard-actions">
               <button className="btn btn-quiet" onClick={() => { setMajors([]); setStep(2); }}>
                 Undecided

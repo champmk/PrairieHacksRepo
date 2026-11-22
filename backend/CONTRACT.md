@@ -1,8 +1,8 @@
-# CourseGraph API contract
+# GrinPath API contract
 
 The front end (`frontend/`) and the Python backend (`backend/`) both build against this file. Change it only with sign-off from both sides. All routes are under `/api`, JSON in and out. The dev server listens on `http://127.0.0.1:8100`, and Vite proxies `/api` to it.
 
-Design reference: `docs/CourseGraph_Backend_Logic.html` (the one-page backend sheet).
+Design reference: `docs/GrinPath_Backend_Logic.html` (the one-page backend sheet).
 
 ## Terms
 
@@ -25,10 +25,11 @@ A term id is `YYYYFA` or `YYYYSP`, for example `2026FA`. Each student has eight 
   "courses": [
     {"id": "CSC-151", "title": "Functional Problem Solving", "credits": 4, "department": "CSC",
      "division": "Science", "level": 100, "offered": ["Fall", "Spring"], "offered_note": null,
-     "prereq_text": "None", "prereq": null, "source_url": "https://..."}
+     "prereq_text": "Prerequisite: None.", "prereq": null, "source_url": "https://...",
+     "description": "A first course in computer science ...", "location": "Main Campus", "origin": "catalog"}
   ],
   "programs": [
-    {"id": "CS", "name": "Computer Science", "slots": [
+    {"id": "CS", "name": "Computer Science", "division": "Science", "origin": "catalog", "slots": [
       {"id": "CS:CSC-151", "label": "CSC-151", "kind": "course", "options": ["CSC-151"], "route_term": 0},
       {"id": "CS:elective:1", "label": "CS elective", "kind": "choose", "options": ["CSC-312", "..."], "route_term": 7}
     ], "rules": ["32 credits", "..."], "source_url": "https://..."}
@@ -36,6 +37,16 @@ A term id is `YYYYFA` or `YYYYSP`, for example `2026FA`. Each student has eight 
   "divisions": {"CSC": "Science", "ENG": "Humanities"}
 }
 ```
+
+Added fields (additive; nothing was removed or renamed):
+
+- Course `description` is two or three sentences. Course `location` is `"Main Campus"`. Course `origin` is `"catalog"` (real catalog data: CSC, MAT, STA) or `"sample"` (mock data for the demo).
+- The descriptions of the real courses are mock text too; only their `description` is sample.
+- Program `division` is `"Humanities"`, `"Science"`, `"Social Studies"` or `"Interdisciplinary"`. Program `origin` is `"catalog"` for `CS` and `MATH` and `"sample"` for every other major.
+- Course `division` uses the same four names, or `null` for TUT-100 and FYE-100. The interdisciplinary value is now spelled `"Interdisciplinary"` (it was lowercase), in `courses` and in `divisions`.
+- `offered` is `["Fall"]`, `["Spring"]` or `["Fall", "Spring"]`. It is `null` only where the real catalog does not state the term; `offered_note` then says why.
+
+`programs` lists all 28 majors: `CS` and `MATH` first, then the sample majors, whose ids are their subject codes (`ARH`, `CHI`, `CLS`, `ENG`, `FRN`, `GRM`, `MUS`, `PHI`, `REL`, `RUS`, `SPN`, `ART`, `THD`, `BCM`, `BIO`, `CHM`, `PHY`, `PSY`, `ANT`, `ECN`, `HIS`, `POL`, `SOC`, `AMS`, `GWS`, `LAS`). Any of them, alone or in a pair, is a valid `majors` value for `/api/plan` and `/api/options`.
 
 `prereq` is a tree: `{"course": "CSC-161"}`, `{"all": [...]}`, `{"any": [...]}`, `{"coreq": "MAT-220"}`, `{"consent": true}`, or `null`. `route_term` is the 0-based semester index where the department's sample plan puts the slot.
 
@@ -64,9 +75,11 @@ Enrollment `status` is one of `completed`, `in_progress`, `planned`, `withdrawn`
 
 ```json
 [{"id": "2027SP-CSC-151-01", "course": "CSC-151", "term": "2027SP", "number": "01",
-  "instructor": "Samuel Rebelsky", "available": 10, "capacity": 24,
+  "instructor": "Marcus Haddad", "available": 10, "capacity": 24,
   "meetings": [{"days": ["M", "W", "F"], "start": "08:00", "end": "09:20", "room": "Noyce 3813"}]}]
 ```
+
+Sections are sample data and every instructor name is fictional. A section has one or two `meetings` (the second is a laboratory), and `available` is 0 when it is full.
 
 ## PUT /api/students/{id}/schedule
 

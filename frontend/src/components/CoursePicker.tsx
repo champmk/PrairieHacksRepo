@@ -8,10 +8,8 @@ import { DAYS, DAY_NAME, type DayPattern, type TimeBand, inBand, meetingText, on
 import { useDismiss } from './useDismiss.ts';
 import { useMedia } from './useMedia.ts';
 
-type Scope = 'all' | 'major';
-
 export default function CoursePicker({ cg }: { cg: CG }) {
-  const { student, plan, courseById, catalog, majors } = cg;
+  const { student, plan, courseById } = cg;
   const narrow = useMedia('(max-width: 1199px)');
   const phone = useMedia('(max-width: 767px)');
   const current = student!.current_term;
@@ -23,7 +21,6 @@ export default function CoursePicker({ cg }: { cg: CG }) {
   const [day, setDay] = useState(0);
   const [time, setTime] = useState<TimeBand>('any');
   const [days, setDays] = useState<DayPattern>('any');
-  const [scope, setScope] = useState<Scope>('all');
   const [dept, setDept] = useState('any');
   const [openOnly, setOpenOnly] = useState(false);
   const [query, setQuery] = useState('');
@@ -79,11 +76,6 @@ export default function CoursePicker({ cg }: { cg: CG }) {
     }
     return s;
   }, [planTerm]);
-  const majorCourses = useMemo(() => {
-    const s = new Set<string>();
-    for (const p of catalog?.programs ?? []) if (majors.includes(p.id)) p.slots.forEach((sl) => sl.options.forEach((o) => s.add(o)));
-    return s;
-  }, [catalog, majors]);
   const done = useMemo(
     () => new Set((student!.enrollments ?? []).filter((e) => e.status === 'completed').map((e) => e.course)),
     [student],
@@ -98,7 +90,6 @@ export default function CoursePicker({ cg }: { cg: CG }) {
   const sectionPass = (s: Section) => inBand(s, time) && onDays(s, days) && (!openOnly || s.available > 0);
   const q = query.trim().toLowerCase().replace('-', ' ');
   const visible = offeredCourses
-    .filter((c) => scope === 'all' || majorCourses.has(c.id))
     .filter((c) => dept === 'any' || c.department === dept)
     .filter((c) => !q || c.id.toLowerCase().replace('-', ' ').includes(q) || c.title.toLowerCase().includes(q))
     .filter((c) => termSections.some((s) => s.course === c.id && sectionPass(s)) || chosen.some((s) => s.course === c.id))
@@ -134,12 +125,6 @@ export default function CoursePicker({ cg }: { cg: CG }) {
       <div className="filters" role="toolbar" aria-label="Filters">
         <FilterMenu label="Time" value={time} onChange={setTime} options={[['any', 'Any time'], ['morning', 'Morning'], ['afternoon', 'Afternoon'], ['evening', 'Evening']]} />
         <FilterMenu label="Days" value={days} onChange={setDays} options={[['any', 'Any days'], ['MWF', 'Mon · Wed · Fri'], ['TR', 'Tue · Thu']]} />
-        <FilterMenu
-          label="Major"
-          value={scope}
-          onChange={setScope}
-          options={[['all', 'All courses'], ['major', majors.length ? 'My major courses' : 'My major courses (pick a major)']]}
-        />
         <FilterMenu label="Department" value={dept} onChange={setDept} options={[['any', 'Any department'], ...departments.map((d) => [d, d] as [string, string])]} />
         <button className="filter-btn" aria-pressed={openOnly} onClick={() => setOpenOnly((o) => !o)}>
           {openOnly && <Check size={14} />} Open seats
@@ -204,41 +189,74 @@ export default function CoursePicker({ cg }: { cg: CG }) {
   function courseRow(c: Course) {
     const open = openRow === c.id;
     const secs = termSections.filter((s) => s.course === c.id);
+    const shown = secs.filter((s) => sectionPass(s) || chosenIds.includes(s.id));
     const added = chosen.find((s) => s.course === c.id);
+    const isDone = done.has(c.id);
     return (
-      <div className="c-row" data-open={open} key={c.id}>
-        <button className="c-head" aria-expanded={open} onClick={() => setOpenRow(open ? null : c.id)}>
-          <span className="r-mark" aria-label={required.has(c.id) ? 'Required for your major' : undefined}>{required.has(c.id) ? 'R' : ''}</span>
-          <span className="c-code">{c.id}</span>
-          <span className="c-title">{c.title}</span>
-          {done.has(c.id) ? <span className="c-meta">done</span> : added ? <Check size={14} className="added-check" /> : <span className="c-meta num">{c.credits}</span>}
-          <ChevronDown className="chev" />
+      <article className="cc" data-open={open} key={c.id}>
+        <header className="cc-head">
+          {required.has(c.id) && (
+            <span className="r-mark" title="Required for your major">
+              R
+            </span>
+          )}
+          <h3>
+            <span className="cc-code">{c.id}</span> {c.title}
+          </h3>
+          <span className="cc-cr num">{c.credits ?? '–'} cr</span>
+        </header>
+        {c.description && <p className="cc-desc">{c.description}</p>}
+        <dl className="cc-meta">
+          <div>
+            <dt>Requisites</dt>
+            <dd>{requisites(c)}</dd>
+          </div>
+          <div>
+            <dt>Location</dt>
+            <dd>{c.location ?? 'Main Campus'}</dd>
+          </div>
+          <div>
+            <dt>Offered</dt>
+            <dd>{offeredText(c)}</dd>
+          </div>
+        </dl>
+        <button className="cc-sections" data-state={isDone ? 'done' : added ? 'added' : 'open'} aria-expanded={open} onClick={() => setOpenRow(open ? null : c.id)}>
+          {isDone ? (
+            'Completed'
+          ) : added ? (
+            <>
+              <Check size={14} /> {readOnly ? 'Registered' : 'Added'} · {added.meetings.map(meetingText).join(', ')}
+            </>
+          ) : (
+            `View ${shown.length} section${shown.length === 1 ? '' : 's'}`
+          )}
+          <ChevronDown className="chev" size={14} />
         </button>
         <div className="reveal" data-open={open}>
           <div>
             <div className="sec-list">
-              {c.prereq_text && c.prereq_text !== 'None' && <div className="sec-note">Prereq: {c.prereq_text}</div>}
-              {secs.map((s) => {
+              {shown.length === 0 && <div className="sec-note">No sections match your filters.</div>}
+              {shown.map((s) => {
                 const isAdded = chosenIds.includes(s.id);
                 const clash = !isAdded ? chosen.find((x) => x.course !== s.course && sectionsConflict(x, s)) : undefined;
-                const hidden = !sectionPass(s) && !isAdded;
-                if (hidden) return null;
                 return (
                   <div className="sec-row" key={s.id}>
-                    <span className="sec-time num">{s.meetings.map(meetingText).join(', ')}</span>
+                    <span className="sec-time num">
+                      {s.number} · {s.meetings.map(meetingText).join(', ')}
+                    </span>
                     <span className="sec-who">
                       {clash ? (
                         <span className="sec-warn">Clashes with {clash.course}</span>
                       ) : s.available === 0 ? (
                         <span className="sec-warn">Full · waitlist</span>
                       ) : (
-                        `${s.instructor} · ${s.available} of ${s.capacity} open`
+                        `${s.instructor} · ${s.available}/${s.capacity} open${s.meetings[0]?.room ? ` · ${s.meetings[0].room}` : ''}`
                       )}
                     </span>
                     {readOnly ? (
                       isAdded && <span className="sec-add" data-added="true">Registered</span>
                     ) : (
-                      <button className="sec-add" data-added={isAdded} disabled={done.has(c.id)} onClick={() => toggle(s.id)}>
+                      <button className="sec-add" data-added={isAdded} disabled={isDone} onClick={() => toggle(s.id)}>
                         {isAdded ? 'Added' : 'Add'}
                       </button>
                     )}
@@ -248,9 +266,20 @@ export default function CoursePicker({ cg }: { cg: CG }) {
             </div>
           </div>
         </div>
-      </div>
+      </article>
     );
   }
+}
+
+/** "Prerequisite: CSC-161." -> "CSC-161" (COLSS calls this field Requisites). */
+export function requisites(c: Course) {
+  const t = (c.prereq_text ?? '').replace(/^\s*prerequisites?:\s*/i, '').replace(/\.$/, '').trim();
+  return t || 'None';
+}
+
+export function offeredText(c: Course) {
+  if (!c.offered || c.offered.length === 0) return c.offered_note ?? 'Not stated';
+  return c.offered.join(' and ');
 }
 
 function FilterMenu<T extends string>({

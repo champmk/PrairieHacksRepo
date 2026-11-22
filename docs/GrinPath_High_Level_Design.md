@@ -1,8 +1,8 @@
-# CourseGraph — High-Level Design
+# GrinPath — High-Level Design
 
-Nov 21, 2026 · Champ-Pacifique Mukiza · [PDF](CourseGraph_High_Level_Design.pdf) · [full spec](CourseGraph_Product_Specification.md)
+Nov 21, 2026 · Champ-Pacifique Mukiza · [PDF](GrinPath_High_Level_Design.pdf) · [full spec](GrinPath_Product_Specification.md)
 
-CourseGraph turns Grinnell's scattered degree rules into one interactive map and a semester plan that recalculates on every change.
+GrinPath turns Grinnell's scattered degree rules into one interactive map and a semester plan that recalculates on every change.
 
 **MVP:** CS + Math, cited data, fictional student. **Out of scope:** COLSS login, registration, official audit. **Tracks:** Grinnell, Interdisciplinary, Overall.
 

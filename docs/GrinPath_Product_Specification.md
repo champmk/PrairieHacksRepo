@@ -1,5 +1,5 @@
 ---
-title: 'CourseGraph | Product & Technical Specification'
+title: 'GrinPath | Product & Technical Specification'
 subtitle: 'Your Entire Grinnell Degree, Mapped'
 author: 'PrairieHacks Team • Working specification'
 date: 'November 21, 2026'
@@ -8,9 +8,9 @@ version: '1.0 • Hackathon build'
 
 # Executive summary
 
-**CourseGraph** is a Grinnell-focused, interactive academic planning application. Students choose majors and concentrations, record completed and externally awarded coursework, explore prerequisite dependencies, inspect progress toward different requirements, and generate a provisional semester-by-semester plan. Its signature interaction is a *live what-if simulation*: changing a major, waiver, completed class, semester credit limit, or course availability causes the prerequisite network, eligibility explanations, requirement progress, and proposed plan to update together.
+**GrinPath** is a Grinnell-focused, interactive academic planning application. Students choose majors and concentrations, record completed and externally awarded coursework, explore prerequisite dependencies, inspect progress toward different requirements, and generate a provisional semester-by-semester plan. Its signature interaction is a *live what-if simulation*: changing a major, waiver, completed class, semester credit limit, or course availability causes the prerequisite network, eligibility explanations, requirement progress, and proposed plan to update together.
 
-**Problem.** Grinnell offers individually advised academic paths, but students must interpret information distributed among the academic catalog, departmental advising resources, the course schedule, and Colleague Self-Service (COLSS). Existing campus systems offer useful registration and degree-planning functions; CourseGraph complements them with a clearer interactive dependency map, constraint explanations, and quick what-if comparisons rather than claiming to replace the official degree audit.
+**Problem.** Grinnell offers individually advised academic paths, but students must interpret information distributed among the academic catalog, departmental advising resources, the course schedule, and Colleague Self-Service (COLSS). Existing campus systems offer useful registration and degree-planning functions; GrinPath complements them with a clearer interactive dependency map, constraint explanations, and quick what-if comparisons rather than claiming to replace the official degree audit.
 
 **Hackathon outcome.** Ship a polished, offline-capable prototype covering a **curated, source-tracked Computer Science + Mathematics demonstration**, not every major. The app must perform genuine calculations, never masquerade hard-coded screenshots as scheduling logic, and clearly distinguish confirmed academic facts from provisional planning assumptions. It is a **planning aid, not a determination of graduation eligibility**.
 
@@ -31,7 +31,7 @@ version: '1.0 • Hackathon build'
 
 **Tagline:** *Your Entire Grinnell Degree, Mapped.*
 
-**One-line pitch:** CourseGraph turns complex Grinnell degree requirements into a navigable map and a personalized, explainable academic roadmap.
+**One-line pitch:** GrinPath turns complex Grinnell degree requirements into a navigable map and a personalized, explainable academic roadmap.
 
 **Value proposition:** Students should be able to answer: *What can I take next? What am I missing? What changes if I add another major, receive a prerequisite waiver, study abroad, or graduate early?* They should also understand *why* the answer changed.
 
@@ -115,7 +115,7 @@ No official registration or adviser signoff; no collection of COLSS passwords or
 
 ## 3.1 Primary happy-path journey
 
-1. Open CourseGraph and load the labeled **synthetic demo profile**.
+1. Open GrinPath and load the labeled **synthetic demo profile**.
 2. Select **Computer Science** and **Mathematics** as program goals.
 3. Mark two or more courses completed and a separate CSC prerequisite placement/waiver.
 4. View the graph: green Completed, blue Eligible, gray Blocked, purple Planned, amber Unknown (also show text/icons).
@@ -133,7 +133,7 @@ No official registration or adviser signoff; no collection of COLSS passwords or
 
 | Area | Contents | Design expectation |
 |:--|:--|:--|
-| Header | CourseGraph branding, catalog-year badge, demo-data notice, save/export action | Instantly identifiable as Grinnell-focused |
+| Header | GrinPath branding, catalog-year badge, demo-data notice, save/export action | Instantly identifiable as Grinnell-focused |
 | Left controls | Major/concentration picker, completed courses, waivers, external credits, term/credit settings | Controls grouped by intent; labels explain waiver vs credit |
 | Central canvas | Interactive prerequisite graph with arrows, course states, zoom/pan, search/filter | Nodes readable; show dependency direction |
 | Right panel | Selected course details, reason blocked/eligible, verified source, alternatives | Never hide uncertainty |
@@ -155,7 +155,7 @@ No official registration or adviser signoff; no collection of COLSS passwords or
 
 When sources differ, use the **applicable catalog year and official Registrar policy first**, then departmental pages/advising guides, then public term-specific course listings. A department's example four-year plan is guidance, not proof that a course will be offered in a future term. Store `sourceId`, URL, page title, checked date, applicable catalog year and verification status (`verified`, `provisional`, `unknown`) on each rule or assertion.
 
-The 2026 CS departmental advising guide explicitly notes *planned* curriculum changes for Fall 2027. Therefore CourseGraph must preserve `catalogYear` and avoid projecting the current CS requirements onto future cohorts as certain. [S5]
+The 2026 CS departmental advising guide explicitly notes *planned* curriculum changes for Fall 2027. Therefore GrinPath must preserve `catalogYear` and avoid projecting the current CS requirements onto future cohorts as certain. [S5]
 
 ## 4.2 Academic facts and prototype implications
 
@@ -376,7 +376,7 @@ Grinnell maintains a public COLSS course-search interface at `https://colss-prod
 
 ## 8.2 Shared AI-assistant directive (paste into every agent)
 
-> You are contributing to a **single four-person CourseGraph repository**, not building your own application. Read `AGENTS.md` and `docs/CONTRACTS.md` completely and inspect existing files before writing code. Your role is **[ROLE]**, and your owned files are **[FILES]**. Follow React + Vite + TypeScript, React Flow, pure deterministic TypeScript engine functions, curated JSON, and Vitest. Preserve all shared signatures and data keys. Never edit another role's files, add dependencies, or change the stack without integration-lead approval. Implement one small testable milestone, run the relevant commands, and report the exact files changed, exported functions, input/output expectations, actual test results, known limitations, and merge instructions. Do not invent official academic requirements or claim a plan is guaranteed. If a collaborator's module is missing, use an isolated mock that adheres to the agreed interface. Your code should be understandable enough for a teammate to defend to judges.
+> You are contributing to a **single four-person GrinPath repository**, not building your own application. Read `AGENTS.md` and `docs/CONTRACTS.md` completely and inspect existing files before writing code. Your role is **[ROLE]**, and your owned files are **[FILES]**. Follow React + Vite + TypeScript, React Flow, pure deterministic TypeScript engine functions, curated JSON, and Vitest. Preserve all shared signatures and data keys. Never edit another role's files, add dependencies, or change the stack without integration-lead approval. Implement one small testable milestone, run the relevant commands, and report the exact files changed, exported functions, input/output expectations, actual test results, known limitations, and merge instructions. Do not invent official academic requirements or claim a plan is guaranteed. If a collaborator's module is missing, use an isolated mock that adheres to the agreed interface. Your code should be understandable enough for a teammate to defend to judges.
 
 ## 8.3 Branching, merge and review discipline
 
@@ -442,7 +442,7 @@ Grinnell maintains a public COLSS course-search interface at `https://colss-prod
 | Time | Presenter action | Message |
 |:--|:--|:--|
 | 0:00–0:20 | State problem, show scattered planning questions | A flexible curriculum can be surprisingly difficult to navigate |
-| 0:20–0:40 | Select CS + Math and completed classes | CourseGraph personalizes the academic map |
+| 0:20–0:40 | Select CS + Math and completed classes | GrinPath personalizes the academic map |
 | 0:40–1:05 | Click a blocked node, show why; toggle a waiver | A waiver can unlock a path **without** granting credits |
 | 1:05–1:30 | Generate / inspect semester plan; change credit budget | The schedule recalculates from real constraints |
 | 1:30–1:45 | Highlight policy/source warnings and how rules are computed | Explainability and academic accuracy matter |
@@ -460,7 +460,7 @@ Grinnell maintains a public COLSS course-search interface at `https://colss-prod
 
 ## 10.3 Talking points for judging questions
 
-- **Why not use existing COLSS?** COLSS supports official course and academic-planning tasks; CourseGraph adds a visual dependency model, inspectable explanations and fast hypothetical comparisons. It does not replace official records. [S10]
+- **Why not use existing COLSS?** COLSS supports official course and academic-planning tasks; GrinPath adds a visual dependency model, inspectable explanations and fast hypothetical comparisons. It does not replace official records. [S10]
 - **Is the plan optimal?** No; initial planner is a deterministic heuristic and flags unknown future offerings. Optimization is a future extension.
 - **How are waivers treated?** They can satisfy prerequisites but do not by themselves award degree/major credits.
 - **Where does the data come from?** A curated, sourced Grinnell sample with source/version metadata; unsupported future information is marked uncertain.

@@ -53,7 +53,7 @@ export default function App() {
       <header className="topbar">
         <div className="wordmark">
           <Mark />
-          <span className="wordmark-text">CourseGraph</span>
+          <span className="wordmark-text">GrinPath</span>
         </div>
         <nav className="tabs" role="tablist" aria-label="Pages">
           <button className="tab" role="tab" aria-selected={view === 'picker'} onClick={() => go('picker')}>

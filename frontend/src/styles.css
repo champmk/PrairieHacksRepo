@@ -1,4 +1,4 @@
-/* CourseGraph — design tokens and layout.
+/* GrinPath — design tokens and layout.
    Rules: one type family, one accent, hairlines instead of cards,
    status as icons (never two-tone pills), light theme only. */
 
@@ -311,11 +311,11 @@ input, select { font: inherit; color: inherit; }
 @keyframes spin { to { transform: rotate(360deg); } }
 
 .side {
-  width: 312px; flex: none; border-right: 1px solid var(--line); position: relative; background: var(--paper);
+  width: 340px; flex: none; border-right: 1px solid var(--line); position: relative; background: var(--paper);
   transition: width 260ms var(--ease);
 }
 .side[data-open='false'] { width: 0; border-right: 0; }
-.side-inner { width: 312px; height: 100%; overflow-y: auto; overflow-x: hidden; transition: opacity 200ms var(--ease); }
+.side-inner { width: 340px; height: 100%; overflow-y: auto; overflow-x: hidden; transition: opacity 200ms var(--ease); }
 .side[data-open='false'] .side-inner { opacity: 0; pointer-events: none; }
 .side-toggle {
   position: absolute; right: -14px; bottom: 16px; z-index: 6; width: 28px; height: 28px; border-radius: 50%;
@@ -441,3 +441,40 @@ input, select { font: inherit; color: inherit; }
   margin: 0 24px 10px; display: flex; align-items: center; gap: 12px; color: var(--ink-2); font-size: 13px;
   border-left: 2px solid var(--accent); padding: 6px 12px; background: var(--accent-soft); animation: rise 220ms var(--ease);
 }
+
+/* ---------- catalog entries (COLSS-style detail, shown up front) ---------- */
+@media (min-width: 768px) { .catalog, .catalog-inner { width: 440px; } }
+.cc { padding: 16px 16px 10px; border-bottom: 1px solid var(--line); }
+.cc-head { display: flex; align-items: baseline; gap: 8px; }
+.cc-head .r-mark { align-self: center; }
+.cc-head h3 { margin: 0; font-size: 14.5px; font-weight: 600; line-height: 1.35; flex: 1; min-width: 0; letter-spacing: -0.005em; }
+.cc-code { color: var(--ink); white-space: nowrap; }
+.cc-cr { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.cc-desc { margin: 6px 0 10px; font-size: 13px; line-height: 1.5; color: var(--ink-2); }
+.cc-meta { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 10px; margin: 0 0 8px; }
+.cc-meta div { min-width: 0; }
+.cc-meta dt { font-size: 10.5px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+.cc-meta dd { margin: 2px 0 0; font-size: 12.5px; color: var(--ink); overflow-wrap: anywhere; }
+.cc-sections {
+  display: inline-flex; align-items: center; gap: 6px; height: 30px; padding: 0 8px; margin-left: -8px;
+  border-radius: var(--radius); color: var(--accent); font-weight: 500; font-size: 13px;
+}
+.cc-sections:hover { background: var(--hover); }
+.cc-sections[data-state='added'] { color: var(--done); }
+.cc-sections[data-state='done'] { color: var(--ink-3); }
+.cc[data-open='true'] .chev { transform: rotate(180deg); }
+.cc .sec-list { padding: 2px 0 6px; }
+@media (max-width: 767px) {
+  .catalog, .catalog-inner { width: 100%; }
+  .cc-meta { grid-template-columns: 1fr 1fr; }
+}
+.opt-title { font-weight: 500; }
+.opt-name { font-weight: 400; color: var(--ink-2); }
+.opt-text > span { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.majors-search { margin: 0 0 8px; }
+.majors-group { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); padding: 14px 4px 4px; }
+.majors-page .majors-scroll { max-height: min(52vh, 460px); overflow-y: auto; border-top: 1px solid var(--line); }
+.majors-page .majors-group { border-bottom: 1px solid var(--line); }
+.majors-menu .majors-scroll { max-height: 340px; overflow-y: auto; }
+.majors-menu .search { margin: 0 4px 6px; }
+.majors-menu .majors-group { padding: 10px 10px 2px; }

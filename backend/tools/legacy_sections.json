@@ -1,0 +1,1424 @@
+{
+ "note": "The 73 hand-made sample sections that predate the generated file. build_sample_data.py keeps their ids, times and seat counts (tests and the demo students' schedules refer to them) and gives them fictional instructors and rooms.",
+ "sections": [
+  {
+   "id": "2027SP-CSC-151-01",
+   "course": "CSC-151",
+   "term": "2027SP",
+   "number": "01",
+   "available": 10,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "08:00",
+     "end": "09:20",
+     "room": "Noyce 3813"
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-151-02",
+   "course": "CSC-151",
+   "term": "2027SP",
+   "number": "02",
+   "available": 6,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "13:10",
+     "end": "14:30",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-161-01",
+   "course": "CSC-161",
+   "term": "2027SP",
+   "number": "01",
+   "available": 7,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "10:00",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-161-02",
+   "course": "CSC-161",
+   "term": "2027SP",
+   "number": "02",
+   "available": 11,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-207-01",
+   "course": "CSC-207",
+   "term": "2027SP",
+   "number": "01",
+   "available": 11,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "09:00",
+     "end": "09:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-207-02",
+   "course": "CSC-207",
+   "term": "2027SP",
+   "number": "02",
+   "available": 0,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "09:30",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-208-01",
+   "course": "CSC-208",
+   "term": "2027SP",
+   "number": "01",
+   "available": 9,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "08:00",
+     "end": "09:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-211-01",
+   "course": "CSC-211",
+   "term": "2027SP",
+   "number": "01",
+   "available": 12,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "11:00",
+     "end": "11:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-211-02",
+   "course": "CSC-211",
+   "term": "2027SP",
+   "number": "02",
+   "available": 24,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "14:30",
+     "end": "15:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-301-01",
+   "course": "CSC-301",
+   "term": "2027SP",
+   "number": "01",
+   "available": 19,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "13:00",
+     "end": "13:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-322-01",
+   "course": "CSC-322",
+   "term": "2027SP",
+   "number": "01",
+   "available": 3,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-324-01",
+   "course": "CSC-324",
+   "term": "2027SP",
+   "number": "01",
+   "available": 0,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "09:30",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-341-01",
+   "course": "CSC-341",
+   "term": "2027SP",
+   "number": "01",
+   "available": 3,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "14:00",
+     "end": "14:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-364-01",
+   "course": "CSC-364",
+   "term": "2027SP",
+   "number": "01",
+   "available": 7,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "15:00",
+     "end": "15:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-CSC-395-01",
+   "course": "CSC-395",
+   "term": "2027SP",
+   "number": "01",
+   "available": 8,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "14:30",
+     "end": "15:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-133-01",
+   "course": "MAT-133",
+   "term": "2027SP",
+   "number": "01",
+   "available": 11,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "09:00",
+     "end": "09:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-208-01",
+   "course": "MAT-208",
+   "term": "2027SP",
+   "number": "01",
+   "available": 16,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "08:00",
+     "end": "09:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-215-01",
+   "course": "MAT-215",
+   "term": "2027SP",
+   "number": "01",
+   "available": 4,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "10:00",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-215-02",
+   "course": "MAT-215",
+   "term": "2027SP",
+   "number": "02",
+   "available": 3,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "11:00",
+     "end": "12:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-218-01",
+   "course": "MAT-218",
+   "term": "2027SP",
+   "number": "01",
+   "available": 1,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "14:00",
+     "end": "14:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-218-02",
+   "course": "MAT-218",
+   "term": "2027SP",
+   "number": "02",
+   "available": 20,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-220-01",
+   "course": "MAT-220",
+   "term": "2027SP",
+   "number": "01",
+   "available": 13,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "11:00",
+     "end": "11:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-314-01",
+   "course": "MAT-314",
+   "term": "2027SP",
+   "number": "01",
+   "available": 0,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "08:00",
+     "end": "09:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-316-01",
+   "course": "MAT-316",
+   "term": "2027SP",
+   "number": "01",
+   "available": 13,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "09:30",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-321-01",
+   "course": "MAT-321",
+   "term": "2027SP",
+   "number": "01",
+   "available": 13,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "11:00",
+     "end": "11:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-322-01",
+   "course": "MAT-322",
+   "term": "2027SP",
+   "number": "01",
+   "available": 19,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "13:00",
+     "end": "13:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MAT-336-01",
+   "course": "MAT-336",
+   "term": "2027SP",
+   "number": "01",
+   "available": 2,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-STA-209-01",
+   "course": "STA-209",
+   "term": "2027SP",
+   "number": "01",
+   "available": 5,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "14:00",
+     "end": "14:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-STA-230-01",
+   "course": "STA-230",
+   "term": "2027SP",
+   "number": "01",
+   "available": 3,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "11:00",
+     "end": "12:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-ANT-104-01",
+   "course": "ANT-104",
+   "term": "2027SP",
+   "number": "01",
+   "available": 12,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "09:30",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-ART-111-01",
+   "course": "ART-111",
+   "term": "2027SP",
+   "number": "01",
+   "available": 10,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "14:30",
+     "end": "15:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-BIO-150-01",
+   "course": "BIO-150",
+   "term": "2027SP",
+   "number": "01",
+   "available": 11,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "11:00",
+     "end": "12:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-ECN-111-01",
+   "course": "ECN-111",
+   "term": "2027SP",
+   "number": "01",
+   "available": 11,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "09:00",
+     "end": "09:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-EDU-101-01",
+   "course": "EDU-101",
+   "term": "2027SP",
+   "number": "01",
+   "available": 0,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-ENG-120-01",
+   "course": "ENG-120",
+   "term": "2027SP",
+   "number": "01",
+   "available": 0,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "13:00",
+     "end": "13:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-FMS-155-01",
+   "course": "FMS-155",
+   "term": "2027SP",
+   "number": "01",
+   "available": 13,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-GDS-111-01",
+   "course": "GDS-111",
+   "term": "2027SP",
+   "number": "01",
+   "available": 16,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "14:00",
+     "end": "14:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-HIS-100-01",
+   "course": "HIS-100",
+   "term": "2027SP",
+   "number": "01",
+   "available": 16,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "10:00",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MUS-101-01",
+   "course": "MUS-101",
+   "term": "2027SP",
+   "number": "01",
+   "available": 4,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "11:00",
+     "end": "12:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-MUS-120-01",
+   "course": "MUS-120",
+   "term": "2027SP",
+   "number": "01",
+   "available": 24,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M"
+     ],
+     "start": "19:00",
+     "end": "20:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-PHI-101-01",
+   "course": "PHI-101",
+   "term": "2027SP",
+   "number": "01",
+   "available": 21,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "08:00",
+     "end": "09:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-POL-101-01",
+   "course": "POL-101",
+   "term": "2027SP",
+   "number": "01",
+   "available": 1,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "11:00",
+     "end": "11:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-PSY-113-01",
+   "course": "PSY-113",
+   "term": "2027SP",
+   "number": "01",
+   "available": 24,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "09:30",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-SOC-111-01",
+   "course": "SOC-111",
+   "term": "2027SP",
+   "number": "01",
+   "available": 14,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "15:00",
+     "end": "15:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-SPN-102-01",
+   "course": "SPN-102",
+   "term": "2027SP",
+   "number": "01",
+   "available": 9,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "09:00",
+     "end": "09:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2027SP-FYE-100-01",
+   "course": "FYE-100",
+   "term": "2027SP",
+   "number": "01",
+   "available": 3,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "M"
+     ],
+     "start": "19:00",
+     "end": "20:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-CSC-151-01",
+   "course": "CSC-151",
+   "term": "2026FA",
+   "number": "01",
+   "available": 18,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "08:00",
+     "end": "08:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-CSC-161-01",
+   "course": "CSC-161",
+   "term": "2026FA",
+   "number": "01",
+   "available": 18,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "10:00",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-CSC-207-01",
+   "course": "CSC-207",
+   "term": "2026FA",
+   "number": "01",
+   "available": 18,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "09:00",
+     "end": "09:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-CSC-208-01",
+   "course": "CSC-208",
+   "term": "2026FA",
+   "number": "01",
+   "available": 7,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "08:00",
+     "end": "09:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-CSC-213-01",
+   "course": "CSC-213",
+   "term": "2026FA",
+   "number": "01",
+   "available": 21,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "11:00",
+     "end": "11:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-CSC-301-01",
+   "course": "CSC-301",
+   "term": "2026FA",
+   "number": "01",
+   "available": 2,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "13:00",
+     "end": "13:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-CSC-324-01",
+   "course": "CSC-324",
+   "term": "2026FA",
+   "number": "01",
+   "available": 20,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "09:30",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MAT-131-01",
+   "course": "MAT-131",
+   "term": "2026FA",
+   "number": "01",
+   "available": 14,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "08:00",
+     "end": "08:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MAT-133-01",
+   "course": "MAT-133",
+   "term": "2026FA",
+   "number": "01",
+   "available": 0,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "09:00",
+     "end": "09:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MAT-215-01",
+   "course": "MAT-215",
+   "term": "2026FA",
+   "number": "01",
+   "available": 19,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "10:00",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MAT-218-01",
+   "course": "MAT-218",
+   "term": "2026FA",
+   "number": "01",
+   "available": 7,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "14:00",
+     "end": "14:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MAT-220-01",
+   "course": "MAT-220",
+   "term": "2026FA",
+   "number": "01",
+   "available": 12,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "11:00",
+     "end": "12:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MAT-316-01",
+   "course": "MAT-316",
+   "term": "2026FA",
+   "number": "01",
+   "available": 7,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "09:30",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MAT-317-01",
+   "course": "MAT-317",
+   "term": "2026FA",
+   "number": "01",
+   "available": 21,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "14:30",
+     "end": "15:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MAT-335-01",
+   "course": "MAT-335",
+   "term": "2026FA",
+   "number": "01",
+   "available": 12,
+   "capacity": 16,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-FMS-155-03",
+   "course": "FMS-155",
+   "term": "2026FA",
+   "number": "03",
+   "available": 9,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-STA-209-06",
+   "course": "STA-209",
+   "term": "2026FA",
+   "number": "06",
+   "available": 14,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "15:00",
+     "end": "15:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-MUS-120-02",
+   "course": "MUS-120",
+   "term": "2026FA",
+   "number": "02",
+   "available": 14,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M"
+     ],
+     "start": "19:00",
+     "end": "20:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-PHI-101-01",
+   "course": "PHI-101",
+   "term": "2026FA",
+   "number": "01",
+   "available": 9,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "08:00",
+     "end": "09:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-ECN-111-01",
+   "course": "ECN-111",
+   "term": "2026FA",
+   "number": "01",
+   "available": 4,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "09:00",
+     "end": "09:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-HIS-100-01",
+   "course": "HIS-100",
+   "term": "2026FA",
+   "number": "01",
+   "available": 8,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "13:00",
+     "end": "14:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-ENG-120-01",
+   "course": "ENG-120",
+   "term": "2026FA",
+   "number": "01",
+   "available": 1,
+   "capacity": 24,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "13:00",
+     "end": "13:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-PSY-113-01",
+   "course": "PSY-113",
+   "term": "2026FA",
+   "number": "01",
+   "available": 13,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "09:30",
+     "end": "10:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-SOC-111-01",
+   "course": "SOC-111",
+   "term": "2026FA",
+   "number": "01",
+   "available": 4,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "15:00",
+     "end": "15:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-SPN-101-01",
+   "course": "SPN-101",
+   "term": "2026FA",
+   "number": "01",
+   "available": 24,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M",
+      "W",
+      "F"
+     ],
+     "start": "09:00",
+     "end": "09:50",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-TUT-100-01",
+   "course": "TUT-100",
+   "term": "2026FA",
+   "number": "01",
+   "available": 0,
+   "capacity": 20,
+   "meetings": [
+    {
+     "days": [
+      "T",
+      "R"
+     ],
+     "start": "11:00",
+     "end": "12:20",
+     "room": null
+    }
+   ]
+  },
+  {
+   "id": "2026FA-FYE-100-01",
+   "course": "FYE-100",
+   "term": "2026FA",
+   "number": "01",
+   "available": 5,
+   "capacity": 28,
+   "meetings": [
+    {
+     "days": [
+      "M"
+     ],
+     "start": "19:00",
+     "end": "20:20",
+     "room": null
+    }
+   ]
+  }
+ ]
+}

@@ -73,7 +73,7 @@ async def lifespan(_app):
     yield
 
 
-app = FastAPI(title="CourseGraph", version="1.0", lifespan=lifespan)
+app = FastAPI(title="GrinPath", version="1.0", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware, allow_origins=["http://127.0.0.1:5320", "http://localhost:5320"],
     allow_methods=["*"], allow_headers=["*"])

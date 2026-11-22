@@ -1,4 +1,4 @@
-# CourseGraph front end
+# GrinPath front end
 
 React + Vite + TypeScript. Talks to the Python backend in `../backend` through `/api` (Vite proxies it to `127.0.0.1:8100`). The contract is `../backend/CONTRACT.md`.
 

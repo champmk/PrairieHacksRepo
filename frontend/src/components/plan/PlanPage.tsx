@@ -4,8 +4,10 @@ import type { OptionsResult, PlanTerm, PlanWarning, Tablet, TermId } from '../..
 import type { CG } from '../../state/useCourseGraph.ts';
 import { Check, CheckDot, ChevronDown, ChevronLeft, ChevronRight, Close, Pencil, Plus, Remove, Search, Swap, Undo, Warn } from '../Icons.tsx';
 import { useDismiss } from '../useDismiss.ts';
+import { offeredText, requisites } from '../CoursePicker.tsx';
 import { useMedia } from '../useMedia.ts';
 import { assignLanes, gutterFor, route, type Box, type Routed } from './layout.ts';
+import MajorList from '../MajorList.tsx';
 
 type Selection =
   | { kind: 'tablet'; term: TermId; tablet: Tablet }
@@ -533,7 +535,24 @@ function OptionsPanel({ cg, sel, onClose, onPicked }: { cg: CG; sel: NonNullable
       </div>
       {tablet && (
         <div className="opt-facts">
-          {tablet.title && <div>{tablet.title}</div>}
+          {tablet.title && <div className="opt-title">{tablet.title}</div>}
+          {tablet.course && cg.courseById[tablet.course]?.description && <p className="cc-desc" style={{ margin: '2px 0 6px' }}>{cg.courseById[tablet.course]!.description}</p>}
+          {tablet.course && cg.courseById[tablet.course] && (
+            <dl className="cc-meta">
+              <div>
+                <dt>Requisites</dt>
+                <dd>{requisites(cg.courseById[tablet.course]!)}</dd>
+              </div>
+              <div>
+                <dt>Credits</dt>
+                <dd>{cg.courseById[tablet.course]!.credits ?? '–'}</dd>
+              </div>
+              <div>
+                <dt>Offered</dt>
+                <dd>{offeredText(cg.courseById[tablet.course]!)}</dd>
+              </div>
+            </dl>
+          )}
           {tablet.counts_for.length > 0 && <div className="muted">Counts for {tablet.counts_for.join(', ')}</div>}
           {tablet.mark && <div className="muted">Grade {tablet.mark}: no credit</div>}
           {tablet.status === 'planned' && <div className="muted">Planned on the Course Picker. Change the section there.</div>}
@@ -557,8 +576,10 @@ function OptionsPanel({ cg, sel, onClose, onPicked }: { cg: CG; sel: NonNullable
             {options.map((o, k) => (
               <button key={o.course} className="opt" data-eligible={o.eligible} style={{ animationDelay: `${Math.min(k, 12) * 25}ms` }} onClick={() => pick(o.course)}>
                 <span className="opt-text">
-                  <b>{o.course}</b>
-                  <span>{o.title}</span>
+                  <b>
+                    {o.course} <span className="opt-name">{o.title}</span>
+                  </b>
+                  {cg.courseById[o.course]?.description && <span>{cg.courseById[o.course]!.description}</span>}
                 </span>
                 {o.eligible ? <span className="opt-ok">{o.credits} cr</span> : <span className="opt-why">{o.reason}</span>}
               </button>
@@ -588,14 +609,9 @@ function MajorMenu({ cg }: { cg: CG }) {
         <ChevronDown />
       </button>
       {open && (
-        <div className="menu" role="menu" style={{ left: 0, top: 42, width: 250 }}>
+        <div className="menu" role="menu" style={{ left: 0, top: 42, width: 300 }}>
           <div className="menu-label">Majors · up to two</div>
-          {programs.map((p) => (
-            <button key={p.id} className="menu-item" role="menuitemcheckbox" aria-checked={cg.majors.includes(p.id)} onClick={() => toggle(p.id)}>
-              {p.name}
-              <span className="right">{cg.majors.includes(p.id) && <Check size={14} />}</span>
-            </button>
-          ))}
+          <MajorList programs={programs} selected={cg.majors} onToggle={toggle} variant="menu" autoFocus />
         </div>
       )}
     </div>

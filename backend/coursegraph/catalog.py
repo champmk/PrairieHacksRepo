@@ -5,8 +5,11 @@ Sources, in order of authority:
   When it is missing, ``data/fixture_catalog.json`` (same shape) stands in.
 * ``data/derived.json``           what we derived and the catalog does not
   state (the Mathematics route). Flagged ``derived``.
-* ``data/sample_courses.json``    sample courses outside CS/Math, flagged
-  ``sample``. They never override a real course.
+* ``data/sample_courses.json``    sample (mock) courses outside CS/Math, flagged
+  ``sample``. They never override a real course. Its ``descriptions`` table
+  holds mock descriptions for the real courses, which have none in the file.
+* ``data/sample_programs.json``   sample (mock) programs and four-year routes
+  for every other major, flagged ``sample``. Same shape as the real file.
 
 Unknown stays unknown: an unstated offering term is ``None``, never "always",
 and a prerequisite the data cannot express is marked ``prereq_known: False``.
@@ -23,6 +26,8 @@ FIXTURE_FILE = "fixture_catalog.json"
 # The API contract names the two majors CS and MATH.
 PROGRAM_IDS = {"CSC-BA": "CS", "MAT-BA": "MATH"}
 REAL_DIVISIONS = ("Humanities", "Science", "Social Studies")
+DIVISION_NAMES = {"interdisciplinary": "Interdisciplinary"}
+LOCATION = "Main Campus"
 SLOT_CREDITS = 4          # one requirement slot stands for one four-credit course
 
 DEFAULT_POLICIES = {
@@ -85,7 +90,7 @@ def parse_offered(raw):
     return (seasons or None), years
 
 
-def _course(raw, origin, codes):
+def _course(raw, origin, codes, descriptions=None):
     cid = raw["id"]
     subject = cid.split("-")[0]
     code = codes.get(subject) or {}
@@ -97,13 +102,16 @@ def _course(raw, origin, codes):
     if raw.get("offered") and seasons is None:
         note = " ".join(x for x in ("Term not stated (" + ", ".join(raw["offered"]) + ").", note) if x)
     cross = raw.get("cross_listed_as")
+    division = code.get("division", raw.get("division"))
     return {
         "id": cid, "title": raw.get("title") or cid,
         "credits": raw["credits"] if raw.get("credits") is not None else SLOT_CREDITS,
         "credits_assumed": raw.get("credits") is None,
         "department": subject,
         "department_name": raw.get("department") or code.get("department") or subject,
-        "division": code.get("division", raw.get("division")),
+        "division": DIVISION_NAMES.get(division, division),
+        "description": raw.get("description") or (descriptions or {}).get(cid),
+        "location": raw.get("location") or LOCATION,
         "level": int(digits) // 100 * 100 if digits else None,
         "offered": seasons, "offered_years": years, "offered_note": note,
         "prereq_text": raw.get("prereq_text"), "prereq": tree,
@@ -241,8 +249,12 @@ def _policies(raw):
 class Catalog:
     """Normalized catalog plus the small lookups the planner needs."""
 
-    def __init__(self, raw, sample_courses=(), derived=None, origin="catalog"):
-        derived = derived or {}
+    def __init__(self, raw, sample_courses=(), derived=None, origin="catalog", sample=None,
+                 descriptions=None):
+        """``sample`` is the mock program file (``programs`` and ``sample_plans``);
+        ``descriptions`` maps a course id to a mock description, used when the
+        course's own record has none."""
+        derived, sample = derived or {}, sample or {}
         self.origin = origin
         year = ((raw.get("meta") or {}).get("primary_catalog") or {}).get("year") or "2026-2027"
         self.catalog_year = f"{year[:4]}-{year[-2:]}"
@@ -250,11 +262,12 @@ class Catalog:
         codes = (raw.get("divisions") or {}).get("codes") or {}
         self.courses = {}
         for c in raw.get("courses") or []:
-            self.courses[c["id"]] = _course(c, origin, codes)
+            self.courses[c["id"]] = _course(c, origin, codes, descriptions)
         for c in sample_courses:
             if c["id"] not in self.courses:
-                self.courses[c["id"]] = _course(c, "sample", codes)
-        self.divisions = {code: info.get("division") for code, info in codes.items()}
+                self.courses[c["id"]] = _course(c, "sample", codes, descriptions)
+        self.divisions = {code: DIVISION_NAMES.get(info.get("division"), info.get("division"))
+                          for code, info in codes.items()}
         for c in self.courses.values():
             self.divisions.setdefault(c["department"], c["division"])
 
@@ -272,7 +285,10 @@ class Catalog:
         self.programs = {}
         plans = list(raw.get("sample_plans") or [])
         plans += [dict(p, origin="derived") for p in derived.get("sample_plans") or []]
-        for p in raw.get("programs") or []:
+        plans += [dict(p, origin="sample") for p in sample.get("sample_plans") or []]
+        real = {p["id"] for p in raw.get("programs") or []}
+        mock = [dict(p, origin="sample") for p in sample.get("programs") or [] if p["id"] not in real]
+        for p in list(raw.get("programs") or []) + mock:
             pid = PROGRAM_IDS.get(p["id"], p["id"])
             slots = build_slots(pid, p, self.courses)
             routes = [build_route(plan, slots, origin) for plan in plans if plan.get("program") == p["id"]]
@@ -281,6 +297,8 @@ class Catalog:
             name = (p.get("name") or pid).replace(", B.A.", "").replace(" B.A.", "")
             self.programs[pid] = {
                 "id": pid, "catalog_id": p["id"], "name": name, "slots": slots,
+                "division": p.get("division"), "origin": p.get("origin") or origin,
+                "total_credits_min": p.get("total_credits_min"),
                 "rules": list(p.get("rules") or []), "source_url": p.get("source_url"),
                 "routes": routes, "ap_major_credit": p.get("ap_major_credit")}
 
@@ -343,10 +361,11 @@ class Catalog:
         """The GET /api/catalog body."""
         keys = ("id", "title", "credits", "department", "division", "level", "offered",
                 "offered_note", "prereq_text", "prereq", "source_url",
-                "offered_years", "cross_listed", "prereq_known", "credits_assumed", "origin")
+                "offered_years", "cross_listed", "prereq_known", "credits_assumed", "origin",
+                "description", "location")
         courses = [{k: c[k] for k in keys} for c in sorted(self.courses.values(), key=lambda c: c["id"])]
         programs = [{
-            "id": p["id"], "name": p["name"],
+            "id": p["id"], "name": p["name"], "division": p["division"], "origin": p["origin"],
             "slots": [{k: s[k] for k in ("id", "label", "kind", "options", "route_term", "derived")}
                       for s in p["slots"]],
             "rules": p["rules"], "source_url": p["source_url"],
@@ -374,12 +393,16 @@ def load_catalog(path=None):
         real = DATA_DIR / REAL_FILE
         path = real if real.exists() else DATA_DIR / FIXTURE_FILE
     path = Path(path)
-    extras = [DATA_DIR / "sample_courses.json", DATA_DIR / "derived.json"]
+    extras = [DATA_DIR / "sample_courses.json", DATA_DIR / "derived.json",
+              DATA_DIR / "sample_programs.json"]
     key = (str(path), path.stat().st_mtime, tuple(e.stat().st_mtime if e.exists() else 0 for e in extras))
     if key not in _cache:
         raw = _read(path)
         is_fixture = bool(raw.get("fixture"))
-        sample = _read(extras[0])["courses"] if extras[0].exists() else []
+        courses = _read(extras[0]) if extras[0].exists() else {}
         derived = _read(extras[1]) if extras[1].exists() and not is_fixture else None
-        _cache[key] = Catalog(raw, sample, derived, "fixture" if is_fixture else "catalog")
+        sample = _read(extras[2]) if extras[2].exists() and not is_fixture else None
+        _cache[key] = Catalog(raw, courses.get("courses") or [], derived,
+                              "fixture" if is_fixture else "catalog", sample,
+                              courses.get("descriptions"))
     return _cache[key]

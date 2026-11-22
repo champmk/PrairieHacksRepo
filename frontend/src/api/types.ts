@@ -24,6 +24,9 @@ export interface Course {
   prereq_text: string | null;
   prereq: Prereq;
   source_url?: string | null;
+  description?: string | null;
+  location?: string | null;
+  origin?: string | null; // 'catalog' (real) or 'sample' (mock)
 }
 
 export interface Slot {
@@ -37,6 +40,8 @@ export interface Slot {
 export interface Program {
   id: string;
   name: string;
+  division?: string | null;
+  origin?: string | null;
   slots: Slot[];
   rules?: string[];
   source_url?: string | null;

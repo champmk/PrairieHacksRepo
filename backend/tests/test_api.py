@@ -103,7 +103,7 @@ class ReadRoutes(ApiCase):
                                          "offered", "offered_note", "prereq_text", "prereq", "source_url"}, True)
         self.assertEqual((course["department"], course["level"], course["prereq"]),
                          ("CSC", 100, {"course": "CSC-151"}))
-        self.assertEqual([p["id"] for p in catalog["programs"]], ["CS", "MATH"])
+        self.assertEqual([p["id"] for p in catalog["programs"]][:2], ["CS", "MATH"])   # then the sample majors
         for program in catalog["programs"]:
             for slot in program["slots"]:
                 self.assertEqual(set(slot) >= {"id", "label", "kind", "options", "route_term"}, True)
