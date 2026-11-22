@@ -1,19 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
-import { useStore } from './state/store.ts';
+import { useCourseGraph } from './state/useCourseGraph.ts';
 import Onboarding from './components/Onboarding.tsx';
-import Schedule from './components/Schedule.tsx';
-import FourYearPlan from './components/FourYearPlan.tsx';
-import { Mark } from './components/Icons.tsx';
+import CoursePicker from './components/CoursePicker.tsx';
+import PlanPage from './components/plan/PlanPage.tsx';
+import { Check, Mark } from './components/Icons.tsx';
 import { useDismiss } from './components/useDismiss.ts';
 
-type View = 'schedule' | 'plan';
-
-function readView(): View {
-  return location.hash === '#plan' ? 'plan' : 'schedule';
-}
+type View = 'picker' | 'plan';
+const readView = (): View => (location.hash === '#plan' ? 'plan' : 'picker');
 
 export default function App() {
-  const { profile, plan, canUndo, act, lastCause } = useStore();
+  const cg = useCourseGraph();
   const [view, setView] = useState<View>(readView);
 
   useEffect(() => {
@@ -22,20 +19,34 @@ export default function App() {
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
   const go = (v: View) => {
-    history.replaceState(null, '', v === 'plan' ? '#plan' : '#schedule');
+    history.replaceState(null, '', v === 'plan' ? '#plan' : '#picker');
     setView(v);
   };
 
-  if (!profile || !plan) {
+  if (cg.status === 'offline' || cg.status === 'error') {
     return (
-      <Onboarding
-        onDone={(p) => {
-          act({ type: 'load', profile: p });
-          go('plan');
-        }}
-      />
+      <main className="onboard">
+        <div className="onboard-inner">
+          <h1>{cg.status === 'offline' ? 'The backend is not running' : 'Something went wrong'}</h1>
+          <p className="lede">
+            {cg.status === 'offline' ? (
+              <>
+                Start it from <code>backend/</code> with <code>python -m uvicorn coursegraph.api:app --port 8100</code>.
+              </>
+            ) : (
+              cg.error
+            )}
+          </p>
+          <button className="btn btn-primary" onClick={cg.actions.retry}>
+            Try again
+          </button>
+        </div>
+      </main>
     );
   }
+
+  if (!cg.catalog || !cg.student) return <main className="onboard"><div className="import-bar" style={{ width: 200 }}><i /></div></main>;
+  if (!cg.onboarded) return <Onboarding cg={cg} />;
 
   return (
     <div className="shell">
@@ -45,31 +56,28 @@ export default function App() {
           <span className="wordmark-text">CourseGraph</span>
         </div>
         <nav className="tabs" role="tablist" aria-label="Pages">
-          <button className="tab" role="tab" aria-selected={view === 'schedule'} onClick={() => go('schedule')}>
-            Schedule
+          <button className="tab" role="tab" aria-selected={view === 'picker'} onClick={() => go('picker')}>
+            Course Picker
           </button>
           <button className="tab" role="tab" aria-selected={view === 'plan'} onClick={() => go('plan')}>
-            Four-year plan
+            4-Year Plan
           </button>
         </nav>
         <div className="topbar-right">
-          <span className="sample-note">Sample data</span>
-          <AccountMenu name={profile.name} onRestart={() => act({ type: 'reset' })} />
+          <span className="sample-note">Sample data · catalog {cg.catalog.catalog_year}</span>
+          <AccountMenu cg={cg} />
         </div>
       </header>
-      {view === 'schedule' ? (
-        <Schedule profile={profile} plan={plan} act={act} />
-      ) : (
-        <FourYearPlan profile={profile} plan={plan} act={act} canUndo={canUndo} lastCause={lastCause} />
-      )}
+      {view === 'picker' ? <CoursePicker key={cg.student.id} cg={cg} /> : <PlanPage key={cg.student.id} cg={cg} />}
     </div>
   );
 }
 
-function AccountMenu({ name, onRestart }: { name: string; onRestart: () => void }) {
+function AccountMenu({ cg }: { cg: ReturnType<typeof useCourseGraph> }) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   useDismiss(ref, open, () => setOpen(false));
+  const name = cg.student?.name ?? '';
   const initials = name
     .split(' ')
     .map((w) => w[0])
@@ -81,9 +89,45 @@ function AccountMenu({ name, onRestart }: { name: string; onRestart: () => void 
         {initials}
       </button>
       {open && (
-        <div className="menu" role="menu" style={{ right: 0, top: 40 }}>
-          <div className="menu-label">{name}</div>
-          <button className="menu-item" role="menuitem" onClick={onRestart}>
+        <div className="menu" role="menu" style={{ right: 0, top: 40, width: 240 }}>
+          <div className="menu-label">Demo students</div>
+          {cg.students.map((s) => (
+            <button
+              key={s.id}
+              className="menu-item"
+              role="menuitemradio"
+              aria-checked={s.id === cg.student?.id}
+              onClick={() => {
+                cg.actions.switchStudent(s.id);
+                setOpen(false);
+              }}
+            >
+              <span>
+                {s.name}
+                {s.summary && <span className="menu-sub">{s.summary}</span>}
+              </span>
+              <span className="right">{s.id === cg.student?.id && <Check size={14} />}</span>
+            </button>
+          ))}
+          <div className="menu-sep" />
+          <button
+            className="menu-item"
+            role="menuitem"
+            onClick={() => {
+              cg.actions.resetEdits();
+              setOpen(false);
+            }}
+          >
+            Clear plan edits
+          </button>
+          <button
+            className="menu-item"
+            role="menuitem"
+            onClick={() => {
+              cg.actions.restartOnboarding();
+              setOpen(false);
+            }}
+          >
             Start over
           </button>
         </div>

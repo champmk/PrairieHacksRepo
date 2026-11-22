@@ -1,0 +1,782 @@
+{
+ "fixture": true,
+ "note": "Stand-in in the shape of grinnell_catalog.json. Used only when that file is missing, and by the unit tests. NOT catalog data.",
+ "meta": {
+  "primary_catalog": {
+   "year": "2026-2027"
+  }
+ },
+ "divisions": {
+  "codes": {
+   "CSC": {
+    "division": "Science",
+    "department": "Computer Science"
+   },
+   "MAT": {
+    "division": "Science",
+    "department": "Mathematics and Statistics"
+   }
+  }
+ },
+ "policies": [],
+ "courses": [
+  {
+   "id": "CSC-151",
+   "title": "Functional Problem Solving",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-161",
+   "title": "Imperative Problem Solving",
+   "credits": 4,
+   "prereq_text": "CSC-151",
+   "prereq": "CSC-151",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-207",
+   "title": "Object-Oriented Problem Solving",
+   "credits": 4,
+   "prereq_text": "CSC-161",
+   "prereq": "CSC-161",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-208",
+   "title": "Discrete Structures",
+   "credits": 4,
+   "prereq_text": "CSC-151 and MAT-131",
+   "prereq": {
+    "all": [
+     "CSC-151",
+     "MAT-131"
+    ]
+   },
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": "MAT-208",
+   "source_url": null
+  },
+  {
+   "id": "MAT-208",
+   "title": "Discrete Structures",
+   "credits": 4,
+   "prereq_text": "CSC-151 and MAT-131",
+   "prereq": {
+    "all": [
+     "CSC-151",
+     "MAT-131"
+    ]
+   },
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": "CSC-208",
+   "source_url": null
+  },
+  {
+   "id": "CSC-211",
+   "title": "Computer Organization and Architecture",
+   "credits": 4,
+   "prereq_text": "CSC-161",
+   "prereq": "CSC-161",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-213",
+   "title": "Operating Systems and Parallel Algorithms",
+   "credits": 4,
+   "prereq_text": "CSC-211",
+   "prereq": "CSC-211",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-301",
+   "title": "Analysis of Algorithms",
+   "credits": 4,
+   "prereq_text": "CSC-207 and (CSC-208 or MAT-218)",
+   "prereq": {
+    "all": [
+     "CSC-207",
+     {
+      "any": [
+       "CSC-208",
+       "MAT-218"
+      ]
+     }
+    ]
+   },
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-312",
+   "title": "Programming Language Implementation",
+   "credits": 4,
+   "prereq_text": "CSC-207",
+   "prereq": "CSC-207",
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-321",
+   "title": "Software Development Principles",
+   "credits": 4,
+   "prereq_text": "CSC-207",
+   "prereq": "CSC-207",
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-322",
+   "title": "Team Software Development",
+   "credits": 4,
+   "prereq_text": "CSC-321",
+   "prereq": "CSC-321",
+   "offered": [
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-324",
+   "title": "Software Design and Development",
+   "credits": 4,
+   "prereq_text": "CSC-207",
+   "prereq": "CSC-207",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-341",
+   "title": "Automata, Formal Languages, and Computational Complexity",
+   "credits": 4,
+   "prereq_text": "CSC-207 and (CSC-208 or MAT-218)",
+   "prereq": {
+    "all": [
+     "CSC-207",
+     {
+      "any": [
+       "CSC-208",
+       "MAT-218"
+      ]
+     }
+    ]
+   },
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-364",
+   "title": "Computer Networks",
+   "credits": 4,
+   "prereq_text": "CSC-213",
+   "prereq": "CSC-213",
+   "offered": [
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-395",
+   "title": "Advanced Special Topic",
+   "credits": 4,
+   "prereq_text": "CSC-207 and MAT-215",
+   "prereq": {
+    "all": [
+     "CSC-207",
+     "MAT-215"
+    ]
+   },
+   "offered": [
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "CSC-499",
+   "title": "Mentored Advanced Project",
+   "credits": 4,
+   "prereq_text": "Instructor consent",
+   "prereq": "consent",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-131",
+   "title": "Calculus I",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-133",
+   "title": "Calculus II",
+   "credits": 4,
+   "prereq_text": "MAT-131",
+   "prereq": "MAT-131",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-215",
+   "title": "Linear Algebra",
+   "credits": 4,
+   "prereq_text": "MAT-133",
+   "prereq": "MAT-133",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-218",
+   "title": "Discrete Bridges to Advanced Mathematics",
+   "credits": 4,
+   "prereq_text": "MAT-215",
+   "prereq": "MAT-215",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-220",
+   "title": "Differential Equations",
+   "credits": 4,
+   "prereq_text": "MAT-215",
+   "prereq": "MAT-215",
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-306",
+   "title": "Mathematical Modeling",
+   "credits": 4,
+   "prereq_text": "MAT-215 and MAT-220",
+   "prereq": {
+    "all": [
+     "MAT-215",
+     "MAT-220"
+    ]
+   },
+   "offered": [
+    "even-year Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-313",
+   "title": "Numerical Analysis",
+   "credits": 4,
+   "prereq_text": "MAT-215; MAT-220 before or at the same time",
+   "prereq": {
+    "all": [
+     "MAT-215",
+     "coreq:MAT-220"
+    ]
+   },
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-316",
+   "title": "Foundations of Analysis",
+   "credits": 4,
+   "prereq_text": "MAT-218",
+   "prereq": "MAT-218",
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-317",
+   "title": "Advanced Topics in Analysis",
+   "credits": 4,
+   "prereq_text": "MAT-316",
+   "prereq": "MAT-316",
+   "offered": [
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-321",
+   "title": "Foundations of Abstract Algebra",
+   "credits": 4,
+   "prereq_text": "MAT-218",
+   "prereq": "MAT-218",
+   "offered": [
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-322",
+   "title": "Advanced Topics in Algebra",
+   "credits": 4,
+   "prereq_text": "MAT-321",
+   "prereq": "MAT-321",
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-335",
+   "title": "Probability and Statistics I",
+   "credits": 4,
+   "prereq_text": "MAT-215",
+   "prereq": "MAT-215",
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-336",
+   "title": "Probability and Statistics II",
+   "credits": 4,
+   "prereq_text": "MAT-335",
+   "prereq": "MAT-335",
+   "offered": [
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "MAT-397",
+   "title": "Independent Reading",
+   "credits": 4,
+   "prereq_text": "Will vary depending on topic.",
+   "prereq": "varies_by_topic",
+   "offered": [
+    "Fall or Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "TUT-100",
+   "title": "First-Year Tutorial",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  },
+  {
+   "id": "FYE-100",
+   "title": "First-Year Experience",
+   "credits": 1,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null
+  }
+ ],
+ "programs": [
+  {
+   "id": "CSC-BA",
+   "name": "Computer Science, B.A.",
+   "source_url": null,
+   "total_credits_min": 44,
+   "rules": [
+    "Fixture rules, not the catalog's"
+   ],
+   "requirement_groups": [
+    {
+     "id": "csc-core",
+     "label": "Core",
+     "kind": "all",
+     "count": null,
+     "credits_min": 32,
+     "options": [
+      "CSC-151",
+      "CSC-161",
+      "CSC-207",
+      "CSC-211",
+      "CSC-213",
+      "CSC-301",
+      "CSC-324",
+      "CSC-341"
+     ]
+    },
+    {
+     "id": "csc-calculus",
+     "label": "Also required: calculus",
+     "kind": "all",
+     "count": null,
+     "credits_min": null,
+     "options": [
+      "MAT-131"
+     ]
+    },
+    {
+     "id": "csc-discrete",
+     "label": "Discrete math",
+     "kind": "choose",
+     "count": 1,
+     "credits_min": null,
+     "options": [
+      "CSC-208",
+      "MAT-218"
+     ]
+    },
+    {
+     "id": "csc-elective",
+     "label": "CS elective",
+     "kind": "choose",
+     "count": 2,
+     "credits_min": 8,
+     "options": [
+      "CSC-312",
+      "CSC-321",
+      "CSC-322",
+      "CSC-364",
+      "CSC-395"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "MAT-BA",
+   "name": "Mathematics B.A.",
+   "source_url": null,
+   "total_credits_min": 32,
+   "rules": [
+    "Fixture rules, not the catalog's"
+   ],
+   "ap_major_credit": [
+    "MAT-131"
+   ],
+   "requirement_groups": [
+    {
+     "id": "mat-core",
+     "label": "Core",
+     "kind": "all",
+     "count": null,
+     "credits_min": 24,
+     "options": [
+      "MAT-131",
+      "MAT-133",
+      "MAT-215",
+      "MAT-218",
+      "MAT-316",
+      "MAT-321"
+     ]
+    },
+    {
+     "id": "mat-elective",
+     "label": "300-level math elective",
+     "kind": "choose",
+     "count": 2,
+     "credits_min": 8,
+     "options": [
+      "MAT-306",
+      "MAT-313",
+      "MAT-317",
+      "MAT-322",
+      "MAT-335",
+      "MAT-336"
+     ]
+    }
+   ]
+  }
+ ],
+ "sample_plans": [
+  {
+   "id": "cs-208",
+   "program": "CSC-BA",
+   "label": "CS via CSC-208",
+   "source_url": null,
+   "semesters": [
+    {
+     "year": 1,
+     "term": "Fall",
+     "items": [
+      "CSC-151",
+      "MAT-131"
+     ]
+    },
+    {
+     "year": 1,
+     "term": "Spring",
+     "items": [
+      "CSC-161",
+      "CSC-208"
+     ]
+    },
+    {
+     "year": 2,
+     "term": "Fall",
+     "items": [
+      "CSC-207"
+     ]
+    },
+    {
+     "year": 2,
+     "term": "Spring",
+     "items": [
+      "CSC-211"
+     ]
+    },
+    {
+     "year": 3,
+     "term": "Fall",
+     "items": [
+      "CSC-301",
+      "CSC-324"
+     ]
+    },
+    {
+     "year": 3,
+     "term": "Spring",
+     "items": [
+      "CSC-213",
+      "CSC-341"
+     ]
+    },
+    {
+     "year": 4,
+     "term": "Fall",
+     "items": [
+      "CSC elective"
+     ]
+    },
+    {
+     "year": 4,
+     "term": "Spring",
+     "items": [
+      "CSC elective"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "cs-218",
+   "program": "CSC-BA",
+   "label": "CS via MAT-218",
+   "source_url": null,
+   "semesters": [
+    {
+     "year": 1,
+     "term": "Fall",
+     "items": [
+      "CSC-151",
+      "MAT-131"
+     ]
+    },
+    {
+     "year": 1,
+     "term": "Spring",
+     "items": [
+      "CSC-161",
+      "MAT-133"
+     ]
+    },
+    {
+     "year": 2,
+     "term": "Fall",
+     "items": [
+      "CSC-207",
+      "MAT-215"
+     ]
+    },
+    {
+     "year": 2,
+     "term": "Spring",
+     "items": [
+      "CSC-211",
+      "MAT-218"
+     ]
+    },
+    {
+     "year": 3,
+     "term": "Fall",
+     "items": [
+      "CSC-301",
+      "CSC-324"
+     ]
+    },
+    {
+     "year": 3,
+     "term": "Spring",
+     "items": [
+      "CSC-213",
+      "CSC-341"
+     ]
+    },
+    {
+     "year": 4,
+     "term": "Fall",
+     "items": [
+      "CSC elective"
+     ]
+    },
+    {
+     "year": 4,
+     "term": "Spring",
+     "items": [
+      "CSC elective"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "math",
+   "program": "MAT-BA",
+   "label": "Mathematics",
+   "source_url": null,
+   "semesters": [
+    {
+     "year": 1,
+     "term": "Fall",
+     "items": [
+      "MAT-131"
+     ]
+    },
+    {
+     "year": 1,
+     "term": "Spring",
+     "items": [
+      "MAT-133"
+     ]
+    },
+    {
+     "year": 2,
+     "term": "Fall",
+     "items": [
+      "MAT-215"
+     ]
+    },
+    {
+     "year": 2,
+     "term": "Spring",
+     "items": [
+      "MAT-218"
+     ]
+    },
+    {
+     "year": 3,
+     "term": "Fall",
+     "items": [
+      "MAT-316"
+     ]
+    },
+    {
+     "year": 3,
+     "term": "Spring",
+     "items": [
+      "MAT-321"
+     ]
+    },
+    {
+     "year": 4,
+     "term": "Fall",
+     "items": [
+      "MAT elective"
+     ]
+    },
+    {
+     "year": 4,
+     "term": "Spring",
+     "items": [
+      "MAT elective"
+     ]
+    }
+   ]
+  }
+ ]
+}

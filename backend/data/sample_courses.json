@@ -1,0 +1,333 @@
+{
+ "origin": "sample",
+ "note": "SAMPLE courses outside CS and Mathematics, ported from the old front-end mock. Titles, credits, offerings and prerequisites are illustrative, not catalog facts. A course that is in grinnell_catalog.json always wins over a sample with the same id; divisions come from the catalog's subject-code table when it lists the subject.",
+ "courses": [
+  {
+   "id": "TUT-100",
+   "title": "First-Year Tutorial",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": null,
+   "origin": "sample"
+  },
+  {
+   "id": "FYE-100",
+   "title": "First-Year Experience",
+   "credits": 1,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "note": "The catalog policies name FYE-100 (S/D/F, typically the second semester, not repeatable) but give no course page; the 1 credit and the offering terms here are placeholders.",
+   "division": null,
+   "origin": "sample"
+  },
+  {
+   "id": "ANT-104",
+   "title": "Anthropological Inquiry",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Social Studies",
+   "origin": "sample"
+  },
+  {
+   "id": "ART-111",
+   "title": "Introduction to the Studio",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Humanities",
+   "origin": "sample"
+  },
+  {
+   "id": "BIO-150",
+   "title": "Introduction to Biological Inquiry",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Science",
+   "origin": "sample"
+  },
+  {
+   "id": "CHM-129",
+   "title": "General Chemistry",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Science",
+   "origin": "sample"
+  },
+  {
+   "id": "ECN-111",
+   "title": "Introduction to Economics",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Social Studies",
+   "origin": "sample"
+  },
+  {
+   "id": "EDU-101",
+   "title": "Educational Principles",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Social Studies",
+   "origin": "sample"
+  },
+  {
+   "id": "ENG-120",
+   "title": "Literary Analysis",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Humanities",
+   "origin": "sample"
+  },
+  {
+   "id": "FMS-155",
+   "title": "Introduction to Film Studies",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": null,
+   "origin": "sample"
+  },
+  {
+   "id": "GDS-111",
+   "title": "Introduction to Gender Studies",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": null,
+   "origin": "sample"
+  },
+  {
+   "id": "HIS-100",
+   "title": "Historical Methods",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Social Studies",
+   "origin": "sample"
+  },
+  {
+   "id": "MUS-101",
+   "title": "Fundamentals of Music",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Humanities",
+   "origin": "sample"
+  },
+  {
+   "id": "MUS-120",
+   "title": "Performance Ensemble",
+   "credits": 1,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "repeatable": true,
+   "division": "Humanities",
+   "origin": "sample"
+  },
+  {
+   "id": "PHI-101",
+   "title": "Introduction to Philosophy",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Humanities",
+   "origin": "sample"
+  },
+  {
+   "id": "PHY-131",
+   "title": "General Physics I",
+   "credits": 4,
+   "prereq_text": "MAT-131",
+   "prereq": "MAT-131",
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Science",
+   "origin": "sample"
+  },
+  {
+   "id": "POL-101",
+   "title": "Introduction to Political Science",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Social Studies",
+   "origin": "sample"
+  },
+  {
+   "id": "PSY-113",
+   "title": "Introduction to Psychology",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Science",
+   "origin": "sample"
+  },
+  {
+   "id": "SOC-111",
+   "title": "Introduction to Sociology",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Social Studies",
+   "origin": "sample"
+  },
+  {
+   "id": "SPN-101",
+   "title": "Introductory Spanish I",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Humanities",
+   "origin": "sample"
+  },
+  {
+   "id": "SPN-102",
+   "title": "Introductory Spanish II",
+   "credits": 4,
+   "prereq_text": "SPN-101",
+   "prereq": "SPN-101",
+   "offered": [
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Humanities",
+   "origin": "sample"
+  },
+  {
+   "id": "STA-209",
+   "title": "Applied Statistics",
+   "credits": 4,
+   "prereq_text": "Prerequisite: None.",
+   "prereq": null,
+   "offered": [
+    "Fall",
+    "Spring"
+   ],
+   "cross_listed_as": null,
+   "source_url": null,
+   "division": "Science",
+   "origin": "sample"
+  }
+ ]
+}

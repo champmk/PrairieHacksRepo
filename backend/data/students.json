@@ -1,0 +1,80 @@
+{
+ "note": "Three FICTIONAL students for the demo. No real people or records. Course ids refer to grinnell_catalog.json (real) and sample_courses.json (sample).",
+ "students": [
+  {
+   "id": "alex", "name": "Alex Rivera", "summary": "CS major, second year. Took CSC-207 a term ahead of the advising route.",
+   "start_term": "2025FA", "current_term": "2026FA", "catalog_year": "2025-26", "majors": ["CS"], "credit_cap": 18,
+   "off_campus": [],
+   "enrollments": [
+    {"course": "TUT-100", "term": "2025FA", "status": "completed", "grade": "A-", "mode": "letter"},
+    {"course": "CSC-151", "term": "2025FA", "status": "completed", "grade": "A-", "mode": "letter"},
+    {"course": "MAT-131", "term": "2025FA", "status": "completed", "grade": "B+", "mode": "letter"},
+    {"course": "ENG-120", "term": "2025FA", "status": "completed", "grade": "B", "mode": "letter"},
+    {"course": "CSC-161", "term": "2026SP", "status": "completed", "grade": "A", "mode": "letter"},
+    {"course": "MAT-133", "term": "2026SP", "status": "completed", "grade": "B", "mode": "letter"},
+    {"course": "PHI-101", "term": "2026SP", "status": "completed", "grade": "B+", "mode": "letter"},
+    {"course": "FYE-100", "term": "2026SP", "status": "completed", "grade": "S", "mode": "sdf"},
+    {"course": "ECN-111", "term": "2026SP", "status": "withdrawn", "grade": "W", "mode": "letter"},
+    {"course": "CSC-207", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "CSC-208", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "HIS-100", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "MUS-120", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"}
+   ],
+   "schedule": {
+    "2026FA": ["2026FA-CSC-207-01", "2026FA-CSC-208-01", "2026FA-HIS-100-01", "2026FA-MUS-120-02"],
+    "2027SP": ["2027SP-CSC-211-01", "2027SP-CSC-324-01", "2027SP-STA-209-01", "2027SP-SOC-111-01"]
+   }
+  },
+  {
+   "id": "sam", "name": "Sam Okafor", "summary": "Undecided first-year. One semester done, second in progress, nothing planned.",
+   "start_term": "2026SP", "current_term": "2026FA", "catalog_year": "2025-26", "majors": [], "credit_cap": 18,
+   "off_campus": [],
+   "enrollments": [
+    {"course": "TUT-100", "term": "2026SP", "status": "completed", "grade": "B+", "mode": "letter"},
+    {"course": "CSC-151", "term": "2026SP", "status": "completed", "grade": "A-", "mode": "letter"},
+    {"course": "ANT-104", "term": "2026SP", "status": "completed", "grade": "B", "mode": "letter"},
+    {"course": "BIO-150", "term": "2026SP", "status": "completed", "grade": "B-", "mode": "letter"},
+    {"course": "MAT-131", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "CSC-161", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "SOC-111", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "FYE-100", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "sdf"}
+   ],
+   "schedule": {
+    "2026FA": ["2026FA-MAT-131-01", "2026FA-CSC-161-01", "2026FA-SOC-111-01", "2026FA-FYE-100-01"]
+   }
+  },
+  {
+   "id": "jordan", "name": "Jordan Lee", "summary": "CS and Mathematics double major, third year. AP credit, one repeated course, one study-away term.",
+   "start_term": "2024FA", "current_term": "2026FA", "catalog_year": "2025-26", "majors": ["CS", "MATH"], "credit_cap": 18,
+   "off_campus": ["2026SP"],
+   "enrollments": [
+    {"course": "MAT-131", "term": null, "status": "completed", "grade": "AP", "mode": "transfer", "note": "AP Calculus AB, score 5"},
+    {"course": "TUT-100", "term": "2024FA", "status": "completed", "grade": "A", "mode": "letter"},
+    {"course": "CSC-151", "term": "2024FA", "status": "completed", "grade": "A", "mode": "letter"},
+    {"course": "MAT-133", "term": "2024FA", "status": "completed", "grade": "B+", "mode": "letter"},
+    {"course": "HIS-100", "term": "2024FA", "status": "completed", "grade": "A-", "mode": "letter"},
+    {"course": "CSC-161", "term": "2025SP", "status": "completed", "grade": "A-", "mode": "letter"},
+    {"course": "MAT-215", "term": "2025SP", "status": "completed", "grade": "D", "mode": "letter"},
+    {"course": "ENG-120", "term": "2025SP", "status": "completed", "grade": "B+", "mode": "letter"},
+    {"course": "PSY-113", "term": "2025SP", "status": "completed", "grade": "B", "mode": "letter"},
+    {"course": "FYE-100", "term": "2025SP", "status": "completed", "grade": "S", "mode": "sdf"},
+    {"course": "MAT-215", "term": "2025FA", "status": "completed", "grade": "B", "mode": "letter"},
+    {"course": "CSC-207", "term": "2025FA", "status": "completed", "grade": "A-", "mode": "letter"},
+    {"course": "CSC-213", "term": "2025FA", "status": "completed", "grade": "B+", "mode": "letter"},
+    {"course": "PHI-101", "term": "2025FA", "status": "completed", "grade": "A-", "mode": "letter"},
+    {"course": "OCS-001", "term": "2026SP", "status": "completed", "grade": "TR", "mode": "transfer", "title": "Study away: transfer credit 1", "credits": 4},
+    {"course": "OCS-002", "term": "2026SP", "status": "completed", "grade": "TR", "mode": "transfer", "title": "Study away: transfer credit 2", "credits": 4},
+    {"course": "OCS-003", "term": "2026SP", "status": "completed", "grade": "TR", "mode": "transfer", "title": "Study away: transfer credit 3", "credits": 4},
+    {"course": "OCS-004", "term": "2026SP", "status": "completed", "grade": "TR", "mode": "transfer", "title": "Study away: transfer credit 4", "credits": 4},
+    {"course": "MAT-218", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "MAT-220", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "CSC-324", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"},
+    {"course": "ECN-111", "term": "2026FA", "status": "in_progress", "grade": null, "mode": "letter"}
+   ],
+   "schedule": {
+    "2026FA": ["2026FA-MAT-218-01", "2026FA-MAT-220-01", "2026FA-CSC-324-01", "2026FA-ECN-111-01"],
+    "2027SP": ["2027SP-CSC-341-01", "2027SP-MAT-316-01", "2027SP-MAT-321-01"]
+   }
+  }
+ ]
+}

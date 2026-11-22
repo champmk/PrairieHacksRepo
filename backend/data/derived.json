@@ -1,0 +1,71 @@
+{
+ "origin": "derived",
+ "note": "Facts the catalog pages do not state, derived by us. The advising guide publishes four-year plans for Computer Science only. This Mathematics route follows the prerequisite chain on the Mathematics course-sequence page (131 -> 133 -> 215 -> 218 -> 316 / 321, then a 300-level sequence); the term placement is ours.",
+ "sample_plans": [
+  {
+   "id": "mat-derived-1",
+   "program": "MAT-BA",
+   "origin": "derived",
+   "label": "Derived from the Mathematics course-sequence diagram",
+   "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence",
+   "semesters": [
+    {
+     "year": 1,
+     "term": "Fall",
+     "items": [
+      "MAT-131"
+     ]
+    },
+    {
+     "year": 1,
+     "term": "Spring",
+     "items": [
+      "MAT-133"
+     ]
+    },
+    {
+     "year": 2,
+     "term": "Fall",
+     "items": [
+      "MAT-215"
+     ]
+    },
+    {
+     "year": 2,
+     "term": "Spring",
+     "items": [
+      "MAT-218"
+     ]
+    },
+    {
+     "year": 3,
+     "term": "Fall",
+     "items": [
+      "MAT-316"
+     ]
+    },
+    {
+     "year": 3,
+     "term": "Spring",
+     "items": [
+      "MAT-321"
+     ]
+    },
+    {
+     "year": 4,
+     "term": "Fall",
+     "items": [
+      "mat-sequence"
+     ]
+    },
+    {
+     "year": 4,
+     "term": "Spring",
+     "items": [
+      "mat-electives"
+     ]
+    }
+   ]
+  }
+ ]
+}

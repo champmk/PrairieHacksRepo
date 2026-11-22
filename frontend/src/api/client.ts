@@ -1,29 +1,59 @@
-// Mock API. Each function stands in for an endpoint in the design doc
-// (docs/CourseGraph_High_Level_Design.md). Swap the bodies for fetch()
-// calls when the backend is ready; components only import from here.
-import { COURSES, COURSE_BY_ID, PROGRAMS, PROGRAM_BY_ID, TERMS, TERM_BY_ID } from '../data/catalog.ts';
-import { SECTIONS, SECTION_BY_ID } from '../data/sections.ts';
-import { DEMO_STUDENT } from '../data/student.ts';
-import { recalculate as runPlanner } from '../engine/planner.ts';
-import type { PlanResult, StudentProfile, TermId } from '../types.ts';
+// HTTP client for backend/CONTRACT.md. Vite proxies /api to the Python
+// backend on 127.0.0.1:8100 (see vite.config.ts).
+import type {
+  Catalog,
+  OptionsResult,
+  Plan,
+  PlanRequest,
+  ScheduleResult,
+  Section,
+  Student,
+  StudentSummary,
+  TermId,
+} from './types.ts';
+
+export class ApiError extends Error {
+  status: number;
+  constructor(status: number, message: string) {
+    super(message);
+    this.status = status;
+  }
+}
+
+async function call<T>(path: string, init?: RequestInit): Promise<T> {
+  let res: Response;
+  try {
+    res = await fetch(`/api${path}`, {
+      ...init,
+      headers: { 'Content-Type': 'application/json', ...(init?.headers ?? {}) },
+    });
+  } catch {
+    throw new ApiError(0, 'Backend not reachable');
+  }
+  if (!res.ok) {
+    let detail = res.statusText;
+    try {
+      const body = await res.json();
+      detail = typeof body?.detail === 'string' ? body.detail : JSON.stringify(body?.detail ?? body);
+    } catch {
+      /* keep statusText */
+    }
+    throw new ApiError(res.status, detail);
+  }
+  return res.json() as Promise<T>;
+}
 
 export const api = {
-  // GET /programs
-  programs: () => PROGRAMS,
-  program: (id: string) => PROGRAM_BY_ID[id],
-  // GET /courses
-  courses: () => COURSES,
-  course: (id: string) => COURSE_BY_ID[id],
-  terms: () => TERMS,
-  term: (id: TermId) => TERM_BY_ID[id],
-  // GET /sections?term=  (shape follows the teammate's normalized Section model)
-  sections: (term: TermId) => SECTIONS.filter((s) => s.term === term),
-  section: (id: string) => SECTION_BY_ID[id],
-  // GET /demo-profile — stands in for importing completed and transfer credit
-  async importCredits(): Promise<StudentProfile> {
-    await new Promise((r) => setTimeout(r, 1100));
-    return structuredClone(DEMO_STUDENT);
-  },
-  // POST /recalculate
-  recalculate: (profile: StudentProfile, previous?: PlanResult): PlanResult => runPlanner(profile, previous),
+  catalog: () => call<Catalog>('/catalog'),
+  students: () => call<StudentSummary[]>('/students'),
+  student: (id: string) => call<Student>(`/students/${encodeURIComponent(id)}`),
+  sections: (term: TermId) => call<Section[]>(`/sections?term=${encodeURIComponent(term)}`),
+  saveSchedule: (id: string, term: TermId, sectionIds: string[]) =>
+    call<ScheduleResult>(`/students/${encodeURIComponent(id)}/schedule`, {
+      method: 'PUT',
+      body: JSON.stringify({ term, section_ids: sectionIds }),
+    }),
+  plan: (req: PlanRequest) => call<Plan>('/plan', { method: 'POST', body: JSON.stringify(req) }),
+  options: (req: PlanRequest & { term: TermId; tablet?: string | null }) =>
+    call<OptionsResult>('/options', { method: 'POST', body: JSON.stringify(req) }),
 };

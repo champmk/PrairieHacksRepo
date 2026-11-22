@@ -1,0 +1,3596 @@
+{
+  "meta": {
+    "title": "Grinnell College catalog data for degree planning (Computer Science and Mathematics)",
+    "collected_on": "2026-11-21",
+    "primary_catalog": {
+      "year": "2026-2027",
+      "catoid": 39,
+      "url": "https://catalog.grinnell.edu/index.php?catoid=39"
+    },
+    "comparison_catalog": {
+      "year": "2025-2026",
+      "catoid": 38,
+      "url": "https://catalog.grinnell.edu/index.php?catoid=38"
+    },
+    "sources": [
+      "https://catalog.grinnell.edu/preview_program.php?catoid=39&poid=2835",
+      "https://catalog.grinnell.edu/preview_program.php?catoid=39&poid=2851",
+      "https://catalog.grinnell.edu/preview_program.php?catoid=38&poid=2783",
+      "https://catalog.grinnell.edu/preview_program.php?catoid=38&poid=2799",
+      "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372",
+      "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6485",
+      "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6358",
+      "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6500",
+      "https://www.grinnell.edu/academics/advising/advising-guide/computer-science",
+      "https://www.grinnell.edu/academics/advising/advising-guide/mathematics",
+      "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence",
+      "https://www.grinnell.edu/academics/advising/advising-guide"
+    ],
+    "conventions": {
+      "course_id": "SUBJ-NNN, e.g. CSC-151.",
+      "prereq": "null = catalog says 'None' or lists no prerequisite. A string is one course id or a token. {'all': [...]} = every item; {'any': [...]} = at least one. Items may nest.",
+      "tokens": {
+        "coreq:X": "X may be taken before or at the same time ('Prerequisite or co-requisite').",
+        "placement:two_years_hs_algebra": "MAT 123 prerequisite 'Two years of high school algebra.'",
+        "placement:trig_preparation_or_department_placement": "MAT 131 prerequisite 'Good preparation, including trigonometry, or departmental placement.'",
+        "varies_by_topic": "Prerequisite will vary depending on topic.",
+        "study away": "Sample-plan placeholder for an off-campus semester.",
+        "CSC elective": "Sample-plan placeholder for the CS major Elective."
+      },
+      "prereq_min_grade": "'C' whenever prereq names a course. Academic Policies: 'A grade of C or better is necessary to satisfy a prerequisite for a higher-level course.' Most course pages also say 'with grade S, C, or better'.",
+      "offered": "Terms from the catalog course page '(…)' after credits ('Fall or Spring' kept as one string = one of the two, not both). Replaced by the department pattern when the Math course-sequence page states an even/odd-year pattern. offered_catalog_note and offered_department hold the raw statements.",
+      "requirement_group": "kind 'all' = every option; kind 'choose' = count options (or credits_min credits) from options."
+    },
+    "not_collected": [
+      "The Grinnell schedule of courses (actual term-by-term sections) was not consulted; offering data is the catalog's stated pattern."
+    ]
+  },
+  "programs": [
+    {
+      "id": "CSC-BA",
+      "name": "Computer Science, B.A.",
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "source_url": "https://catalog.grinnell.edu/preview_program.php?catoid=39&poid=2835",
+      "previous_catalog": {
+        "catalog_year": "2025-2026",
+        "source_url": "https://catalog.grinnell.edu/preview_program.php?catoid=38&poid=2783",
+        "differences": "Same requirement groups and wording; the 2025-2026 Math elective line does not enumerate the statistics courses (2026-2027 lists STA 209, STA 230, STA 309, STA 310, STA 330, STA 335, STA 336)."
+      },
+      "total_credits_min": 32,
+      "requirement_groups": [
+        {
+          "id": "csc-intro",
+          "label": "Multi-paradigm, Introductory Sequence",
+          "kind": "all",
+          "count": null,
+          "credits_min": 12,
+          "options": [
+            "CSC-151",
+            "CSC-161",
+            "CSC-207"
+          ],
+          "notes": null
+        },
+        {
+          "id": "csc-systems",
+          "label": "Systems",
+          "kind": "choose",
+          "count": 1,
+          "credits_min": 4,
+          "options": [
+            "CSC-211",
+            "CSC-213"
+          ],
+          "notes": "4 credits required, 8 credits recommended. If both CSC 211 and CSC 213 are taken, one may be used to satisfy the Elective requirement."
+        },
+        {
+          "id": "csc-theory",
+          "label": "Upper-Level Theory",
+          "kind": "all",
+          "count": null,
+          "credits_min": 8,
+          "options": [
+            "CSC-301",
+            "CSC-341"
+          ],
+          "notes": null
+        },
+        {
+          "id": "csc-software",
+          "label": "Software Development",
+          "kind": "all",
+          "count": null,
+          "credits_min": 4,
+          "options": [
+            "CSC-324"
+          ],
+          "notes": null
+        },
+        {
+          "id": "csc-elective",
+          "label": "Electives",
+          "kind": "choose",
+          "count": null,
+          "credits_min": 4,
+          "options": [
+            "CSC-205",
+            "CSC-208",
+            "CSC-211",
+            "CSC-213",
+            "CSC-232",
+            "CSC-261",
+            "CSC-262",
+            "CSC-312",
+            "CSC-326",
+            "CSC-395",
+            "CSC-313",
+            "CSC-315",
+            "CSC-214",
+            "CSC-216"
+          ],
+          "rule": {
+            "subject": "CSC",
+            "min_number": 200,
+            "exclude": [
+              "CSC-281",
+              "CSC-282"
+            ],
+            "exclude_kinds": [
+              "guided reading",
+              "independent study",
+              "directed research",
+              "MAPs"
+            ],
+            "partial_credit_caps": {
+              "CSC-326": 2
+            }
+          },
+          "notes": "4 credits in Computer Science at the 200-level or higher. CSC 281, CSC 282, guided reading, independent study, directed research, and MAPs may not be used to fulfill Elective requirement. Up to 2 credits of CSC 326 may contribute toward satisfying the Elective requirement. If both CSC 211 and CSC 213 are taken, one may be used to satisfy the Elective requirement. Options list = CSC 200+ courses found in the 2026-2027 catalog plus CSC 313/315 named by the advising guide and CSC 214/216 from the 2025-2026 catalog (CSC 207/301/324/341 are required elsewhere and omitted). The catalog does not say whether a course used for another group (e.g. CSC 208 for discrete) may also count as the Elective."
+        },
+        {
+          "id": "csc-discrete",
+          "label": "Also required: discrete structures",
+          "kind": "choose",
+          "count": 1,
+          "credits_min": null,
+          "options": [
+            "MAT-208",
+            "CSC-208",
+            "MAT-218"
+          ],
+          "notes": "One course from the list: MAT 208 - Discrete Structures or CSC 208 - Discrete Structures or MAT 218 - Discrete Bridges to Advanced Mathematics. (Catalog states no credit count for this group.)"
+        },
+        {
+          "id": "csc-math-elective",
+          "label": "Also required: Math elective",
+          "kind": "choose",
+          "count": 1,
+          "credits_min": null,
+          "options": [
+            "MAT-133",
+            "MAT-208",
+            "MAT-215",
+            "MAT-218",
+            "MAT-220",
+            "MAT-222",
+            "MAT-306",
+            "MAT-313",
+            "MAT-314",
+            "MAT-316",
+            "MAT-317",
+            "MAT-321",
+            "MAT-322",
+            "MAT-330",
+            "MAT-335",
+            "MAT-336",
+            "MAT-444",
+            "STA-209",
+            "STA-230",
+            "STA-309",
+            "STA-310",
+            "STA-330",
+            "STA-335",
+            "STA-336"
+          ],
+          "notes": "Math elective: a math course numbered above MAT 131 - Calculus I, or any statistics course creditable toward the Mathematics major (STA 209, STA 230, STA 309, STA 310, STA 330, STA 335, or STA 336). Options = MAT courses numbered above 131 in the 2026-2027 catalog plus the listed STA courses. The catalog does not say whether the discrete course may also count as the math elective."
+        }
+      ],
+      "rules": [
+        "Computer Science courses numbered below 151 do not satisfy major requirements.",
+        "No more than 4 credits taken outside of Grinnell may be counted towards the 16 required credits for systems, upper-level theory, and software development.",
+        "Computer Science students must complete at least 20 credits of CSC coursework creditable towards the major at Grinnell College to satisfy major requirements."
+      ],
+      "rules_structured": {
+        "min_course_number": 151,
+        "max_outside_credits_in_core16": 4,
+        "core16_groups": [
+          "csc-systems",
+          "csc-theory",
+          "csc-software"
+        ],
+        "min_csc_credits_at_grinnell": 20
+      },
+      "recommended": {
+        "statistics": [
+          "STA-209",
+          "MAT-335",
+          "STA-335",
+          "MAT-336",
+          "STA-336"
+        ],
+        "acm_ieee_aaai_2023_guidelines": [
+          "CSC-211",
+          "CSC-213",
+          "CSC-312"
+        ],
+        "text": "Each major is encouraged to take statistics (STA 209 , MAT 335 , STA 335 , MAT 336 , or STA 336 ) and a course in technology and society (such as a foundation course in Digital Studies or Science, Medicine and Society). Courses for the 2023 ACM/IEEE-CS/AAAI recommendations: CSC 211, CSC 213, CSC 312 (as Electives or additional courses)."
+      },
+      "math_prereq_paths": {
+        "source_url": "https://www.grinnell.edu/academics/advising/advising-guide/computer-science",
+        "paths": [
+          [
+            "MAT-131",
+            "MAT-133",
+            "MAT-215",
+            "MAT-218"
+          ],
+          [
+            "MAT-131",
+            "CSC-208"
+          ]
+        ],
+        "text": "Math requirements for CSC: Under the current curriculum, math prerequisites can be fulfilled by taking one of the following course sequences. MAT 131 → MAT 133 → MAT 215 → MAT 218; MAT 131 → CSC 208",
+        "planned_change_note": "However, the department is planning changes that would take effect in Fall 2027 (i.e., applicable for students who declare CS beginning fall 2027). In the revised curriculum, the second option above will likely be eliminated, and the first option above will likely be replaced with a similar four-course sequence beginning with MAT 131 and MAT 133. Therefore, entering first year students are advised to begin a mathematics sequence in their first year at Grinnell."
+      },
+      "declaration": {
+        "text": "Because of our high advising loads we generally do not permit students to declare a computer science major before their fourth semester, although we can assign temporary advisors for international students who must declare a major before a credit-bearing internship.",
+        "source_url": "https://www.grinnell.edu/academics/advising/advising-guide/computer-science"
+      },
+      "ap_credit": {
+        "text": "A score of 4 or 5 on the AP computer science A or computer science principles exam, or a score of 5 on the IB computer science exam would count for four credits in the science division (not providing credit toward the major).",
+        "source_url": "https://www.grinnell.edu/academics/advising/advising-guide/computer-science"
+      }
+    },
+    {
+      "id": "MAT-BA",
+      "name": "Mathematics B.A.",
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "source_url": "https://catalog.grinnell.edu/preview_program.php?catoid=39&poid=2851",
+      "previous_catalog": {
+        "catalog_year": "2025-2026",
+        "source_url": "https://catalog.grinnell.edu/preview_program.php?catoid=38&poid=2799",
+        "differences": "None found in the requirement text."
+      },
+      "total_credits_min": 32,
+      "upper_level_rule": {
+        "min_credits": 16,
+        "levels": [
+          300,
+          400
+        ],
+        "text": "16 of the 32 credits must be at the 300 or 400 level, including those courses listed above."
+      },
+      "requirement_groups": [
+        {
+          "id": "mat-core-linear",
+          "label": "Core Requirements: Linear Algebra",
+          "kind": "all",
+          "count": null,
+          "credits_min": 4,
+          "options": [
+            "MAT-215"
+          ],
+          "notes": "Core Requirements total 16 credits (MAT 215; MAT 218 or MAT 222; MAT 316; MAT 321). MAT 215 is a prerequisite for MAT 218 and MAT 222."
+        },
+        {
+          "id": "mat-core-bridges",
+          "label": "Core Requirements: Bridges",
+          "kind": "choose",
+          "count": 1,
+          "credits_min": 4,
+          "options": [
+            "MAT-218",
+            "MAT-222"
+          ],
+          "notes": "MAT 218 - Discrete Bridges to Advanced Mathematics or MAT 222 - Bridges to Advanced Mathematics is a prerequisite for MAT 316 and MAT 321."
+        },
+        {
+          "id": "mat-core-foundations",
+          "label": "Core Requirements: Foundations",
+          "kind": "all",
+          "count": null,
+          "credits_min": 8,
+          "options": [
+            "MAT-316",
+            "MAT-321"
+          ],
+          "notes": null
+        },
+        {
+          "id": "mat-sequence",
+          "label": "Sequence Requirement",
+          "kind": "choose",
+          "count": 1,
+          "credits_min": 8,
+          "options": [
+            "MAT-313",
+            "MAT-314",
+            "MAT-316",
+            "MAT-317",
+            "MAT-321",
+            "MAT-322",
+            "MAT-335",
+            "STA-335",
+            "MAT-336",
+            "STA-336"
+          ],
+          "sequences": [
+            [
+              "MAT-313",
+              "MAT-314"
+            ],
+            [
+              "MAT-316",
+              "MAT-317"
+            ],
+            [
+              "MAT-321",
+              "MAT-322"
+            ],
+            [
+              {
+                "any": [
+                  "MAT-335",
+                  "STA-335"
+                ]
+              },
+              {
+                "any": [
+                  "MAT-336",
+                  "STA-336"
+                ]
+              }
+            ]
+          ],
+          "notes": "One of the following sequences (8 credits): MAT 313 and MAT 314; MAT 316 and MAT 317; MAT 321 and MAT 322; MAT 335 (or cross-listed STA 335) and MAT 336 (or cross-listed STA 336). 'count' = number of sequences; MAT 316/321 also count in the core."
+        },
+        {
+          "id": "mat-electives",
+          "label": "Remaining credits to reach 32",
+          "kind": "choose",
+          "count": null,
+          "credits_min": null,
+          "options": [
+            "MAT-131",
+            "MAT-133",
+            "MAT-208",
+            "MAT-215",
+            "MAT-218",
+            "MAT-220",
+            "MAT-222",
+            "MAT-306",
+            "MAT-313",
+            "MAT-314",
+            "MAT-316",
+            "MAT-317",
+            "MAT-321",
+            "MAT-322",
+            "MAT-330",
+            "MAT-335",
+            "MAT-336",
+            "MAT-444",
+            "STA-209",
+            "STA-230",
+            "STA-309",
+            "STA-310",
+            "STA-330",
+            "STA-335",
+            "STA-336"
+          ],
+          "notes": "Not a named group in the catalog: any credits beyond the core and sequence needed to reach the 32-credit minimum and the 16 upper-level credits. Courses numbered 297, 299, 397, 399, 499 (MAPs), plus-2's and below 131 do not satisfy major requirements. STA options are the statistics courses the CS major page calls 'creditable toward the Mathematics major'; the Mathematics page itself does not list them. Whether STA 270, STA 340, STA 350 or STA 370 count is not stated."
+        }
+      ],
+      "rules": [
+        "16 of the 32 credits must be at the 300 or 400 level, including those courses listed above.",
+        "Courses numbered 297, 299, 397, 399, 499 (MAPs), plus-2’s and below 131 do not satisfy major requirements."
+      ],
+      "rules_structured": {
+        "min_course_number": 131,
+        "excluded_numbers": [
+          297,
+          299,
+          397,
+          399,
+          499
+        ],
+        "plus2_excluded": true
+      },
+      "honors_depth_areas": {
+        "Algebra": [
+          "MAT-321",
+          "MAT-322"
+        ],
+        "Analysis": [
+          "MAT-316",
+          "MAT-317"
+        ],
+        "Probability and Statistics": [
+          {
+            "any": [
+              "MAT-335",
+              "STA-335"
+            ]
+          },
+          {
+            "any": [
+              "MAT-336",
+              "STA-336"
+            ]
+          }
+        ],
+        "Applied Statistics": [
+          "STA-309",
+          "STA-310"
+        ],
+        "Applied Mathematics": [
+          "MAT-313",
+          "MAT-314"
+        ],
+        "text": "It is required that students demonstrate depth of study in two areas of upper-division mathematics and statistics."
+      },
+      "department_summary": {
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence",
+        "text": "Requirements for Math Majors: 32 credits (not including MAT-115, MAPs, or independent studies); At least 16 credits at the 300-400 level; and a 300-level sequence; sequences include 313-314, 316-317, 321-322, or 335-336"
+      }
+    }
+  ],
+  "courses": [
+    {
+      "id": "CSC-105",
+      "title": "The Digital Age",
+      "credits": 4,
+      "prereq_text": "Prerequisite: None.",
+      "coreq_text": null,
+      "prereq": null,
+      "prereq_min_grade": null,
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88102,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88102",
+      "notes": []
+    },
+    {
+      "id": "CSC-151",
+      "title": "Functional Problem Solving with Lab",
+      "credits": 4,
+      "prereq_text": "Prerequisite: None.",
+      "coreq_text": null,
+      "prereq": null,
+      "prereq_min_grade": null,
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88103,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88103",
+      "notes": [],
+      "sections_2026_27": [
+        {
+          "label": "CSC 151-01, 02 & 03 - Functional Problem Solving with Lab",
+          "offered_catalog_text": "Fall",
+          "prereq_text": "Prerequisite: None.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88608"
+        },
+        {
+          "label": "CSC 151-01 & 02 - Functional Problem Solving with Lab",
+          "offered_catalog_text": "Spring",
+          "prereq_text": null,
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=92168"
+        }
+      ]
+    },
+    {
+      "id": "CSC-161",
+      "title": "Imperative Problem Solving with Lab",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 151 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-151",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88105,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88105",
+      "notes": [],
+      "sections_2026_27": [
+        {
+          "label": "CSC 161-01 & 02 - Imperative Problem Solving with Lab",
+          "offered_catalog_text": "Fall",
+          "prereq_text": "Prerequisite: CSC 151 with grade S, C, or better.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89894"
+        },
+        {
+          "label": "CSC 161-01 & 02 - Imperative Problem Solving with Lab",
+          "offered_catalog_text": "Spring",
+          "prereq_text": "Prerequisite: CSC 151 with grade S, C, or better.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89326"
+        }
+      ]
+    },
+    {
+      "id": "CSC-205",
+      "title": "Computational Linguistics",
+      "credits": 4,
+      "prereq_text": "Prerequisite: LIN 114 and CSC 151 , with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "LIN-114",
+          "CSC-151"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": "Not offered every year.",
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available. Not offered every year.",
+      "cross_listed_as": "LIN-205",
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88106,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88106",
+      "notes": []
+    },
+    {
+      "id": "CSC-207",
+      "title": "Object-Oriented Problem Solving, Data Structures, and Algorithms",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 151 and CSC 161 , with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "CSC-151",
+          "CSC-161"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88107,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88107",
+      "notes": []
+    },
+    {
+      "id": "CSC-208",
+      "title": "Discrete Structures",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 151 and either MAT 124 or MAT 131 , with grades S, C, or better.",
+      "coreq_text": "Prerequisite or co-requisite: CSC 161 .",
+      "prereq": {
+        "all": [
+          "CSC-151",
+          {
+            "any": [
+              "MAT-124",
+              "MAT-131"
+            ]
+          },
+          "coreq:CSC-161"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": "MAT-208",
+      "restrictions": [
+        "Students who are taking or have previously taken MAT 218 may not take CSC/MAT 208."
+      ],
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88553,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88553",
+      "notes": [],
+      "exclusions": [
+        "MAT-218"
+      ]
+    },
+    {
+      "id": "CSC-211",
+      "title": "Computer Organization and Architecture",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 161 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-161",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88108,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88108",
+      "notes": []
+    },
+    {
+      "id": "CSC-213",
+      "title": "Operating Systems and Parallel Algorithms",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 161 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-161",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88109,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88109",
+      "notes": []
+    },
+    {
+      "id": "CSC-214",
+      "title": "Computer and Network Security",
+      "credits": 2,
+      "prereq_text": "Prerequisite: CSC 161 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-161",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": "Not offered every year.",
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available. Not offered every year.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2025-2026",
+      "coid": 86345,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=38&coid=86345",
+      "notes": [
+        "In the 2025-2026 catalog only; absent from the 2026-2027 CSC course search results."
+      ],
+      "catalog_status": "2025-2026_only"
+    },
+    {
+      "id": "CSC-216",
+      "title": "Computer Networks",
+      "credits": 2,
+      "prereq_text": "Prerequisite: CSC 161 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-161",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": "Not offered every year.",
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available. Not offered every year.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2025-2026",
+      "coid": 86351,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=38&coid=86351",
+      "notes": [
+        "In the 2025-2026 catalog only; absent from the 2026-2027 CSC course search results."
+      ],
+      "catalog_status": "2025-2026_only"
+    },
+    {
+      "id": "CSC-232",
+      "title": "Human-Computer Interaction",
+      "credits": 2,
+      "prereq_text": "Prerequisite: CSC 105 , CSC 151 , PSY 113 or SMS 154 ; with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "CSC-105",
+          "CSC-151",
+          "PSY-113",
+          "SMS-154"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": "Not offered every year.",
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available. Not offered every year.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88110,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88110",
+      "notes": []
+    },
+    {
+      "id": "CSC-261",
+      "title": "Artificial Intelligence",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 161 and CSC 208 , MAT 208 , or MAT 218 ; with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "CSC-161",
+          {
+            "any": [
+              "CSC-208",
+              "MAT-208",
+              "MAT-218"
+            ]
+          }
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": "Not offered every year.",
+      "offered_department": null,
+      "catalog_note": "Not offered every year.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88111,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88111",
+      "notes": []
+    },
+    {
+      "id": "CSC-262",
+      "title": "Computer Vision",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 161 and MAT 215 with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "CSC-161",
+          "MAT-215"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": "Not offered every year.",
+      "offered_department": null,
+      "catalog_note": "Not offered every year.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88577,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88577",
+      "notes": []
+    },
+    {
+      "id": "CSC-281",
+      "title": "Life Beyond Grinnell - Learning from Computer Science Alumni",
+      "credits": 1,
+      "prereq_text": "Prerequisite: CSC 151 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-151",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": true,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88585,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88585",
+      "notes": [
+        "May not be used to fulfill the CS major Elective requirement."
+      ]
+    },
+    {
+      "id": "CSC-282",
+      "title": "Thinking in C and Unix",
+      "credits": 1,
+      "prereq_text": "Prerequisite: CSC 161 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-161",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": true,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88668,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88668",
+      "notes": [
+        "May not be used to fulfill the CS major Elective requirement."
+      ]
+    },
+    {
+      "id": "CSC-301",
+      "title": "Analysis of Algorithms",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 207 and either MAT 218 , CSC 208 or MAT 208 ; with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "CSC-207",
+          {
+            "any": [
+              "MAT-218",
+              "CSC-208",
+              "MAT-208"
+            ]
+          }
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88112,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88112",
+      "notes": []
+    },
+    {
+      "id": "CSC-312",
+      "title": "Programming Language Implementation",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 207 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-207",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88729,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88729",
+      "notes": []
+    },
+    {
+      "id": "CSC-313",
+      "title": "Advanced Operating Systems",
+      "credits": null,
+      "prereq_text": null,
+      "coreq_text": null,
+      "prereq": null,
+      "prereq_min_grade": null,
+      "offered": null,
+      "offered_catalog_text": null,
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": null,
+      "coid": null,
+      "source_url": "https://www.grinnell.edu/academics/advising/advising-guide/computer-science",
+      "notes": [
+        "Listed under 'Regular 300-Level Courses' on the CS advising guide page only; not present in the 2026-2027 or 2025-2026 catalog CSC course search results, so credits, prerequisites and offering are unknown."
+      ],
+      "catalog_status": "not_in_catalog"
+    },
+    {
+      "id": "CSC-315",
+      "title": "Algorithms, Ethics, and Society",
+      "credits": null,
+      "prereq_text": null,
+      "coreq_text": null,
+      "prereq": null,
+      "prereq_min_grade": null,
+      "offered": null,
+      "offered_catalog_text": null,
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": null,
+      "coid": null,
+      "source_url": "https://www.grinnell.edu/academics/advising/advising-guide/computer-science",
+      "notes": [
+        "Listed under 'Regular 300-Level Courses' on the CS advising guide page only; not present in the 2026-2027 or 2025-2026 catalog CSC course search results, so credits, prerequisites and offering are unknown."
+      ],
+      "catalog_status": "not_in_catalog"
+    },
+    {
+      "id": "CSC-324",
+      "title": "Software Design and Development with Lab",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 207 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-207",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88982,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88982",
+      "notes": []
+    },
+    {
+      "id": "CSC-326",
+      "title": "Software Development Leadership with Lab",
+      "credits": 2,
+      "prereq_text": "Prerequisite: CSC 324 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "CSC-324",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88983,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88983",
+      "notes": [
+        "Up to 2 credits may contribute toward the CS major Elective requirement. Offered simultaneously with CSC-324."
+      ]
+    },
+    {
+      "id": "CSC-341",
+      "title": "Automata, Formal Languages, and Computational Complexity",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 207 and either MAT 218 , CSC 208 or MAT 208 ; with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "CSC-207",
+          {
+            "any": [
+              "MAT-218",
+              "CSC-208",
+              "MAT-208"
+            ]
+          }
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88113,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88113",
+      "notes": []
+    },
+    {
+      "id": "CSC-395",
+      "title": "Advanced Special Topic: Modern Programming Language Theory and Design",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 207 and CSC 208 , MAT 208 , or MAT 218 ; with grades S ,C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "CSC-207",
+          {
+            "any": [
+              "CSC-208",
+              "MAT-208",
+              "MAT-218"
+            ]
+          }
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Computer Science",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 92279,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=92279",
+      "notes": [
+        "Catalog lists this only as section CSC 395-01, an Advanced Special Topic (Spring) in the 2026-2027 catalog; it is not a standing course."
+      ]
+    },
+    {
+      "id": "MAT-123",
+      "title": "Functions and Differential Calculus",
+      "credits": 4,
+      "prereq_text": "Prerequisite: Two years of high school algebra.",
+      "coreq_text": null,
+      "prereq": "placement:two_years_hs_algebra",
+      "prereq_min_grade": null,
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Fall",
+        "text": "123: Functions and Differential Calculus and 124: Functions and Integral Calculus., offered in the fall and spring, respectively",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88306,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88306",
+      "notes": []
+    },
+    {
+      "id": "MAT-124",
+      "title": "Functions and Integral Calculus",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 123 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "MAT-123",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Spring",
+        "text": "123: Functions and Differential Calculus and 124: Functions and Integral Calculus., offered in the fall and spring, respectively",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88307,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88307",
+      "notes": []
+    },
+    {
+      "id": "MAT-125",
+      "title": "Functions and Mathematical Models",
+      "credits": 4,
+      "prereq_text": "Prerequisite: None. Open to first-year students only.",
+      "coreq_text": null,
+      "prereq": null,
+      "prereq_min_grade": null,
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": [
+        "Open to first-year students only."
+      ],
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 89939,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89939",
+      "notes": [
+        "Not in the 2025-2026 catalog; 2025-2026 offered MAT 195-01 'Introductory Special Topic: Functions and Mathematical Models' (Fall, first-year students only)."
+      ]
+    },
+    {
+      "id": "MAT-131",
+      "title": "Calculus I",
+      "credits": 4,
+      "prereq_text": "Prerequisite: Good preparation, including trigonometry, or departmental placement.",
+      "coreq_text": null,
+      "prereq": "placement:trig_preparation_or_department_placement",
+      "prereq_min_grade": null,
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88308,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88308",
+      "notes": [
+        "AP: score of 4+ on AP Calculus AB, 3+ on AP Calculus BC, or 5+ on IB Mathematics (AA or AI) gives credit for MAT 131; BC does not give credit for MAT 133 (advising guide)."
+      ],
+      "notes_source_url": "https://www.grinnell.edu/academics/advising/advising-guide/mathematics"
+    },
+    {
+      "id": "MAT-133",
+      "title": "Calculus II",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 124 or MAT 131 , with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "MAT-124",
+          "MAT-131"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88309,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88309",
+      "notes": []
+    },
+    {
+      "id": "MAT-208",
+      "title": "Discrete Structures",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 151 and either MAT 124 or MAT 131 , with grades S, C, or better.",
+      "coreq_text": "Prerequisite or co-requisite: CSC 161 .",
+      "prereq": {
+        "all": [
+          "CSC-151",
+          {
+            "any": [
+              "MAT-124",
+              "MAT-131"
+            ]
+          },
+          "coreq:CSC-161"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": "CSC-208",
+      "restrictions": [
+        "Students who are taking or have previously taken MAT 218 may not take CSC/MAT 208."
+      ],
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88560,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88560",
+      "notes": [
+        "This catalog page only says 'See CSC 208 .'; prereq_text/prereq copied from the CSC 208 page.",
+        "MAT 208 page lists (Spring) while the cross-listed CSC 208 page lists (Fall and Spring)."
+      ],
+      "exclusions": [
+        "MAT-218"
+      ]
+    },
+    {
+      "id": "MAT-215",
+      "title": "Linear Algebra",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 133 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "MAT-133",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88311,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88311",
+      "notes": []
+    },
+    {
+      "id": "MAT-218",
+      "title": "Discrete Bridges to Advanced Mathematics",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 215 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "MAT-215",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88312,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88312",
+      "notes": [
+        "Variable-topic course; 2026-2027 sections: Elementary Number Theory (Fall and Spring), Linear Algebra (Spring). 2025-2026 sections included Elementary Number Theory, Graph Theory, Linear Algebra.",
+        "Catalog: 'Math 218 addresses counting techniques and other discrete topics needed for computer science.' May be repeated once for credit when content changes with permission of instructor."
+      ],
+      "sections_2026_27": [
+        {
+          "label": "MAT 218-01 & 02 - Discrete Bridges to Advance Mathematics: Elementary Number Theory",
+          "offered_catalog_text": "Fall",
+          "prereq_text": "Prerequisite: MAT 215 with grade S, C, or better.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89252"
+        },
+        {
+          "label": "MAT 218-01 - Discrete Bridges to Advance Mathematics: Linear Algebra",
+          "offered_catalog_text": "Spring",
+          "prereq_text": "Prerequisite: MAT 215 with grade S, C, or better.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=90013"
+        },
+        {
+          "label": "MAT 218-02 - Discrete Bridges to Advanced Mathematics: Elementary Number Theory",
+          "offered_catalog_text": "Spring",
+          "prereq_text": "Prerequisite: MAT 215 with grade S, C, or better.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89871"
+        }
+      ]
+    },
+    {
+      "id": "MAT-220",
+      "title": "Differential Equations",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 215 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "MAT-215",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88313,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88313",
+      "notes": []
+    },
+    {
+      "id": "MAT-222",
+      "title": "Bridges to Advanced Mathematics",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 215 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "MAT-215",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88314,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88314",
+      "notes": []
+    },
+    {
+      "id": "MAT-306",
+      "title": "Mathematical Modeling",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 220 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "MAT-220",
+      "prereq_min_grade": "C",
+      "offered": [
+        "even-year Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": "Not offered every year. Offered in alternate years.",
+      "offered_department": {
+        "pattern": "even-year Spring",
+        "text": "306 Math Modeling (offered every even year in the spring)",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": "Plus-2 option available. Not offered every year. Offered in alternate years.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88317,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88317",
+      "notes": []
+    },
+    {
+      "id": "MAT-313",
+      "title": "Numerical Analysis",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 218 with grade S, C, or better.",
+      "coreq_text": "Prerequisite or co-requisite: MAT 220 .",
+      "prereq": {
+        "all": [
+          "MAT-218",
+          "coreq:MAT-220"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Fall",
+        "text": "313: Numerical Analysis offered in the fall",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 89400,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89400",
+      "notes": [],
+      "department_prereq_statement": {
+        "text": "220: Differential Equations is a co-requisite for 313: Numerical Analysis",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      }
+    },
+    {
+      "id": "MAT-314",
+      "title": "Advanced Topics in Applied Mathematics",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 313 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "MAT-313",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "every Spring",
+        "text": "314: Advanced Topics in Applied Math (offered every spring)",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88320,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88320",
+      "notes": [],
+      "sections_2026_27": [
+        {
+          "label": "MAT 314-01 - Mathematics and Statistics",
+          "offered_catalog_text": "Spring",
+          "prereq_text": "Prerequisite: MAT 313 with grade S, C, or better.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89420"
+        }
+      ]
+    },
+    {
+      "id": "MAT-316",
+      "title": "Foundations of Analysis",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 218 or MAT 222 , with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "MAT-218",
+          "MAT-222"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88321,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88321",
+      "notes": []
+    },
+    {
+      "id": "MAT-317",
+      "title": "Advanced Topics in Analysis",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 316 .",
+      "coreq_text": null,
+      "prereq": "MAT-316",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Fall",
+        "text": "317 Advanced Topics in Analysis offered in the fall",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88912,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88912",
+      "notes": [],
+      "sections_2026_27": [
+        {
+          "label": "MAT 317-01 - Advanced Topics in Analysis",
+          "offered_catalog_text": "Fall",
+          "prereq_text": "Prerequisite: MAT 316 with grade S, C, or better.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88932"
+        }
+      ]
+    },
+    {
+      "id": "MAT-321",
+      "title": "Foundations of Abstract Algebra",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 218 or MAT 222 , with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "MAT-218",
+          "MAT-222"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88322,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88322",
+      "notes": []
+    },
+    {
+      "id": "MAT-322",
+      "title": "Advanced Topics in Algebra",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 321 , with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "MAT-321",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Spring",
+        "text": "322 Advanced Topics in Algebra offered in the spring",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88911,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88911",
+      "notes": [],
+      "sections_2026_27": [
+        {
+          "label": "MAT 322-01 - Advanced Topics in Algebra",
+          "offered_catalog_text": "Spring",
+          "prereq_text": "Prerequisite: MAT 321 , with grade S, C, or better.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89610"
+        }
+      ]
+    },
+    {
+      "id": "MAT-330",
+      "title": "Applied Data Science",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 207 and STA 230 , MAT 306 , or STA 310 , with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "CSC-207",
+          {
+            "any": [
+              "STA-230",
+              "MAT-306",
+              "STA-310"
+            ]
+          }
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "every Spring",
+        "text": "330: Applied Data Science, offered every spring",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": null,
+      "cross_listed_as": "STA-330",
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 89254,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89254",
+      "notes": [
+        "This catalog page only says 'See STA 330 .'; prereq_text/prereq copied from the STA 330 page."
+      ],
+      "department_prereq_statement": {
+        "text": "330: Applied Data Science, offered every spring requires Computer Science 207 and one of 320, 306, and 310",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      }
+    },
+    {
+      "id": "MAT-335",
+      "title": "Probability and Statistics I",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 215 ; and STA 209 , MAT 218 , or MAT 220 , with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "MAT-215",
+          {
+            "any": [
+              "STA-209",
+              "MAT-218",
+              "MAT-220"
+            ]
+          }
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Fall",
+        "text": "Probability and Statistics I and II, are taught in the fall and spring, respectively",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": "STA-335",
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88323,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88323",
+      "notes": [],
+      "department_prereq_statement": {
+        "text": "require two of the following courses as prerequisites: 209, 215, 218, 220, 222",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      }
+    },
+    {
+      "id": "MAT-336",
+      "title": "Probability and Statistics II",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 335 or STA 335 , with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "MAT-335",
+          "STA-335"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Spring",
+        "text": "Probability and Statistics I and II, are taught in the fall and spring, respectively",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": "STA-336",
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88324,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88324",
+      "notes": []
+    },
+    {
+      "id": "MAT-444",
+      "title": "Senior Seminar",
+      "credits": 4,
+      "prereq_text": "Prerequisite: Will vary depending on topic.",
+      "coreq_text": null,
+      "prereq": "varies_by_topic",
+      "prereq_min_grade": null,
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Spring",
+        "text": "444: Senior Seminar offered in the spring",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Mathematics and Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88325,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88325",
+      "notes": [
+        "2026-2027 section MAT 444-01 (Experimental Mathematics): 'Prerequisite: MAT 316 with grade S, C, or better. MAT 321 is recommended.'"
+      ],
+      "department_prereq_statement": {
+        "text": "444: Senior Seminar offered in the spring with both 316 and 321 as prerequisites",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "sections_2026_27": [
+        {
+          "label": "MAT 444-01 - Senior Seminar: Experimental Mathematics",
+          "offered_catalog_text": "Spring",
+          "prereq_text": "Prerequisite: MAT 316 with grade S, C, or better. MAT 321 is recommended.",
+          "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88692"
+        }
+      ]
+    },
+    {
+      "id": "STA-209",
+      "title": "Applied Statistics",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 125 or MAT 131 , with grade S, C, or better..",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "MAT-125",
+          "MAT-131"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": "Plus-2 option available.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88310,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88310",
+      "notes": [
+        "2025-2026 catalog differs: prereq_text='Prerequisite: MAT 124 or MAT 131 , with grade S, C, or better..', offered='Fall and Spring' (https://catalog.grinnell.edu/preview_course_nopop.php?catoid=38&coid=85927)",
+        "2025-2026 catalog also said: 'A student who takes Statistics 209 cannot receive credit for MAT 115 or SST 115 .'"
+      ],
+      "department_prereq_statement": {
+        "text": "209: Applied Statistics requires 131: Calculus I as a prerequisite",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      }
+    },
+    {
+      "id": "STA-230",
+      "title": "Introduction to Data Science",
+      "credits": 4,
+      "prereq_text": "Prerequisite: STA 209 with grade S, C, or better. Suggested: CSC 151 or computer programming experience.",
+      "coreq_text": null,
+      "prereq": "STA-209",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall",
+        "Spring"
+      ],
+      "offered_catalog_text": "Fall and Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88931,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88931",
+      "notes": []
+    },
+    {
+      "id": "STA-270",
+      "title": "Introduction to Predictive Modeling",
+      "credits": 4,
+      "prereq_text": "Prerequisite: STA 209 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "STA-209",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 92095,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=92095",
+      "notes": []
+    },
+    {
+      "id": "STA-309",
+      "title": "Design and Analysis of Experiments",
+      "credits": 4,
+      "prereq_text": "Prerequisite: STA 209 , MAT 336 , or STA 336 , with grade S, C, or better..",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "STA-209",
+          "MAT-336",
+          "STA-336"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": "Not offered every year. Offered in alternate years.",
+      "offered_department": {
+        "pattern": "every Spring",
+        "text": "309: Design of Experiments (taught every spring)",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": "Plus-2 option available. Not offered every year. Offered in alternate years.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88318,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88318",
+      "notes": []
+    },
+    {
+      "id": "STA-310",
+      "title": "Statistical Modeling",
+      "credits": 4,
+      "prereq_text": "Prerequisite: STA 209 , STA 230 , MAT 336 , or STA 336 , with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "STA-209",
+          "STA-230",
+          "MAT-336",
+          "STA-336"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88319,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88319",
+      "notes": []
+    },
+    {
+      "id": "STA-330",
+      "title": "Applied Data Science",
+      "credits": 4,
+      "prereq_text": "Prerequisite: CSC 207 and STA 230 , MAT 306 , or STA 310 , with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "CSC-207",
+          {
+            "any": [
+              "STA-230",
+              "MAT-306",
+              "STA-310"
+            ]
+          }
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "every Spring",
+        "text": "330: Applied Data Science, offered every spring",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": null,
+      "cross_listed_as": "MAT-330",
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 89276,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89276",
+      "notes": [],
+      "department_prereq_statement": {
+        "text": "330: Applied Data Science, offered every spring requires Computer Science 207 and one of 320, 306, and 310",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      }
+    },
+    {
+      "id": "STA-335",
+      "title": "Probability and Statistics I",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 215 ; and STA 209 , MAT 218 , or MAT 220 , with grades S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "MAT-215",
+          {
+            "any": [
+              "STA-209",
+              "MAT-218",
+              "MAT-220"
+            ]
+          }
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Fall",
+        "text": "Probability and Statistics I and II, are taught in the fall and spring, respectively",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": null,
+      "cross_listed_as": "MAT-335",
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 88984,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88984",
+      "notes": [
+        "This catalog page only says 'See MAT 335 .'; prereq_text/prereq copied from the MAT 335 page."
+      ]
+    },
+    {
+      "id": "STA-336",
+      "title": "Probability and Statistics II",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 335 or STA 335 , with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "MAT-335",
+          "STA-335"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Spring"
+      ],
+      "offered_catalog_text": "Spring",
+      "offered_catalog_note": null,
+      "offered_department": {
+        "pattern": "Spring",
+        "text": "Probability and Statistics I and II, are taught in the fall and spring, respectively",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": null,
+      "cross_listed_as": "MAT-336",
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 89018,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89018",
+      "notes": [
+        "This catalog page only says 'See MAT 336 .'; prereq_text/prereq copied from the MAT 336 page."
+      ]
+    },
+    {
+      "id": "STA-340",
+      "title": "Bayesian Statistics",
+      "credits": 4,
+      "prereq_text": "Prerequisite: STA 309 , STA 310 , MAT 335 , or STA 335 , with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "any": [
+          "STA-309",
+          "STA-310",
+          "MAT-335",
+          "STA-335"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "odd-year Fall"
+      ],
+      "offered_catalog_text": "Fall",
+      "offered_catalog_note": "Not offered every year.",
+      "offered_department": {
+        "pattern": "odd-year Fall",
+        "text": "340: Bayesian Statistics is offered every odd year in the fall",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      },
+      "catalog_note": "Not offered every year.",
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 89501,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89501",
+      "notes": [],
+      "department_prereq_statement": {
+        "text": "the prerequisites are one of 309, 310, and 335",
+        "source_url": "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      }
+    },
+    {
+      "id": "STA-350",
+      "title": "Advanced Statistical Modeling",
+      "credits": 4,
+      "prereq_text": "Prerequisite: STA 335 with grade S, C, or better.",
+      "coreq_text": null,
+      "prereq": "STA-335",
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 92199,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=92199",
+      "notes": []
+    },
+    {
+      "id": "STA-370",
+      "title": "Introduction to Machine Learning",
+      "credits": 4,
+      "prereq_text": "Prerequisite: MAT 215 and STA 270 with grades, S, C, or better.",
+      "coreq_text": null,
+      "prereq": {
+        "all": [
+          "MAT-215",
+          "STA-270"
+        ]
+      },
+      "prereq_min_grade": "C",
+      "offered": [
+        "Fall or Spring"
+      ],
+      "offered_catalog_text": "Fall or Spring",
+      "offered_catalog_note": null,
+      "offered_department": null,
+      "catalog_note": null,
+      "cross_listed_as": null,
+      "restrictions": null,
+      "sdf_only": null,
+      "department": "Statistics",
+      "division": "Science",
+      "catalog_year": "2026-2027",
+      "coid": 89931,
+      "source_url": "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89931",
+      "notes": []
+    }
+  ],
+  "sample_plans": [
+    {
+      "id": "csc-plan-1",
+      "program": "CSC-BA",
+      "label": "First Alternative, Including MAT 218 (Discrete Bridges)",
+      "source_url": "https://www.grinnell.edu/academics/advising/advising-guide/computer-science",
+      "semesters": [
+        {
+          "year": 1,
+          "term": "Fall",
+          "items": [
+            "CSC-151",
+            "MAT-131"
+          ]
+        },
+        {
+          "year": 1,
+          "term": "Spring",
+          "items": [
+            "CSC-161",
+            "MAT-133"
+          ]
+        },
+        {
+          "year": 2,
+          "term": "Fall",
+          "items": [
+            "CSC-213",
+            "MAT-215"
+          ]
+        },
+        {
+          "year": 2,
+          "term": "Spring",
+          "items": [
+            "CSC-207",
+            "MAT-218"
+          ]
+        },
+        {
+          "year": 3,
+          "term": "Fall",
+          "items": [
+            "study away"
+          ]
+        },
+        {
+          "year": 3,
+          "term": "Spring",
+          "items": [
+            "CSC-341"
+          ]
+        },
+        {
+          "year": 4,
+          "term": "Fall",
+          "items": [
+            "CSC-301",
+            "CSC-324"
+          ]
+        },
+        {
+          "year": 4,
+          "term": "Spring",
+          "items": [
+            "CSC elective"
+          ]
+        }
+      ],
+      "notes": "Source cell reads 'MAT133' (no space) in Year 1 Spring."
+    },
+    {
+      "id": "csc-plan-2",
+      "program": "CSC-BA",
+      "label": "Second Alternative, Including CSC/MAT 208 (Discrete Structures)",
+      "source_url": "https://www.grinnell.edu/academics/advising/advising-guide/computer-science",
+      "semesters": [
+        {
+          "year": 1,
+          "term": "Fall",
+          "items": [
+            "MAT-131"
+          ]
+        },
+        {
+          "year": 1,
+          "term": "Spring",
+          "items": [
+            "CSC-151",
+            "MAT-133"
+          ]
+        },
+        {
+          "year": 2,
+          "term": "Fall",
+          "items": [
+            "CSC-161"
+          ]
+        },
+        {
+          "year": 2,
+          "term": "Spring",
+          "items": [
+            "CSC-207",
+            "CSC-208"
+          ]
+        },
+        {
+          "year": 3,
+          "term": "Fall",
+          "items": [
+            "CSC-324",
+            "CSC elective"
+          ]
+        },
+        {
+          "year": 3,
+          "term": "Spring",
+          "items": [
+            "study away"
+          ]
+        },
+        {
+          "year": 4,
+          "term": "Fall",
+          "items": [
+            "CSC-301"
+          ]
+        },
+        {
+          "year": 4,
+          "term": "Spring",
+          "items": [
+            "CSC-341",
+            "CSC-211"
+          ]
+        }
+      ],
+      "notes": "Source writes 'MAT/CSC 208' in Year 2 Spring (cross-listed; encoded as CSC-208). Source: 'The following four-year plan illustrates that students can start computer science in the second semester, participate in off-campus study, and still complete the major.'"
+    }
+  ],
+  "divisions": {
+    "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6485",
+    "catalog_year": "2026-2027",
+    "also_checked": [
+      "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6358",
+      "https://www.grinnell.edu/academics/advising/advising-guide"
+    ],
+    "catalog_text": {
+      "Humanities": "Alternate Language Study Option (ALSO) Program, Art History, Chinese and Japanese, Classics, English, French and Arabic, German Studies, Music, Philosophy, Religious Studies, Russian, Spanish, Studio Art, and Theatre, Dance and Performance Studies.",
+      "Science": "Biological Chemistry, Biology, Chemistry, Computer Science, Library, Mathematics Laboratory, Mathematics, Science Learning Center, Physics, Psychology, and Statistics.",
+      "Social Studies": "African Diaspora Studies, Anthropology, Economics, Education, History, Physical Education, Political Science, Reading Laboratory, Sociology, and Writing, Reading and Speaking Center."
+    },
+    "advising_guide_grouping": {
+      "Humanities": [
+        "Arabic",
+        "Art History",
+        "Chinese and Japanese",
+        "Classics",
+        "English",
+        "French",
+        "German Studies",
+        "Music",
+        "Philosophy",
+        "Religious Studies",
+        "Russian",
+        "Spanish",
+        "Studio Art",
+        "Theatre, Dance, and Performance Studies"
+      ],
+      "Science": [
+        "Biological Chemistry",
+        "Biology",
+        "Chemistry",
+        "Computer Science",
+        "Mathematics",
+        "Physics",
+        "Psychology",
+        "Statistics"
+      ],
+      "Social Studies": [
+        "Anthropology",
+        "Economics",
+        "Education",
+        "History",
+        "Physical Education",
+        "Political Science",
+        "Religious Studies",
+        "Sociology"
+      ],
+      "Interdisciplinary Studies": [
+        "Gender, Women's, and Sexuality Studies"
+      ],
+      "Other": [
+        "Pre-Engineering",
+        "Pre-Health"
+      ]
+    },
+    "subject_codes_source": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6500 (course-search prefix list and per-prefix department headings)",
+    "codes": {
+      "ADS": {
+        "division": "Social Studies",
+        "department": "African Diaspora Studies",
+        "catalog_heading": "African Diaspora Studies",
+        "inferred": false,
+        "note": "Not in the user's list; catalog division page lists African Diaspora Studies under Social Studies, and the ADS course heading is 'African Diaspora Studies'. Not in the advising guide grouping."
+      },
+      "ALS": {
+        "division": "Humanities",
+        "department": "Alternate Language Study Option (ALSO) Program",
+        "catalog_heading": "Alternate Language Study Option",
+        "inferred": false,
+        "note": null
+      },
+      "AMS": {
+        "division": "interdisciplinary",
+        "department": "American Studies (concentration)",
+        "catalog_heading": "American Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "ANT": {
+        "division": "Social Studies",
+        "department": "Anthropology",
+        "catalog_heading": "Anthropology",
+        "inferred": false,
+        "note": null
+      },
+      "ARB": {
+        "division": "Humanities",
+        "department": "French and Arabic",
+        "catalog_heading": "Arabic",
+        "inferred": false,
+        "note": null
+      },
+      "ARH": {
+        "division": "Humanities",
+        "department": "Art History",
+        "catalog_heading": "ARH: History and Theory",
+        "inferred": false,
+        "note": null
+      },
+      "ART": {
+        "division": "Humanities",
+        "department": "Studio Art",
+        "catalog_heading": "Art: Studio",
+        "inferred": false,
+        "note": "Catalog heading 'Art: Studio'; Art History uses prefix ARH (heading 'ARH: History and Theory')."
+      },
+      "ASC": {
+        "division": null,
+        "department": "Academic Skills Course",
+        "catalog_heading": "Academic Skills Course",
+        "inferred": true,
+        "note": "Catalog heading 'Academic Skills Course'; no division stated."
+      },
+      "BCM": {
+        "division": "Science",
+        "department": "Biological Chemistry",
+        "catalog_heading": "Biological Chemistry",
+        "inferred": false,
+        "note": null
+      },
+      "BIO": {
+        "division": "Science",
+        "department": "Biology",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "CHI": {
+        "division": "Humanities",
+        "department": "Chinese and Japanese",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": "Chinese and Japanese credits count as separate departments for the 48-credit limit (Academic Policies)."
+      },
+      "CHM": {
+        "division": "Science",
+        "department": "Chemistry",
+        "catalog_heading": "Chemistry",
+        "inferred": false,
+        "note": null
+      },
+      "CLS": {
+        "division": "Humanities",
+        "department": "Classics",
+        "catalog_heading": "Classics (in Translation), Archaeology and Anthropology, Ancient History, Philosophy, and Linguistics",
+        "inferred": false,
+        "note": null
+      },
+      "CSC": {
+        "division": "Science",
+        "department": "Computer Science",
+        "catalog_heading": "Computer Science",
+        "inferred": false,
+        "note": null
+      },
+      "DST": {
+        "division": "interdisciplinary",
+        "department": "Digital Studies (concentration)",
+        "catalog_heading": "Digital Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "EAS": {
+        "division": "interdisciplinary",
+        "department": "East Asian Studies (concentration)",
+        "catalog_heading": "East Asian Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "ECN": {
+        "division": "Social Studies",
+        "department": "Economics",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "EDU": {
+        "division": "Social Studies",
+        "department": "Education",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "ENG": {
+        "division": "Humanities",
+        "department": "English",
+        "catalog_heading": "English",
+        "inferred": false,
+        "note": null
+      },
+      "ENV": {
+        "division": "interdisciplinary",
+        "department": "Environmental Studies (concentration)",
+        "catalog_heading": "Environmental Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "ESC": {
+        "division": "interdisciplinary",
+        "department": "European Studies (concentration)",
+        "catalog_heading": "European Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "EST": {
+        "division": "interdisciplinary",
+        "department": "Education Studies (concentration)",
+        "catalog_heading": "Education",
+        "inferred": true,
+        "note": "Catalog heading for EST is 'Education'; EST 350 is an Education Studies seminar. Concentration; division not stated."
+      },
+      "FMS": {
+        "division": "interdisciplinary",
+        "department": "Film and Media Studies (concentration)",
+        "catalog_heading": "Other Courses",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "FRN": {
+        "division": "Humanities",
+        "department": "French and Arabic",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "GDS": {
+        "division": "interdisciplinary",
+        "department": "Global Development Studies (concentration)",
+        "catalog_heading": "Global Development Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "GLS": {
+        "division": "interdisciplinary",
+        "department": "General Literary Studies Program",
+        "catalog_heading": "General Literary Studies",
+        "inferred": true,
+        "note": "Listed among additional academic programs; division not stated."
+      },
+      "GRE": {
+        "division": "Humanities",
+        "department": "Classics",
+        "catalog_heading": "Greek",
+        "inferred": true,
+        "note": "Catalog heading 'Greek'; assigning Greek to the Classics department is an inference."
+      },
+      "GRM": {
+        "division": "Humanities",
+        "department": "German Studies",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "GWS": {
+        "division": "interdisciplinary",
+        "department": "Gender, Women's, and Sexuality Studies",
+        "catalog_heading": "Gender, Women’s, and Sexuality Studies",
+        "inferred": false,
+        "note": "Catalog: an interdivisional major program; advising guide: Interdisciplinary Studies."
+      },
+      "HIS": {
+        "division": "Social Studies",
+        "department": "History",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "HUM": {
+        "division": "Humanities",
+        "department": "Humanities divisional course offerings",
+        "catalog_heading": "Humanities",
+        "inferred": true,
+        "note": "Catalog lists 'Humanities and Social Studies, divisional course offerings' as an additional program; HUM -> Humanities is an inference from the heading."
+      },
+      "INT": {
+        "division": null,
+        "department": "Internship",
+        "catalog_heading": "Internship",
+        "inferred": true,
+        "note": "Catalog heading 'Internship'; no division stated."
+      },
+      "JPN": {
+        "division": "Humanities",
+        "department": "Chinese and Japanese",
+        "catalog_heading": "Japanese",
+        "inferred": false,
+        "note": "Chinese and Japanese credits count as separate departments for the 48-credit limit (Academic Policies)."
+      },
+      "LAS": {
+        "division": "interdisciplinary",
+        "department": "Latin American Studies (concentration)",
+        "catalog_heading": "Latin American Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "LAT": {
+        "division": "Humanities",
+        "department": "Classics",
+        "catalog_heading": "Latin",
+        "inferred": true,
+        "note": "Catalog heading 'Latin'; assigning Latin to the Classics department is an inference."
+      },
+      "LIN": {
+        "division": "interdisciplinary",
+        "department": "Linguistics (concentration)",
+        "catalog_heading": "Linguistics",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "MAT": {
+        "division": "Science",
+        "department": "Mathematics and Statistics",
+        "catalog_heading": "Mathematics and Statistics",
+        "inferred": false,
+        "note": "MAT 100 is listed under the 'Mathematics Laboratory' heading, also in the Science division."
+      },
+      "MUS": {
+        "division": "Humanities",
+        "department": "Music",
+        "catalog_heading": "Music",
+        "inferred": false,
+        "note": null
+      },
+      "MUZ": {
+        "division": "Humanities",
+        "department": "Music",
+        "catalog_heading": "Music",
+        "inferred": true,
+        "note": "Catalog heading 'Music' (private/group performance instruction, MUZ 120/122); mapped to the Music department."
+      },
+      "NRS": {
+        "division": "interdisciplinary",
+        "department": "Neuroscience (concentration)",
+        "catalog_heading": "Neuroscience",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "PCS": {
+        "division": "interdisciplinary",
+        "department": "Peace and Conflict Studies (concentration)",
+        "catalog_heading": "Peace and Conflict Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "PHE": {
+        "division": "Social Studies",
+        "department": "Physical Education",
+        "catalog_heading": "Physical Education: Activity Program Courses",
+        "inferred": false,
+        "note": null
+      },
+      "PHI": {
+        "division": "Humanities",
+        "department": "Philosophy",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "PHY": {
+        "division": "Science",
+        "department": "Physics",
+        "catalog_heading": "Physics",
+        "inferred": false,
+        "note": null
+      },
+      "POL": {
+        "division": "Social Studies",
+        "department": "Political Science",
+        "catalog_heading": "Political Science",
+        "inferred": false,
+        "note": null
+      },
+      "PST": {
+        "division": "interdisciplinary",
+        "department": "Policy Studies (concentration)",
+        "catalog_heading": "Policy Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "PSY": {
+        "division": "Science",
+        "department": "Psychology",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "REL": {
+        "division": "Humanities",
+        "department": "Religious Studies",
+        "catalog_heading": "Religious Studies",
+        "inferred": false,
+        "note": "The advising guide lists Religious Studies under both Humanities and Social Studies; the catalog division page lists it under Humanities only."
+      },
+      "RES": {
+        "division": "interdisciplinary",
+        "department": "Russian, Central, and Eastern European Studies (concentration)",
+        "catalog_heading": "Russian, Central, and Eastern European Studies",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "RUS": {
+        "division": "Humanities",
+        "department": "Russian",
+        "catalog_heading": "Russian",
+        "inferred": false,
+        "note": null
+      },
+      "SAM": {
+        "division": "interdisciplinary",
+        "department": "Studies in Africa, the Middle East, and South Asia (concentration)",
+        "catalog_heading": "Special Topics-Spring",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "SCI": {
+        "division": "interdisciplinary",
+        "department": "General Science",
+        "catalog_heading": "Science",
+        "inferred": true,
+        "note": "Catalog headings 'Science'/'Science Laboratory'; General Science is an interdepartmental major program. Division assignment of SCI courses not stated."
+      },
+      "SMS": {
+        "division": "interdisciplinary",
+        "department": "Science, Medicine & Society (concentration)",
+        "catalog_heading": "Science, Medicine, and Society",
+        "inferred": true,
+        "note": "Concentration prefix; the catalog does not assign concentrations to a division. 'interdisciplinary' is our label."
+      },
+      "SOC": {
+        "division": "Social Studies",
+        "department": "Sociology",
+        "catalog_heading": "Sociology",
+        "inferred": false,
+        "note": null
+      },
+      "SPN": {
+        "division": "Humanities",
+        "department": "Spanish",
+        "catalog_heading": "Other Courses",
+        "inferred": false,
+        "note": null
+      },
+      "SST": {
+        "division": "Social Studies",
+        "department": "Social Studies divisional course offerings",
+        "catalog_heading": "Social Studies",
+        "inferred": true,
+        "note": "Heading 'Social Studies'; inference as for HUM. SST 115 Introduction to Statistics is here."
+      },
+      "STA": {
+        "division": "Science",
+        "department": "Statistics",
+        "catalog_heading": "Statistics",
+        "inferred": false,
+        "note": null
+      },
+      "THD": {
+        "division": "Humanities",
+        "department": "Theatre, Dance and Performance Studies",
+        "catalog_heading": "Special Topics-Fall",
+        "inferred": false,
+        "note": null
+      },
+      "WIL": {
+        "division": null,
+        "department": "Wilson Center",
+        "catalog_heading": "Special Topics-Fall",
+        "inferred": true,
+        "note": "Catalog heading 'Wilson Center'; no division stated."
+      },
+      "WRT": {
+        "division": "Social Studies",
+        "department": "Writing, Reading and Speaking Center",
+        "catalog_heading": "Writing Laboratory",
+        "inferred": true,
+        "note": "Catalog heading 'Writing Laboratory'; mapping to the Writing, Reading and Speaking Center (Social Studies) is an inference. Academic skills courses do not count toward divisional distribution for Phi Beta Kappa."
+      }
+    },
+    "notes": [
+      "Division of an individual course is designated by the Office of the Registrar; cross-listed courses can carry either division (Academic Policies, Phi Beta Kappa section).",
+      "All AP/IB/A-level/CAPE credits are counted as Divisional credit and are not subject to the 48 credit departmental limit."
+    ]
+  },
+  "policies": [
+    {
+      "id": "graduation-core",
+      "category": "graduation",
+      "values": {
+        "min_total_credits": 124,
+        "min_cumulative_gpa": 2.0,
+        "requires": [
+          "tutorial",
+          "major",
+          "residency"
+        ]
+      },
+      "text": "To be eligible for graduation, a student must have at least 124 credits, a 2.00 cumulative grade point average (GPA), and must have satisfactorily completed the tutorial and a departmental, interdepartmental or independent major and the College residency requirement.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "max-department-credits",
+      "category": "credit_limits",
+      "values": {
+        "max_credits_one_department": 48,
+        "chinese_japanese_separate": true
+      },
+      "text": "48 credits in any one department (For the purposes of this requirement, Chinese and Japanese credits are to be considered as belonging to separate departments.)",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "max-division-credits",
+      "category": "credit_limits",
+      "values": {
+        "max_credits_one_division": 92
+      },
+      "text": "92 credits in any one division",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "max-practica",
+      "category": "credit_limits",
+      "values": {
+        "max_practica_credits": 8,
+        "max_phe_practica_credits": 4,
+        "practica_courses": [
+          "MUS-101",
+          "PHE-100",
+          "PHE-101",
+          "THD-100",
+          "THD-101",
+          "THD-200",
+          "THD-201",
+          "THD-203"
+        ]
+      },
+      "text": "8 practica credits with no more than 4 credits in Physical Education (PHE 100 or PHE 101) Practica credits include: MUS 101, PHE 100, PHE 101, THD 100, THD 101, THD 200, THD 201, THD 203",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "max-performance",
+      "category": "credit_limits",
+      "values": {
+        "max_performance_credits": 16,
+        "performance_courses": [
+          "MUS-120",
+          "MUS-122",
+          "MUS-220",
+          "MUS-221",
+          "MUS-320",
+          "MUS-420",
+          "THD-102",
+          "THD-202"
+        ]
+      },
+      "text": "16 credits in performance Performance credits include: MUS 120, MUS 122, MUS 220, MUS 221, MUS 320, MUS 420, THD 102, THD 202",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "max-music-per-semester",
+      "category": "credit_limits",
+      "values": {
+        "max_credits_per_semester": 6,
+        "courses": [
+          "MUS-101",
+          "MUS-120",
+          "MUS-122",
+          "MUS-220",
+          "MUS-221",
+          "MUS-320",
+          "MUS-420"
+        ]
+      },
+      "text": "6 credits in Music 101, 120, 122, 220, 221, 320, and 420 in any one semester",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "max-individual-study",
+      "category": "credit_limits",
+      "values": {
+        "max_credits_per_department": 12,
+        "course_numbers": [
+          "Plus-2",
+          297,
+          299,
+          387,
+          397,
+          399,
+          499
+        ]
+      },
+      "text": "12 credits of individual study work (Plus-2, 297, 299, 387, 397, 399, and 499) in one department",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "max-internship",
+      "category": "credit_limits",
+      "values": {
+        "max_internship_credits": 5,
+        "course_number": 300
+      },
+      "text": "5 credits of internship study (300)",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "max-d-grades",
+      "category": "credit_limits",
+      "values": {
+        "max_d_credits_toward_124": 16
+      },
+      "text": "A maximum of 16 credits of “D” grades may count toward satisfying the 124-credit graduation requirement.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "major-min-grade",
+      "category": "major",
+      "values": {
+        "min_grade_for_major": "C",
+        "applies_to_cognates": true
+      },
+      "text": "No credit with a grade below “C” may count toward the satisfaction of any requirement for a major or an interdisciplinary concentration. (This includes all extra-departmental and cognate courses.)",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "prereq-min-grade",
+      "category": "prerequisites",
+      "values": {
+        "min_grade_to_satisfy_prereq": "C",
+        "d_or_f_needs_instructor_approval": true
+      },
+      "text": "A grade of “C” or better is necessary to satisfy a prerequisite for a higher-level course. Instructor’s approval is required to add a course with a prerequisite in which the student received a “D” or “F”.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "sdf-not-for-major",
+      "category": "major",
+      "values": {
+        "sdf_counts_toward_major": false
+      },
+      "text": "Any course graded on the “S/D/F” basis does not count toward the minimum credit requirement for the major or interdisciplinary concentration, nor does it fulfill any specific major or concentration course requirement.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "sdf-major-field",
+      "category": "major",
+      "values": {
+        "major_field_course_sdf_allowed": false
+      },
+      "text": "A course in the student’s major field cannot be elected for grading on the “S/D/F” basis.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "sdf-limit",
+      "category": "grading",
+      "values": {
+        "max_sdf_credits_per_semester": 6
+      },
+      "text": "A student may elect no more than 6 credits of “S/D/F” grading per semester. This credit limit does not include 1-credit courses such as practica and all 1- or 2-credit courses offered only “S/D/F.”",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "tutorial",
+      "category": "first_year",
+      "values": {
+        "semester": null,
+        "semester_note": "The Academic Policies and Tutorials catalog pages say all entering first-year students take the tutorial but do not name the semester.",
+        "min_grade": "C",
+        "sdf_allowed": false,
+        "graded": "A-F",
+        "credits": 4
+      },
+      "text": "The tutorial is graded on an “A” through “F” basis with no S/D/F option. ... A student must complete the tutorial with a grade of “C” or higher to meet the tutorial graduation requirement and to be eligible to enroll in individual study work (Plus-2, 297, 299, 387, 397, 399, and 499) and internships (300).",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "tutorial-required",
+      "category": "first_year",
+      "values": {
+        "taken_by": "all entering first-year students"
+      },
+      "text": "All entering first-year students are required to take the tutorial.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "fye",
+      "category": "first_year",
+      "values": {
+        "course": "FYE-100",
+        "typical_semester": 2,
+        "grading": "S/D/F",
+        "repeatable": false
+      },
+      "text": "Students select an FYE Course section from those offered in their first year, typically in the spring semester. Most students will take the course in their second semester on campus. ... The First-Year Experience Course is graded on an S/D/F basis. ... The FYE Course may not be repeated, making grades of “D” or “F” final.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "major-min-credits",
+      "category": "major",
+      "values": {
+        "typical_min_credits": 32,
+        "max_cognate_credits": 8
+      },
+      "text": "Most major programs require a minimum of 32 credits but may include more. At the department’s discretion and approval, up to 8 credits from related fields (cognates) may be counted toward the major.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "declare-major",
+      "category": "major",
+      "values": {
+        "declare_before": "preregistration for the fifth semester"
+      },
+      "text": "A student declares a major prior to preregistration for the fifth semester (typically during the spring semester of the second year) and is held to all major requirements in effect at the time of declaration.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "double-major-sharing",
+      "category": "major",
+      "values": {
+        "shared_credits_between_majors": 0,
+        "max_shared_major_concentration_credits": 8
+      },
+      "text": "In the case of a second or “double” major, no credits are allowed to be shared with the other major. When a concentration and a major are related, up to 8 credits of work included in a student’s major may also be counted toward the concentration. In the case of a second or “double” concentration, no credits are allowed to be shared with the other concentration. Only up to 8 credits total may be shared between all majors and all concentrations.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "load-min-normal",
+      "category": "course_load",
+      "values": {
+        "min_credits_per_semester": 12,
+        "normal_credits_per_semester": 16
+      },
+      "text": "The minimum course load for degree-seeking students is 12 credits per semester. However, normal scholarly progress for students expecting to graduate from Grinnell in eight semesters requires a course load of 16 credits per semester.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "load-max",
+      "category": "course_load",
+      "values": {
+        "approval_required_above": 18,
+        "excluded_from_count": [
+          "MUS-101",
+          "MUS-120",
+          "MUS-122",
+          "MUS-220",
+          "MUS-221",
+          "MUS-320",
+          "MUS-420",
+          "PHE-100",
+          "PHE-101",
+          "FYE-100"
+        ],
+        "excluded_categories": [
+          "musical group performance",
+          "studio instruction in music",
+          "physical education activities",
+          "varsity sports",
+          "FYE: Connections"
+        ]
+      },
+      "text": "Approval from the Office of the Registrar is required to carry a semester course load of more than 18 credits. Students registered for more than 18 credits per term are billed the per credit rate for the credits in excess of 18. Musical group performance, studio instruction in music, physical education activities, varsity sports, and FYE: Connections (MUS 101, MUS 120, MUS 122, MUS 220, MUS 221, MUS 320, MUS 420, PHE 100, PHE 101, and FYE-100) are not counted when determining credits in excess of 18.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "load-below-min",
+      "category": "course_load",
+      "values": {
+        "approval_required_below": 12
+      },
+      "text": "Approval from the Office of the Registrar is required for degree-seeking students to carry a semester course load of less than the 12 credit minimum.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "load-floor-8",
+      "category": "course_load",
+      "values": {
+        "expected_floor": 8
+      },
+      "text": "Grinnell expects degree-seeking students to maintain a minimum of 8 credits, unless they are enrolled in a ninth semester.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "first-year-division-guideline",
+      "category": "first_year",
+      "values": {
+        "max_full_courses_one_division_per_semester": 2,
+        "guideline": true
+      },
+      "text": "The student should take courses in each of the three main divisions of the curriculum – humanities, science, and social studies – and should take no more than two full courses in any one division in any semester.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "repeat",
+      "category": "repeat",
+      "values": {
+        "repeat_allowed_after": [
+          "D",
+          "F"
+        ],
+        "repeat_after_C_or_better": "requires Committee on Academic Standing approval; typically not granted",
+        "counts": "second attempt only",
+        "sdf_on_repeat": false
+      },
+      "text": "A student may repeat any course in which they have earned a grade of “D” or “F”. For any repeated course, only the grade and credits earned the second time are counted toward graduation or in the student’s grade-point average, but the first attempt remains on the student’s transcript. A student must have approval from the Committee on Academic Standing to repeat a course for which a student has earned a grade of “C” or better.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "withdraw-w",
+      "category": "grading",
+      "values": {
+        "w_credit": 0,
+        "w_in_gpa": false,
+        "w_window": "Monday of week 3 through 5:00 p.m. Friday of week 9"
+      },
+      "text": "From Monday of the third full week of classes through 5:00p.m. on Friday of the ninth week of the semester, a student may withdraw from a course with a grade of “W.” The grade of “W” indicates that a student withdrew from a course without credit or academic penalty, and the “W” grade is not calculated into the term or cumulative grade point average.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "residency",
+      "category": "residency",
+      "values": {
+        "total_semesters_at_min_load": 8,
+        "min_semesters_in_residence_first_year_entrants": 6,
+        "ocs_semesters_counting_toward_6": 1
+      },
+      "text": "All students are expected to complete eight college semesters at the minimum semester course load, a specified number of which must be in residence at Grinnell. ... Students who enter Grinnell as first-semester first-year students or who transfer to Grinnell as second-semester first-year students are required to complete at least six semesters at the minimum semester course load in residence at Grinnell. (See the table below.) One semester of approved off-campus study may count toward the six- semester residency requirement.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "off-campus-semesters",
+      "category": "residency",
+      "values": {
+        "table": [
+          {
+            "semesters_at_grinnell": 4,
+            "off_campus_semesters_permitted": 1,
+            "clarification": "Must be GIL off campus study"
+          },
+          {
+            "semesters_at_grinnell": 5,
+            "off_campus_semesters_permitted": 2,
+            "clarification": "1 OCS and 1 GIL"
+          },
+          {
+            "semesters_at_grinnell": 6,
+            "off_campus_semesters_permitted": 2,
+            "clarification": "2 OCS or 1 OCS and 1 GIL"
+          },
+          {
+            "semesters_at_grinnell": 7,
+            "off_campus_semesters_permitted": 2,
+            "clarification": "2 OCS or 1 OCS and 1 GIL"
+          },
+          {
+            "semesters_at_grinnell": 8,
+            "off_campus_semesters_permitted": 2,
+            "clarification": "2 OCS or 1 OCS and 1 GIL"
+          }
+        ],
+        "legend": "OCS = Off campus study, GIL is Grinnell sponsored OCS"
+      },
+      "text": "OCS = Off campus study, GIL is Grinnell sponsored OCS",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "yearlong-ocs",
+      "category": "residency",
+      "values": {
+        "yearlong_ocs_semesters_counting_toward_residency": 1
+      },
+      "text": "For students approved for yearlong off campus programs, only one semester of off campus study will count toward the residency requirement, although the credits from both semesters will be accepted.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "transfer-ap-limit",
+      "category": "transfer_ap",
+      "values": {
+        "max_pre_post_matriculation_credits_first_year_entrants": 24,
+        "includes": [
+          "AP",
+          "IB",
+          "A-level",
+          "CAPE",
+          "college credits"
+        ]
+      },
+      "text": "First-year, first-time freshman are limited to a maximum of 24 pre and post-matriculation credits (AP, IB, A-level, CAPE, college credits).",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "ap-credit-rules",
+      "category": "transfer_ap",
+      "values": {
+        "credits_per_qualifying_exam": 4,
+        "divisional_not_departmental": true,
+        "counts_toward_124": true,
+        "cancelled_by_equivalent_course_grade": "D or better"
+      },
+      "text": "A student entering Grinnell will be granted four semester credits for each qualifying exam as indicated on Office of the Registrar’s website. ... All AP/IB/A-level/CAPE credits are counted as Divisional credit and are not subject to the 48 credit departmental limit. ... AP/IB/A-level/CAPE credits awarded count toward the 124 credits required for the degree. ... AP/IB/A-level/CAPE scores and corresponding credit will be cancelled upon successful completion (“D” grade or better) of any equivalent Grinnell course.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "ap-major",
+      "category": "transfer_ap",
+      "values": {
+        "ap_counts_toward_major": "only if the Registrar website indicates 'For major credit'"
+      },
+      "text": "AP/IB/A-level/CAPE credits count toward the 32 or 34 credits required for a major only if the website indicates “For major credit”.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "ocs-transfer-exclusion",
+      "category": "transfer_ap",
+      "values": {
+        "one_semester_ocs_credits_excluded_from_24": true
+      },
+      "text": "For students with an approved program to study off campus for one semester, the program credits are excluded from the 24-limit of transfer credits and the semester off-campus is counted toward the residency requirement.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "honors",
+      "category": "graduation",
+      "values": {
+        "min_major_gpa": 3.5,
+        "min_cumulative_gpa": 3.4
+      },
+      "text": "have achieved at least a 3.50 grade point average in the major field and a cumulative grade point average of at least 3.40.",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    },
+    {
+      "id": "normal-scholarly-progress",
+      "category": "academic_standing",
+      "values": {
+        "table": [
+          {
+            "semester": 1,
+            "min_credits": 12,
+            "min_gpa": 1.7
+          },
+          {
+            "semester": 2,
+            "min_credits": 28,
+            "min_gpa": 1.8
+          },
+          {
+            "semester": 3,
+            "min_credits": 44,
+            "min_gpa": 1.9
+          },
+          {
+            "semester": 4,
+            "min_credits": 60,
+            "min_gpa": 2.0
+          },
+          {
+            "semester": 5,
+            "min_credits": 76,
+            "min_gpa": 2.0
+          },
+          {
+            "semester": 6,
+            "min_credits": 92,
+            "min_gpa": 2.0
+          },
+          {
+            "semester": 7,
+            "min_credits": 108,
+            "min_gpa": 2.0
+          },
+          {
+            "semester": 8,
+            "min_credits": 124,
+            "min_gpa": 2.0
+          }
+        ]
+      },
+      "text": "A student is making Normal Scholarly Progress toward graduation if they have earned the credits and cumulative grade point average listed below by the end of each specified semester at Grinnell:",
+      "source_url": "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6499",
+      "catalog_year": "2026-2027",
+      "same_text_in_2025_2026": true,
+      "source_url_2025_2026": "https://catalog.grinnell.edu/content.php?catoid=38&navoid=6372"
+    }
+  ],
+  "discrepancies": [
+    {
+      "topic": "CSC 213 prerequisite",
+      "finding": "CSC 213 requires only 'CSC 161 with grade S, C, or better.' (2026-2027 and 2025-2026). It does not require CSC 211 or CSC 207. CSC 211 also requires only CSC 161. Sample plan 1 schedules CSC 213 in Year 2 Fall, before CSC 207.",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88109",
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=38&coid=85726",
+        "https://www.grinnell.edu/academics/advising/advising-guide/computer-science"
+      ]
+    },
+    {
+      "topic": "MAT 218 title",
+      "finding": "MAT 218 is 'Discrete Bridges to Advanced Mathematics'; 'Bridges to Advanced Mathematics' is MAT 222. The math advising guide lists 'Bridges to Advanced Mathematics (MAT 218 or MAT 222)'. MAT 218 requires MAT 215.",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88312",
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88314",
+        "https://www.grinnell.edu/academics/advising/advising-guide/mathematics"
+      ]
+    },
+    {
+      "topic": "MAT 316 / MAT 321 prerequisite",
+      "finding": "Catalog prerequisite is 'MAT 218 or MAT 222 , with grade S, C, or better.' MAT 215 is not listed directly (it is a prerequisite of MAT 218/222).",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88321",
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88322"
+      ]
+    },
+    {
+      "topic": "MAT 444 prerequisite",
+      "finding": "Catalog: 'Will vary depending on topic.' Math course-sequence page: 'with both 316 and 321 as prerequisites'. The 2026-2027 section (Experimental Mathematics) requires MAT 316, MAT 321 recommended.",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88325",
+        "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      ]
+    },
+    {
+      "topic": "MAT/STA 335 prerequisite",
+      "finding": "Catalog: 'MAT 215 ; and STA 209 , MAT 218 , or MAT 220'. Math course-sequence page: 'two of the following courses as prerequisites: 209, 215, 218, 220, 222'.",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88323",
+        "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      ]
+    },
+    {
+      "topic": "MAT/STA 330 prerequisite",
+      "finding": "Catalog: 'CSC 207 and STA 230 , MAT 306 , or STA 310'. Math course-sequence page: 'Computer Science 207 and one of 320, 306, and 310' ('320' looks like a typo for 230).",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=89276",
+        "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      ]
+    },
+    {
+      "topic": "STA 309 offering",
+      "finding": "Catalog: '(Spring)' with 'Not offered every year. Offered in alternate years.' Math course-sequence page: '309: Design of Experiments (taught every spring)'.",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88318",
+        "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      ]
+    },
+    {
+      "topic": "STA 209 prerequisite",
+      "finding": "2026-2027: 'MAT 125 or MAT 131'. 2025-2026: 'MAT 124 or MAT 131'. Math course-sequence page: 'requires 131: Calculus I'.",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88310",
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=38&coid=85927",
+        "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      ]
+    },
+    {
+      "topic": "MAT 208 vs CSC 208 offering",
+      "finding": "MAT 208 page: (Spring). Cross-listed CSC 208 page: (Fall and Spring).",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88560",
+        "https://catalog.grinnell.edu/preview_course_nopop.php?catoid=39&coid=88553"
+      ]
+    },
+    {
+      "topic": "CSC 313 / CSC 315",
+      "finding": "Listed as regular 300-level courses on the CS advising guide, but absent from the 2026-2027 and 2025-2026 catalog CSC course search results.",
+      "sources": [
+        "https://www.grinnell.edu/academics/advising/advising-guide/computer-science",
+        "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6500"
+      ]
+    },
+    {
+      "topic": "CS major discrete/math requirement",
+      "finding": "The 2026-2027 catalog already requires one of MAT 208/CSC 208/MAT 218 plus a Math elective (above MAT 131 or a listed STA course). The advising guide frames this as two prerequisite paths and says Fall 2027 changes will likely remove the MAT 131 -> CSC 208 path.",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_program.php?catoid=39&poid=2835",
+        "https://www.grinnell.edu/academics/advising/advising-guide/computer-science"
+      ]
+    },
+    {
+      "topic": "Math major exclusions",
+      "finding": "Catalog excludes 'Courses numbered 297, 299, 397, 399, 499 (MAPs), plus-2's and below 131'. Course-sequence page says '32 credits (not including MAT-115, MAPs, or independent studies)'.",
+      "sources": [
+        "https://catalog.grinnell.edu/preview_program.php?catoid=39&poid=2851",
+        "https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence"
+      ]
+    },
+    {
+      "topic": "Religious Studies division",
+      "finding": "Advising guide lists Religious Studies under both Humanities and Social Studies; catalog lists it under Humanities.",
+      "sources": [
+        "https://www.grinnell.edu/academics/advising/advising-guide",
+        "https://catalog.grinnell.edu/content.php?catoid=39&navoid=6485"
+      ]
+    }
+  ]
+}

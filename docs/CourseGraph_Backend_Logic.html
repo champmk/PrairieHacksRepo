@@ -1,0 +1,256 @@
+<meta charset="utf-8">
+<title>CourseGraph Backend Logic</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+<style>
+  /* Layout: one dense engineering sheet. A full-width pipeline, then a two-column grid of panels. Black and white only. */
+  :root {
+    --ink: #0b0b0b; --ink-2: #4a4a4a; --ink-3: #8a8a8a; --line: #d4d4d4; --wash: #f4f4f4; --paper: #ffffff;
+    --sans: Inter, "Segoe UI", system-ui, -apple-system, Helvetica, Arial, sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, Menlo, monospace;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html { background: var(--paper); }
+  body {
+    margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); font-size: 13px; line-height: 1.45;
+    padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 28px 40px;
+  }
+  .sheet { max-width: 1120px; margin: 0 auto; display: grid; gap: 18px; }
+  header { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+  h1 { font-size: 22px; margin: 0; letter-spacing: -0.01em; text-wrap: balance; }
+  .sub { color: var(--ink-2); margin: 0; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .panel { min-width: 0; border-top: 1px solid var(--ink); padding-top: 8px; }
+  .panel h2 { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; margin: 0 0 6px; font-weight: 700; }
+  .panel p { margin: 4px 0 0; color: var(--ink-2); }
+  .full { grid-column: 1 / -1; }
+  .fig { overflow-x: auto; }
+  .fig svg { display: block; width: 100%; height: auto; min-width: 520px; }
+  .fig.wide svg { min-width: 760px; }
+  svg text { font-family: var(--sans); fill: var(--ink); }
+  svg .q { fill: var(--ink-2); }
+  svg .m { font-family: var(--mono); }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th, td { text-align: left; padding: 4px 6px 4px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-2); }
+  td:first-child { font-weight: 600; white-space: nowrap; }
+  .tbl { overflow-x: auto; }
+  ul.rules { margin: 0; padding: 0; list-style: none; display: grid; gap: 3px; }
+  ul.rules li { display: grid; grid-template-columns: 74px 1fr; gap: 8px; }
+  ul.rules b { font-variant-numeric: tabular-nums; }
+  code { font-family: var(--mono); font-size: 12px; }
+  .api { display: grid; gap: 3px; }
+  .api div { display: grid; grid-template-columns: 210px 1fr; gap: 8px; }
+  .api code { font-weight: 600; }
+  .src { color: var(--ink-3); font-size: 11px; border-top: 1px solid var(--line); padding-top: 8px; }
+  .src a { color: var(--ink-2); }
+  @media (max-width: 760px) {
+    .grid { grid-template-columns: 1fr; }
+    .api div { grid-template-columns: 1fr; }
+  }
+</style>
+
+<main class="sheet">
+  <header>
+    <h1>CourseGraph backend logic</h1>
+    <p class="sub">One pure function: plan = f(student, majors, edits). Same input, same output. Catalog: Grinnell 2026–27.</p>
+  </header>
+
+  <!-- PIPELINE -->
+  <section class="panel full">
+    <h2>Recalculation pipeline · runs on every edit</h2>
+    <div class="fig wide">
+      <svg viewBox="0 0 1040 170" role="img" aria-label="Three inputs flow through four stages into the plan response">
+        <defs><marker id="a1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b0b0b"/></marker></defs>
+        <g fill="none" stroke="#0b0b0b" stroke-width="1.2">
+          <rect x="0" y="12" width="168" height="42" rx="6"/><rect x="0" y="64" width="168" height="42" rx="6"/><rect x="0" y="116" width="168" height="42" rx="6"/>
+          <path d="M168 33H186V90H206" marker-end="url(#a1)"/><path d="M168 85H206"/><path d="M168 137H186V90"/>
+          <rect x="210" y="46" width="150" height="88" rx="6"/><rect x="384" y="46" width="150" height="88" rx="6"/><rect x="558" y="46" width="150" height="88" rx="6"/><rect x="732" y="46" width="150" height="88" rx="6"/>
+          <path d="M360 90H380" marker-end="url(#a1)"/><path d="M534 90H554" marker-end="url(#a1)"/><path d="M708 90H728" marker-end="url(#a1)"/><path d="M882 90H902" marker-end="url(#a1)"/>
+          <rect x="906" y="46" width="134" height="88" rx="6" stroke-width="2.2"/>
+        </g>
+        <text x="12" y="30" font-size="12" font-weight="600">Student database</text><text x="12" y="46" font-size="10.5" class="q">completed · current · planned</text>
+        <text x="12" y="82" font-size="12" font-weight="600">Catalog + COLSS</text><text x="12" y="98" font-size="10.5" class="q">courses · prereqs · sections</text>
+        <text x="12" y="134" font-size="12" font-weight="600">Major programs</text><text x="12" y="150" font-size="10.5" class="q">requirements · 4-year route</text>
+        <text x="222" y="68" font-size="12" font-weight="700">1 · Ledger</text><text x="222" y="86" font-size="11" class="q">count what counts</text><text x="222" y="102" font-size="11" class="q">W, F, repeats, caps</text><text x="222" y="118" font-size="11" class="q">AP, cross-lists</text>
+        <text x="396" y="68" font-size="12" font-weight="700">2 · Match</text><text x="396" y="86" font-size="11" class="q">requirement slots</text><text x="396" y="102" font-size="11" class="q">↔ courses held</text><text x="396" y="118" font-size="11" class="q">bipartite matching</text>
+        <text x="570" y="68" font-size="12" font-weight="700">3 · Distribute</text><text x="570" y="86" font-size="11" class="q">place R tablets</text><text x="570" y="102" font-size="11" class="q">route + prereq order</text><text x="570" y="118" font-size="11" class="q">offer terms, load</text>
+        <text x="744" y="68" font-size="12" font-weight="700">4 · Validate</text><text x="744" y="86" font-size="11" class="q">prereqs, coreqs</text><text x="744" y="102" font-size="11" class="q">offerings, load, caps</text><text x="744" y="118" font-size="11" class="q">warnings + arrows</text>
+        <text x="918" y="68" font-size="12" font-weight="700">Plan response</text><text x="918" y="86" font-size="11" class="q">nodes · tablets</text><text x="918" y="102" font-size="11" class="q">edges · warnings</text><text x="918" y="118" font-size="11" class="q">progress · totals</text>
+      </svg>
+    </div>
+  </section>
+
+  <div class="grid">
+    <!-- DATA MODEL -->
+    <section class="panel">
+      <h2>Student database</h2>
+      <div class="fig">
+        <svg viewBox="0 0 540 212" role="img" aria-label="Six tables: students, enrollments, courses, sections, programs, plan edits">
+          <g fill="none" stroke="#0b0b0b" stroke-width="1.1">
+            <rect x="0" y="4" width="150" height="62" rx="5"/><rect x="185" y="4" width="150" height="92" rx="5"/><rect x="370" y="4" width="150" height="78" rx="5"/>
+            <rect x="0" y="130" width="150" height="62" rx="5"/><rect x="185" y="130" width="150" height="78" rx="5"/><rect x="370" y="130" width="150" height="62" rx="5"/>
+            <path d="M150 35H185"/><path d="M335 43H370"/><path d="M445 82V130"/><path d="M75 66V130"/><path d="M335 169H370"/><path d="M260 96V130" stroke-dasharray="3 3"/>
+          </g>
+          <text x="10" y="22" font-size="12" font-weight="700">students</text><text x="10" y="38" font-size="10.5" class="q m">id · start_term</text><text x="10" y="54" font-size="10.5" class="q m">catalog_year · majors</text>
+          <text x="195" y="22" font-size="12" font-weight="700">enrollments</text><text x="195" y="38" font-size="10.5" class="q m">student · course · term</text><text x="195" y="54" font-size="10.5" class="q m">status · grade · mode</text><text x="195" y="70" font-size="10.5" class="q m">section (planned only)</text><text x="195" y="86" font-size="10.5" class="q m">attempt #</text>
+          <text x="380" y="22" font-size="12" font-weight="700">courses</text><text x="380" y="38" font-size="10.5" class="q m">id · credits · dept</text><text x="380" y="54" font-size="10.5" class="q m">division · level</text><text x="380" y="70" font-size="10.5" class="q m">prereq · offered</text>
+          <text x="10" y="148" font-size="12" font-weight="700">plan_edits</text><text x="10" y="164" font-size="10.5" class="q m">term · op · course</text><text x="10" y="180" font-size="10.5" class="q m">add / remove / swap</text>
+          <text x="195" y="148" font-size="12" font-weight="700">programs</text><text x="195" y="164" font-size="10.5" class="q m">major · catalog_year</text><text x="195" y="180" font-size="10.5" class="q m">slots: all / choose n</text><text x="195" y="196" font-size="10.5" class="q m">route: term → slot</text>
+          <text x="380" y="148" font-size="12" font-weight="700">sections</text><text x="380" y="164" font-size="10.5" class="q m">term · course · seats</text><text x="380" y="180" font-size="10.5" class="q m">meetings (COLSS)</text>
+          
+        </svg>
+      </div>
+      <p>status ∈ completed · in_progress · planned · withdrawn · failed. Planned requires a real section in the current or next term.</p>
+    </section>
+
+    <!-- TABLET STATES -->
+    <section class="panel">
+      <h2>Tablet and node states</h2>
+      <div class="fig">
+        <svg viewBox="0 0 520 218" role="img" aria-label="Legend of tablet states">
+          <g font-size="11.5">
+            <rect x="0" y="6" width="150" height="26" rx="13" fill="none" stroke="#0b0b0b"/><text x="14" y="23">CSC-151</text><path d="M128 19l4 4 8-9" stroke="#0b0b0b" stroke-width="1.8" fill="none"/>
+            <text x="166" y="23">completed and counted (green ✓ in UI)</text>
+            <rect x="0" y="42" width="150" height="26" rx="13" fill="none" stroke="#8a8a8a"/><text x="14" y="59" class="q">MAT-215</text><text x="126" y="59" font-weight="700" class="q">W</text><path d="M14 55H74" stroke="#8a8a8a"/>
+            <text x="166" y="59">withdrawn, failed or dropped: no credit, no ✓</text>
+            <rect x="0" y="78" width="150" height="26" rx="13" fill="none" stroke="#0b0b0b" stroke-width="1.6" stroke-dasharray="9 5"/><text x="14" y="95">CSC-208</text>
+            <text x="166" y="95">in progress this term (blue dash)</text>
+            <rect x="0" y="114" width="150" height="26" rx="13" fill="none" stroke="#0b0b0b" stroke-width="1.6" stroke-dasharray="2 4"/><text x="14" y="131">CSC-207</text>
+            <text x="166" y="131">planned: picked on page 1 (yellow dash)</text>
+            <rect x="0" y="150" width="150" height="26" rx="13" fill="none" stroke="#0b0b0b"/><text x="14" y="167" font-weight="700">R</text><text x="30" y="167">CSC-301</text>
+            <text x="166" y="167">R = this slot must satisfy a major requirement</text>
+            <rect x="0" y="186" width="150" height="26" rx="13" fill="none" stroke="#0b0b0b"/><text x="14" y="203">CSC-341</text><path d="M126 207l8-14 8 14z" fill="none" stroke="#0b0b0b" stroke-width="1.4"/><text x="131" y="205" font-size="9" font-weight="700">!</text>
+            <text x="166" y="203">warning: arrow points to the node that is missing something</text>
+            
+          </g>
+        </svg>
+      </div>
+      <p>Node ✓ when the term is over and every counted tablet has its ✓. Edit mode (pencil): ⊖ delete and ⇄ swap; past and in-progress tablets are locked.</p>
+    </section>
+
+    <!-- MATCHING -->
+    <section class="panel">
+      <h2>2 · Match: which tablets get an R</h2>
+      <div class="fig">
+        <svg viewBox="0 0 520 182" role="img" aria-label="Bipartite matching between requirement slots and held courses">
+          <g font-size="11.5">
+            <text x="0" y="12" font-size="10.5" font-weight="700" class="q">REQUIREMENT SLOTS</text><text x="330" y="12" font-size="10.5" font-weight="700" class="q">COURSES HELD OR PLANNED</text>
+            <g fill="none" stroke="#0b0b0b"><rect x="0" y="22" width="170" height="24" rx="4"/><rect x="0" y="54" width="170" height="24" rx="4"/><rect x="0" y="86" width="170" height="24" rx="4"/><rect x="0" y="118" width="170" height="24" rx="4"/><rect x="0" y="150" width="170" height="24" rx="4" stroke-dasharray="4 3"/>
+              <rect x="330" y="22" width="190" height="24" rx="12"/><rect x="330" y="54" width="190" height="24" rx="12"/><rect x="330" y="86" width="190" height="24" rx="12"/><rect x="330" y="118" width="190" height="24" rx="12"/></g>
+            <text x="10" y="38">CSC-151</text><text x="10" y="70">CSC-161</text><text x="10" y="102">Discrete: 208 | MAT-218</text><text x="10" y="134">CSC-207</text><text x="10" y="166" class="q">CS elective (open)</text>
+            <text x="342" y="38">CSC-151 ✓ completed</text><text x="342" y="70">CSC-161 ✓ completed</text><text x="342" y="102">CSC-208 in progress</text><text x="342" y="134">CSC-207 planned</text>
+            <g stroke="#0b0b0b" stroke-width="1.6"><path d="M170 34H330"/><path d="M170 66H330"/><path d="M170 98H330"/><path d="M170 130H330"/></g>
+            <path d="M170 162C250 162 250 130 330 132" stroke="#8a8a8a" stroke-dasharray="3 3" fill="none"/>
+            
+          </g>
+        </svg>
+      </div>
+      <p>Max bipartite matching, best tier first (completed › in progress › planned › projected). One course fills one slot per major and may count for both majors. Unmatched slots become R tablets.</p>
+    </section>
+
+    <!-- DISTRIBUTION -->
+    <section class="panel">
+      <h2>3 · Distribute: route, then reflow</h2>
+      <div class="fig">
+        <svg viewBox="0 0 520 176" role="img" aria-label="Taking a course early removes its later R and pulls dependents earlier">
+          <defs><marker id="a2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b0b0b"/></marker></defs>
+          <g font-size="10.5">
+            <text x="0" y="12" font-weight="700" class="q">RECOMMENDED ROUTE (advising guide)</text>
+            <g fill="none" stroke="#0b0b0b"><path d="M0 34H520" stroke="#d4d4d4"/></g>
+            <g fill="#ffffff" stroke="#0b0b0b"><circle cx="30" cy="34" r="5"/><circle cx="95" cy="34" r="5"/><circle cx="160" cy="34" r="5"/><circle cx="225" cy="34" r="5"/><circle cx="290" cy="34" r="5"/><circle cx="355" cy="34" r="5"/><circle cx="420" cy="34" r="5"/><circle cx="485" cy="34" r="5"/></g>
+            <text x="200" y="56">R CSC-207</text><text x="395" y="56">R CSC-301</text><text x="330" y="72">R CSC-341</text>
+            <text x="0" y="104" font-weight="700" class="q">THIS STUDENT (took CSC-207 in term 3)</text>
+            <path d="M0 126H520" stroke="#d4d4d4"/>
+            <g fill="#ffffff" stroke="#0b0b0b"><circle cx="30" cy="126" r="5" fill="#0b0b0b"/><circle cx="95" cy="126" r="5" fill="#0b0b0b"/><circle cx="160" cy="126" r="5"/><circle cx="225" cy="126" r="5"/><circle cx="290" cy="126" r="5"/><circle cx="355" cy="126" r="5"/><circle cx="420" cy="126" r="5"/><circle cx="485" cy="126" r="5"/></g>
+            <text x="140" y="148">CSC-207</text><text x="226" y="148" class="q">(R gone)</text><text x="270" y="164">R CSC-341</text><text x="335" y="148">R CSC-301</text>
+            <path d="M232 60C232 84 168 108 166 136" stroke="#0b0b0b" fill="none" stroke-dasharray="4 3" marker-end="url(#a2)"/>
+            
+          </g>
+        </svg>
+      </div>
+      <p>The route term is the target. Each open slot goes to the earliest term at or after its target where prereqs are met in earlier terms, the course is offered and load stays ≤ 18. Longest prereq chain first.</p>
+    </section>
+
+    <!-- VALIDATION -->
+    <section class="panel">
+      <h2>4 · Validate: warnings and errors</h2>
+      <div class="tbl">
+        <table>
+          <thead><tr><th>Rule</th><th>Check</th><th>Shows as</th></tr></thead>
+          <tbody>
+            <tr><td>Prerequisite</td><td>rule met by tablets in strictly earlier terms</td><td>⚠ arrow: tablet → previous node</td></tr>
+            <tr><td>Corequisite</td><td>same term or earlier (MAT-220 for MAT-313)</td><td>⚠ on tablet</td></tr>
+            <tr><td>Offering</td><td>season and year parity (MAT-306 even springs)</td><td>⚠ on tablet</td></tr>
+            <tr><td>Load</td><td>12 to 18 credits; MUS/PHE/FYE not counted over 18</td><td>⚠ on node</td></tr>
+            <tr><td>Caps</td><td>≤ 48 credits per department, ≤ 92 per division</td><td>⚠ excess stops counting</td></tr>
+            <tr><td>Major grade</td><td>C or better, not S/D/F</td><td>R stays open</td></tr>
+            <tr><td>Repeat</td><td>only after D or F; latest attempt counts</td><td>✕ error</td></tr>
+            <tr><td>Chain length</td><td>prereq depth ≤ terms left</td><td>✕ error</td></tr>
+            <tr><td>Time clash</td><td>page 1: shared day and overlapping times</td><td>⚠ on calendar</td></tr>
+            <tr><td>Graduation</td><td>124 counted, tutorial, FYE, every major slot filled</td><td>✕ at last node</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ARROW LAYOUT -->
+    <section class="panel">
+      <h2>Arrow layout · always visible, never overlapping</h2>
+      <div class="fig">
+        <svg viewBox="0 0 520 180" role="img" aria-label="Warning arrows routed in stacked lanes above the nodes">
+          <defs><marker id="a3" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#0b0b0b"/></marker></defs>
+          <g fill="none" stroke="#d4d4d4"><path d="M0 24H520"/><path d="M0 40H520"/></g>
+          <text x="470" y="21" font-size="9.5" class="q">lane 1</text><text x="470" y="37" font-size="9.5" class="q">lane 2</text>
+          <g fill="none" stroke="#0b0b0b"><rect x="0" y="60" width="110" height="110" rx="8"/><rect x="136" y="60" width="110" height="110" rx="8"/><rect x="272" y="60" width="110" height="110" rx="8"/><rect x="408" y="60" width="110" height="110" rx="8"/></g>
+          <g fill="none" stroke="#8a8a8a"><rect x="10" y="78" width="90" height="18" rx="9"/><rect x="10" y="104" width="90" height="18" rx="9"/><rect x="146" y="78" width="90" height="18" rx="9"/><rect x="146" y="104" width="90" height="18" rx="9"/><rect x="282" y="78" width="90" height="18" rx="9"/><rect x="282" y="104" width="90" height="18" rx="9" stroke="#0b0b0b" stroke-width="1.6"/><rect x="418" y="78" width="90" height="18" rx="9"/><rect x="418" y="104" width="90" height="18" rx="9" stroke="#0b0b0b" stroke-width="1.6"/></g>
+          <g fill="none" stroke="#0b0b0b" stroke-width="1.4">
+            <path d="M282 113H276V24H191V54" marker-end="url(#a3)"/>
+            <path d="M418 113H412V40H55V54" marker-end="url(#a3)"/>
+          </g>
+          <g><path d="M185 52l6-11 6 11z" fill="#ffffff" stroke="#0b0b0b"/><path d="M49 52l6-11 6 11z" fill="#ffffff" stroke="#0b0b0b"/></g>
+          
+          
+        </svg>
+      </div>
+      <p>Each arrow spans node j..k. Interval partitioning puts it in the lowest lane free across that span, so arrows in one lane never overlap. Gutter height = lanes × 16 px, snapped to an 8 px grid; corners are right angles; ⚠ sits on the target node's top edge.</p>
+    </section>
+
+    <!-- HARD RULES -->
+    <section class="panel">
+      <h2>Hard rules from the catalog</h2>
+      <ul class="rules">
+        <li><b>124</b><span>credits to graduate, 2.00 GPA, tutorial, a major, residency</span></li>
+        <li><b>48 / 92</b><span>most credits counted from one department / one division</span></li>
+        <li><b>C</b><span>minimum grade for major credit; S/D/F never counts toward a major</span></li>
+        <li><b>12–18</b><span>credits per term; 16 is normal progress; over 18 needs Registrar approval</span></li>
+        <li><b>W</b><span>no credit, no GPA; repeat allowed only after D or F, second attempt counts</span></li>
+        <li><b>Sem 1 / 2</b><span>tutorial in the first semester (C or better); FYE usually in the second</span></li>
+        <li><b>8 / 2</b><span>semesters expected; at most two off-campus semesters</span></li>
+        <li><b>CS</b><span>route from the two sample plans; one of MAT-208, CSC-208 or MAT-218, a math elective, ≥ 20 CSC credits at Grinnell</span></li>
+        <li><b>Math</b><span>32 credits, ≥ 16 at 300-level, one 300-level sequence (313–314, 316–317, 321–322, 335–336)</span></li>
+      </ul>
+    </section>
+
+    <!-- API + EDGE CASES -->
+    <section class="panel">
+      <h2>API</h2>
+      <div class="api">
+        <div><code>GET /students/{id}</code><span>record: completed, in progress, planned</span></div>
+        <div><code>GET /catalog?year=</code><span>courses, prereqs, offerings, programs</span></div>
+        <div><code>GET /sections?term=</code><span>COLSS sections for page 1</span></div>
+        <div><code>PUT /students/{id}/schedule</code><span>page 1 picks; checks real section and clashes</span></div>
+        <div><code>POST /plan</code><span>{student, majors, edits} → nodes, tablets, edges, warnings</span></div>
+      </div>
+    </section>
+    <section class="panel">
+      <h2>Edge cases handled</h2>
+      <p style="margin-top:0">Cross-listed courses count once (MAT/CSC-208). AP credit clears prereqs, counts for the major only when stated. Either/or prereqs. Study-away terms hold no Grinnell courses. Double-major overlap. Catalog-year changes (CS Fall 2027). Instructor consent becomes a warning, never a silent pass. Missing data reads as unknown, never as satisfied.</p>
+    </section>
+  </div>
+
+  <p class="src">Sources: <a href="https://catalog.grinnell.edu/content.php?catoid=38&amp;navoid=6372">Grinnell Academic Catalog, Academic Policies</a> (2026–27 rules match 2025–26) · <a href="https://www.grinnell.edu/academics/advising/advising-guide">Departmental Advising Guide</a> (CS and Mathematics pages) · <a href="https://www.grinnell.edu/academics/majors-concentrations/math/course-sequence">Mathematics Course Sequence</a> · COLSS calls in <code>docs/backend/examples</code>.</p>
+</main>

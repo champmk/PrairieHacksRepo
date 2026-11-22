@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+# created and seeded from data/students.json on first start
+data/students.db

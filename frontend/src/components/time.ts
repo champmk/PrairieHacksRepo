@@ -1,4 +1,4 @@
-import type { Day, Meeting, Section } from '../types.ts';
+import type { Day, Meeting, Section } from '../api/types.ts';
 
 export const DAYS: Day[] = ['M', 'T', 'W', 'R', 'F'];
 export const DAY_NAME: Record<Day, string> = { M: 'Mon', T: 'Tue', W: 'Wed', R: 'Thu', F: 'Fri' };
@@ -15,8 +15,7 @@ export function clock(hhmm: string) {
 }
 
 export function meetingText(m: Meeting) {
-  const end = toMin(m.end);
-  const suffix = end >= 12 * 60 ? 'pm' : 'am';
+  const suffix = toMin(m.end) >= 12 * 60 ? 'pm' : 'am';
   return `${m.days.join('')} ${clock(m.start)}–${clock(m.end)}${suffix}`;
 }
 
@@ -26,4 +25,22 @@ export function overlaps(a: Meeting, b: Meeting) {
 
 export function sectionsConflict(a: Section, b: Section) {
   return a.meetings.some((ma) => b.meetings.some((mb) => overlaps(ma, mb)));
+}
+
+export type TimeBand = 'any' | 'morning' | 'afternoon' | 'evening';
+export function inBand(s: Section, band: TimeBand) {
+  if (band === 'any') return true;
+  return s.meetings.every((m) => {
+    const start = toMin(m.start);
+    if (band === 'morning') return start < 12 * 60;
+    if (band === 'afternoon') return start >= 12 * 60 && start < 17 * 60;
+    return start >= 17 * 60;
+  });
+}
+
+export type DayPattern = 'any' | 'MWF' | 'TR';
+export function onDays(s: Section, p: DayPattern) {
+  if (p === 'any') return true;
+  const want = p === 'MWF' ? ['M', 'W', 'F'] : ['T', 'R'];
+  return s.meetings.every((m) => m.days.every((d) => want.includes(d)));
 }

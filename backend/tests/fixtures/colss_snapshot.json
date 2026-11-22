@@ -1,0 +1,22 @@
+{
+ "note": "Copied from the mock responses in docs/backend/examples/ellucian_course_collection_example.py (search_courses and get_sections). No live data.",
+ "search": {
+  "CourseFullModels": [
+   {"Id": "5044", "SubjectCode": "CSC", "Number": "151", "Title": "Functional Prob Solving w/lab",
+    "MatchingSectionIds": ["99067", "99068"], "HasSections": true}
+  ]
+ },
+ "sections": {
+  "5044": {
+   "SectionsRetrieved": {
+    "TermsAndSections": [
+     {"Term": {"Code": "2027/SP", "Description": "Spring 2027"},
+      "Sections": [
+       {"Section": {"Id": "99067", "CourseName": "CSC-151", "Number": "01", "Available": 10, "Capacity": 24},
+        "FacultyDisplay": "Samuel Rebelsky"}
+      ]}
+    ]
+   }
+  }
+ }
+}

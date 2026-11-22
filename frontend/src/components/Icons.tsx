@@ -1,5 +1,3 @@
-import type { ItemStatus } from '../types.ts';
-
 type P = { size?: number; className?: string };
 
 const base = (size = 16) => ({
@@ -54,6 +52,40 @@ export const More = ({ size, className }: P) => (
   <svg {...base(size)} className={className}><circle cx="3.5" cy="8" r=".6" /><circle cx="8" cy="8" r=".6" /><circle cx="12.5" cy="8" r=".6" /></svg>
 );
 
+export const Pencil = ({ size, className }: P) => (
+  <svg {...base(size)} className={className}><path d="M10.5 3l2.5 2.5L6 12.5H3.5V10z" /><path d="M9 4.5l2.5 2.5" /></svg>
+);
+export const Swap = ({ size, className }: P) => (
+  <svg {...base(size)} className={className}><path d="M4 5.5h8l-2.5-2.5M12 10.5H4l2.5 2.5" /></svg>
+);
+export const Filter = ({ size, className }: P) => (
+  <svg {...base(size)} className={className}><path d="M2.5 4h11M4.5 8h7M6.5 12h3" /></svg>
+);
+
+/** Red circle with a dash: delete this tablet. */
+export const Remove = ({ size = 18 }: P) => (
+  <svg width={size} height={size} viewBox="0 0 18 18" aria-hidden="true">
+    <circle cx="9" cy="9" r="8" fill="var(--danger)" />
+    <path d="M5.5 9h7" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" />
+  </svg>
+);
+
+/** Warning triangle with "!". */
+export const Warn = ({ size = 16, tone = 'warn' }: P & { tone?: 'warn' | 'error' }) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" aria-hidden="true">
+    <path d="M8 1.6L15 14H1z" fill={tone === 'error' ? 'var(--danger)' : 'var(--warn)'} />
+    <path d="M8 6v3.6" stroke="#fff" strokeWidth="1.6" strokeLinecap="round" />
+    <circle cx="8" cy="11.8" r=".95" fill="#fff" />
+  </svg>
+);
+
+export const CheckDot = ({ size = 16 }: P) => (
+  <svg width={size} height={size} viewBox="0 0 16 16" aria-hidden="true">
+    <circle cx="8" cy="8" r="8" fill="var(--done)" />
+    <path d="M4.8 8.3l2.1 2.1 4.3-4.6" stroke="#fff" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+);
+
 export const Mark = () => (
   <svg className="wordmark-mark" viewBox="0 0 18 18" aria-hidden="true">
     <circle cx="4" cy="4" r="2.5" fill="#111317" />
@@ -63,42 +95,3 @@ export const Mark = () => (
   </svg>
 );
 
-/** Status glyph: filled check = done, ring check = enrolled,
- *  ring dot = planned, ring x = unsatisfied. Color plus shape, never color alone. */
-export function StatusIcon({ status, title }: { status: ItemStatus; title?: string }) {
-  const label = title ?? STATUS_LABEL[status];
-  if (status === 'completed')
-    return (
-      <svg className="status" viewBox="0 0 16 16" role="img" aria-label={label}>
-        <circle cx="8" cy="8" r="8" fill="var(--done)" />
-        <path d="M4.8 8.3l2.1 2.1 4.3-4.6" stroke="#fff" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    );
-  if (status === 'enrolled')
-    return (
-      <svg className="status" viewBox="0 0 16 16" role="img" aria-label={label}>
-        <circle cx="8" cy="8" r="7.1" fill="none" stroke="var(--done)" strokeWidth="1.6" />
-        <path d="M4.8 8.3l2.1 2.1 4.3-4.6" stroke="var(--done)" strokeWidth="1.6" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-      </svg>
-    );
-  if (status === 'planned')
-    return (
-      <svg className="status" viewBox="0 0 16 16" role="img" aria-label={label}>
-        <circle cx="8" cy="8" r="7.1" fill="none" stroke="var(--planned)" strokeWidth="1.6" />
-        <circle cx="8" cy="8" r="3" fill="var(--planned)" />
-      </svg>
-    );
-  return (
-    <svg className="status" viewBox="0 0 16 16" role="img" aria-label={label}>
-      <circle cx="8" cy="8" r="7.1" fill="none" stroke="var(--open)" strokeWidth="1.6" strokeDasharray="2.6 1.9" />
-      <path d="M5.8 5.8l4.4 4.4M10.2 5.8l-4.4 4.4" stroke="var(--open)" strokeWidth="1.6" strokeLinecap="round" />
-    </svg>
-  );
-}
-
-export const STATUS_LABEL: Record<ItemStatus, string> = {
-  completed: 'Completed',
-  enrolled: 'Enrolled',
-  planned: 'Planned',
-  unsatisfied: 'Not satisfied yet',
-};

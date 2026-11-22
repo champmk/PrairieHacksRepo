@@ -1,23 +1,14 @@
-import { useEffect, useState } from 'react';
-import { api } from '../api/client.ts';
-import { MAJOR_CHOICES } from '../data/catalog.ts';
-import type { CreditRecord, StudentProfile } from '../types.ts';
-import { Check, StatusIcon } from './Icons.tsx';
+import { useState } from 'react';
+import type { Enrollment } from '../api/types.ts';
+import type { CG } from '../state/useCourseGraph.ts';
+import { Check, CheckDot } from './Icons.tsx';
 
-export default function Onboarding({ onDone }: { onDone: (p: StudentProfile) => void }) {
+const SOON = ['Economics', 'Psychology', 'Biology'];
+
+export default function Onboarding({ cg }: { cg: CG }) {
+  const { catalog, student, courseById } = cg;
   const [step, setStep] = useState<1 | 2>(1);
-  const [majors, setMajors] = useState<string[]>([]);
-  const [imported, setImported] = useState<StudentProfile | null>(null);
-
-  useEffect(() => {
-    if (step !== 2 || imported) return;
-    let live = true;
-    api.importCredits().then((p) => live && setImported(p));
-    return () => {
-      live = false;
-    };
-  }, [step, imported]);
-
+  const [majors, setMajors] = useState<string[]>(cg.majors);
   const toggle = (id: string) =>
     setMajors((m) => (m.includes(id) ? m.filter((x) => x !== id) : m.length >= 2 ? [m[1], id] : [...m, id]));
 
@@ -28,26 +19,22 @@ export default function Onboarding({ onDone }: { onDone: (p: StudentProfile) => 
           <span data-on="true" />
           <span data-on={step === 2} />
         </div>
-
         {step === 1 ? (
           <>
             <h1>What do you plan to major in?</h1>
             <p className="lede">Pick up to two. You can change this later.</p>
             <div className="choice-list" role="group" aria-label="Majors">
-              {MAJOR_CHOICES.map((m) => (
-                <button
-                  key={m.id}
-                  className="choice"
-                  role="checkbox"
-                  aria-checked={majors.includes(m.id)}
-                  disabled={!m.available}
-                  onClick={() => toggle(m.id)}
-                >
-                  {m.name}
-                  <span className="right">{m.available ? '' : 'Soon'}</span>
-                  {m.available && (
-                    <span className="choice-check">{majors.includes(m.id) && <Check size={12} />}</span>
-                  )}
+              {(catalog?.programs ?? []).map((p) => (
+                <button key={p.id} className="choice" role="checkbox" aria-checked={majors.includes(p.id)} onClick={() => toggle(p.id)}>
+                  {p.name}
+                  <span className="right" />
+                  <span className="choice-check">{majors.includes(p.id) && <Check size={12} />}</span>
+                </button>
+              ))}
+              {SOON.map((name) => (
+                <button key={name} className="choice" disabled>
+                  {name}
+                  <span className="right">Soon</span>
                 </button>
               ))}
             </div>
@@ -63,23 +50,13 @@ export default function Onboarding({ onDone }: { onDone: (p: StudentProfile) => 
         ) : (
           <>
             <h1>Your credits</h1>
-            <p className="lede">{imported ? 'Imported from your record.' : 'Importing from your record…'}</p>
-            {imported ? (
-              <CreditList credits={imported.credits} />
-            ) : (
-              <div className="import-bar" aria-hidden="true">
-                <i />
-              </div>
-            )}
+            <p className="lede">{student ? `Loaded from your record, ${student.name}.` : 'Loading your record…'}</p>
+            {student ? <CreditList enrollments={student.enrollments} terms={student.terms} credits={(id) => courseById[id]?.credits ?? 0} title={(id) => courseById[id]?.title ?? ''} /> : <div className="import-bar" aria-hidden="true"><i /></div>}
             <div className="onboard-actions">
               <button className="btn btn-quiet" onClick={() => setStep(1)}>
                 Back
               </button>
-              <button
-                className="btn btn-primary"
-                disabled={!imported}
-                onClick={() => imported && onDone({ ...imported, majors })}
-              >
+              <button className="btn btn-primary" disabled={!student} onClick={() => cg.actions.finishOnboarding(majors)}>
                 Build my plan
               </button>
             </div>
@@ -90,19 +67,26 @@ export default function Onboarding({ onDone }: { onDone: (p: StudentProfile) => 
   );
 }
 
-function CreditList({ credits }: { credits: CreditRecord[] }) {
-  const groups: { title: string; rows: CreditRecord[] }[] = [];
-  const prior = credits.filter((c) => !c.term);
+function CreditList({
+  enrollments,
+  terms,
+  credits,
+  title,
+}: {
+  enrollments: Enrollment[];
+  terms: { id: string; label: string; state: string }[];
+  credits: (id: string) => number;
+  title: (id: string) => string;
+}) {
+  const groups: { title: string; rows: Enrollment[] }[] = [];
+  const prior = enrollments.filter((e) => !e.term);
   if (prior.length) groups.push({ title: 'Before Grinnell', rows: prior });
-  for (const t of api.terms()) {
-    const rows = credits.filter((c) => c.term === t.id);
-    if (!rows.length) continue;
-    const inProgress = rows.some((r) => r.status === 'enrolled');
-    groups.push({ title: inProgress ? `${t.label} · in progress` : t.label, rows });
+  for (const t of terms) {
+    const rows = enrollments.filter((e) => e.term === t.id && e.status !== 'planned');
+    if (rows.length) groups.push({ title: t.state === 'current' ? `${t.label} · in progress` : t.label, rows });
   }
-  const credit = (r: CreditRecord) => api.course(r.courseId)?.credits ?? 0;
-  const earned = credits.filter((c) => c.status === 'completed').reduce((s, r) => s + credit(r), 0);
-  const current = credits.filter((c) => c.status === 'enrolled').reduce((s, r) => s + credit(r), 0);
+  const earned = enrollments.filter((e) => e.status === 'completed').reduce((s, e) => s + credits(e.course), 0);
+  const now = enrollments.filter((e) => e.status === 'in_progress').reduce((s, e) => s + credits(e.course), 0);
   let i = 0;
   return (
     <div>
@@ -110,20 +94,21 @@ function CreditList({ credits }: { credits: CreditRecord[] }) {
         <section className="credit-group" key={g.title}>
           <h3>{g.title}</h3>
           {g.rows.map((r) => {
-            const c = api.course(r.courseId);
+            const counted = r.status === 'completed';
+            const nc = r.status === 'withdrawn' || r.status === 'failed' || r.status === 'dropped';
             return (
-              <div className="credit-row" key={r.courseId} style={{ animationDelay: `${i++ * 45}ms` }}>
-                <StatusIcon status={r.status} />
-                <span className="code">{r.courseId}</span>
-                <span className="title">{r.note ?? c?.title}</span>
-                <span className="muted num">{c?.credits}</span>
+              <div className="credit-row" key={`${r.course}-${r.term}`} data-nc={nc} style={{ animationDelay: `${i++ * 45}ms` }}>
+                {counted ? <CheckDot /> : nc ? <span className="nc-mark">{r.grade ?? 'W'}</span> : <i className="slot-ico" data-status="in_progress" />}
+                <span className="code">{r.course}</span>
+                <span className="title">{r.mode === 'transfer' ? `${title(r.course)} (${r.grade ?? 'transfer'})` : title(r.course)}</span>
+                <span className="muted num">{nc ? '0' : credits(r.course)}</span>
               </div>
             );
           })}
         </section>
       ))}
       <div className="credit-sum num">
-        {earned} credits earned · {current} in progress
+        {earned} credits earned · {now} in progress
       </div>
     </div>
   );
